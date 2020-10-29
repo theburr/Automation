@@ -50,7 +50,7 @@ Delete post as User / Admin
 
 Test Case 13
 Title
-Send Connection Request - Bug
+Send Connection Request - Bug- fixed
 
 Test Case 14
 Title
@@ -92,3 +92,66 @@ Delete Profile as User - Missing feature
 Test Case 22
 Title
 Change Language - Missing feature
+=====================
+Test Case 23 
+Title
+Home button navigate to home page
+
+Test Case 24 
+Title
+Latest post navigate to latest post section
+
+Test Case 25 
+Title
+Sort post via Date works properly
+
+Test Case 26
+Title
+Sort post via Comments works properly
+
+Test Case 27
+Title
+Sort post via Likes works properly
+
+Test Case 28
+Title
+My friends post shows only my friends post
+
+Test Case 29
+Title
+Latest post section must be renamed something like "Posts" because it shows the all posts.
+
+Test Case 30
+Title
+Users shows all user
+
+
+Test Case 31
+Title
+Users requests shows other users requests
+
+
+Test Case 32
+Title
+Friends shows only friends
+
+Test Case 33
+Title
+Uses shows all users
+
+Test Case 34
+Title
+Friends shows only friends
+
+Test Case 35
+Title
+Profile shows user profile
+
+Test Case 36
+Title
+LogOut logs out from the system
+
+Test Case 37
+Title
+About us section shows info about developpers of site
+
