@@ -3,7 +3,7 @@ Title 1
 Navigate and read helthy food website
 
 Test Case 2
-Title 1
+Title1
 Create user in SN
 
 Test Case 3
@@ -19,7 +19,7 @@ Title 1
 Like user's post
 
 Test Case 6
-Title 1
+Title 1 
 Unregistered user like or comment user's post
 
 Test Case 7
@@ -27,7 +27,7 @@ Title 1
 Write post
 
 Test Case 8
-Title 3
+Title 3 
 Write post on cirilic
 
 Test Case 9
@@ -41,7 +41,7 @@ Edit post
 ==============================
 
 Test Case 11
-Title 1
+Title 1 
 Delete Comment
 
 Test Case 12
@@ -49,19 +49,19 @@ Title 1
 Delete post as User / Admin
 
 Test Case 13
-Title 1
+Title  1
 Send Connection Request
 
 Test Case 14
-Title 1
+Title 2 
 Delete User As Admin
 
 Test Case 15
-Title 3
+Title 2
 Edit User's Profile as Admin
 
 Test Case 16
-Title 3
+Title 2
 Add Nationality as Admin
 
 Test Case 17
@@ -69,7 +69,7 @@ Title 1
 Forgot Password
 
 Test Case 18
-Title BUG
+Title 
 Register User With Password - Bug
 Miss Spell when passwords don't match
 "Password does't match!"
@@ -86,7 +86,7 @@ Change Password - Bug
 You can change to your old password
 
 Test Case 21
-Title 
+Title
 Delete Profile as User - Missing feature
 
 Test Case 22
@@ -94,11 +94,11 @@ Title
 Change Language - Missing feature
 =====================
 Test Case 23 
-Title 1
+Title 1 
 Home button navigate to home page
 
 Test Case 24 
-Title 2
+Title 1
 Latest post navigate to latest post section
 
 Test Case 25 
@@ -114,11 +114,11 @@ Title 2
 Sort post via Likes works properly
 
 Test Case 28
-Title 2
+Title 1
 My friends post shows only my friends post
 
 Test Case 29
-Title bug
+Title
 Latest post section must be renamed something like "Posts" because it shows the all posts.
 
 Test Case 30
@@ -126,22 +126,22 @@ Title 1
 Users shows all user
 
 Test Case 31
-Title 1
+Title  1 
 Users requests shows other users requests
 
 Test Case 32
 Title 1
 Friends shows only friends
 
-Test Case 33
+Test Case 35
 Title 1
 Profile shows user profile
 
-Test Case 34
+Test Case 36
 Title 1
 LogOut logs out from the system
 
 Test Case 37
-Title 1
+Title 2
 About us section shows info about developpers of site
 

@@ -36,11 +36,15 @@ Delete Comment
 
 Test Case 10
 Title 1
-Delete post as User / Admin
+Delete post as User
 
 Test Case 11
 Title  1
 Send Connection Request
+
+Test Case 11_1
+Title  1
+Recieve Connection Request
 
 Test Case 12
 Title 1
@@ -77,3 +81,20 @@ Profile shows user profile
 Test Case 20
 Title 1
 LogOut logs out from the system
+
+Test Case 21
+Title 1
+Delete post as Admin
+
+Test Case 22
+Title 1
+Delete comment as Admin
+
+Test Case 23
+Title 1
+Add new Category as Admin
+
+Test Case 24
+Title 1
+Add new Natinality as Admin
+
