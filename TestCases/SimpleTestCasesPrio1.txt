@@ -64,7 +64,7 @@ My friends post shows only my friends post
 
 Test Case 16
 Title 1
-Users shows all user
+	
 
 Test Case 17
 Title  1 

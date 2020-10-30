@@ -274,5 +274,297 @@ Steps to reproduce
 
 Expected result
 The friend request was rejected
+-------------------------------------------
+Test Case 12
+Title
+Forgot Password
 
+Priority:
+Prio 1
 
+Description
+As a user I want to generate new password if I forgot my old password
+
+Prerequisites
+Client has computer connected to internet, has registration to SN and forgot his/her password
+
+Steps to reproduce
+1.Open browser
+2.Navigate to Healthy Food Social Network website
+3.Click Login button
+4.Click Forgot Passwor button
+5.Enter registered email
+6.Click Send button
+7.Click Login Button
+8.Open another browser
+9.Navigate to mail client
+10.Enter email credentials
+11.In mailbox find mail from admin of HFSN and click on it
+12.Click to reset password and browser redirect to HFSN webapp 
+13.Enter new password
+14.Confirm new password
+15.Click Save button and browser redirect to login form on HFSN
+16.Enter new credential
+17.Click Login button
+
+Expected result
+New password is save and can use it. The user can log in HFSN
+
+-------------------------------------------
+Test Case 13
+Title
+Home button navigate to home page
+
+Priority:
+Prio 1
+
+Description
+As a user I want to go to home page from everywhere of HFSN with simple clicking on home button
+
+Prerequisites
+Client has computer connected to internet and is logged in SN
+
+Steps to reproduce
+1.Go to Latest posts section
+2.Click on All posts
+3.CLick on Home button
+
+Expected result
+The Home button navigate to home page
+
+-------------------------------------------
+Test Case 14
+Title
+Latest post navigate to latest post section
+
+Priority:
+Prio 1
+
+Description
+As a user I want to see latest post in HFSN
+
+Prerequisites
+Client has computer connected to internet and is logged in SN
+
+Steps to reproduce
+1.Go to Latest posts section
+2.Click on All posts
+3.Navigate to Sort section in HFSN
+4.Click on Date button
+
+Expected result
+All posts are sorted by date are posted
+-------------------------------------------
+Test Case 15
+Title
+My friends post shows only my friends post
+
+Priority:
+Prio 1
+
+Description
+As a user I want to see only post write from my frineds
+
+Prerequisites
+Client has computer connected to internet and is logged in SN
+
+Steps to reproduce
+1.Go to Latest posts section
+2.Click on My friends posts
+
+Expected result
+The posts are sorted and user can see only his/her freinds posts
+-------------------------------------------
+Test Case 16
+Title
+Users shows all user
+
+Priority:
+Prio 1
+
+Description
+As a user I want to see all users who have registration in HFSN
+
+Prerequisites
+Client has computer connected to internet and is logged in SN
+
+Steps to reproduce
+1.Go to Users section
+2.Click on Usres button
+
+Expected result
+The list of all users is shown
+-------------------------------------------
+Test Case 17
+Title
+Users requests shows other users requests
+
+Priority:
+Prio 1
+
+Description
+As a user I want to see if there are request from another user
+
+Prerequisites
+Client has computer connected to internet and is logged in SN
+
+Steps to reproduce
+1.Go to Users section
+2.Click on Request button
+
+Expected result
+The list of requests is shown
+-------------------------------------------
+Test Case 18
+Title
+Friends section shows only friends
+
+Priority:
+Prio 1
+
+Description
+As a user I want to see only my friends as list
+
+Prerequisites
+Client has computer connected to internet and is logged in SN
+
+Steps to reproduce
+1.Go to Users section
+2.Click on Friends button
+
+Expected result
+The list of friends is shown
+-------------------------------------------
+Test Case 19
+Title
+Profile shows user profile
+
+Priority:
+Prio 1
+
+Description
+As a user I want to see my profile
+
+Prerequisites
+Client has computer connected to internet and is logged in SN
+
+Steps to reproduce
+1.Go to Profile section
+2.Click on Profile button
+
+Expected result
+Profile of the user is shown and can be edited
+-------------------------------------------
+Test Case 20
+Title
+LogOut logs out from the system
+
+Priority:
+Prio 1
+
+Description
+As a user I want to log out from the HFSN
+
+Prerequisites
+Client has computer connected to internet and is logged in SN
+
+Steps to reproduce
+1.Click LogOut Button
+
+Expected result
+The user is logged out and home page is shown
+-------------------------------------------
+Test Case 21
+Title
+Delete post as Admin
+
+Priority:
+Prio 1
+
+Description
+As a client of HFSN I want my admin to be able to delete posts with vulgar or illegal content
+
+Prerequisites
+Client has admin, computer connected to internet, admins credentials and is logged in SN
+
+Steps to reproduce
+1.Latest posts
+2.Navigate to post which have to be delited
+3.Click on post
+4.Click edit button 
+5.Click delete button
+
+Expected result
+The post is deleted
+-------------------------------------------
+Test Case 22
+Title
+Delete comment as Admin
+
+Priority:
+Prio 1
+
+Description
+As a client of HFSN I want my admin to be able to delete comments with vulgar or illegal content
+
+Prerequisites
+Client has admin, computer connected to internet, admins credentials and is logged in SN
+
+Steps to reproduce
+1.Click on Latest posts button
+2.Navigate to post with comment have to be deleted
+3.Click on post
+4.Navigate to Comments section
+5.Navigate to comment have to be deleted
+6.Click edit button in comment
+7.Click Delete button
+
+Expected result
+The comment is deleted
+-------------------------------------------
+Test Case 23
+Title
+Add new Category as Admin
+
+Priority:
+Prio 1
+
+Description
+As a client of HFSN I want my admin to be able to create new Category
+
+Prerequisites
+Client has admin, computer connected to internet, admins credentials and is logged in SN
+
+Steps to reproduce
+1.Navigate to Settings section
+2.Click on Categories button
+3.Click Add button
+4.Choose emoticon 
+5.Enter Category name
+6.Click Save button
+
+Expected result
+The new category was created
+-------------------------------------------
+Test Case 24
+Title
+Add new Natinality as Admin
+
+Priority:
+Prio 1
+
+Description
+As a client of HFSN I want my admin to be able to add new nationality of users
+
+Prerequisites
+Client has admin, computer connected to internet, admins credentials and is logged in SN
+
+Steps to reproduce
+1.Navigate to Settings section
+2.Click on Nationalities button
+3.Click Add button
+4.Choose Nationality
+6.Click Save button
+
+Expected result
+The new Nationality was created
