@@ -3,7 +3,7 @@ Title
 Navigate and read helthy food website
 
 Priority
-Prio ????
+Prio 1
 
 Description
 As client I'd like to order navigate to helty food website and read posts in there but I haven't registration
@@ -22,10 +22,33 @@ See all post and read them.
 -------------------------------------------
 Test Case 2
 Title
+Unregistered user like or comment user's post
+
+Priority:
+Prio 1
+
+Description
+As a client I want to read, like or comment users post.
+
+Prerequisites
+Client has computer connected to internet and is not logged in SN
+
+Steps to reproduce
+1.Open browser - Chrome, Mozilla, Edge
+2.Navigate to https://protected-hamlet-40147.herokuapp.com/
+3.Go to section Latest  Post
+4.Navigate to some post
+5.Try to like or comment it
+
+Expected result
+The client without registration can't see like or comment section.
+-----------------------------------------------
+Test Case 3
+Title
 Create user in SN
 
 Priority:
-Prio ??
+Prio 1
 
 Description
 As a client I want to create new user in SN
@@ -46,15 +69,15 @@ Steps to reproduce
 Expected result
 The user is registered and can navigate trough SN.
 -------------------------------------------
-Test Case 3
+Test Case 4
 Title
 Login in helthy food social network
 
 Priority:
-Prio ??
+Prio 1
 
 Description
-As a user I want to log in the SN and brows through posts.
+As a user I want to log in the SN and browse through posts.
 
 Prerequisites
 Client has computer connected to internet and has registration to SN
@@ -69,85 +92,12 @@ Steps to reproduce
 Expected result
 The registered user can navigate through all SN section. The registered user can go to each post and comment or like it.
 -------------------------------------------
-Test Case 4
-Title
-Comment user's post
-
-Priority:
-Prio ??
-
-Description
-As a user I want to read and commnet users post.
-
-Prerequisites
-Client has computer connected to internet and has registration to SN
-
-Steps to reproduce
-1.Open browser - Chrome, Mozilla, Edge
-2.Navigate to https://protected-hamlet-40147.herokuapp.com/
-3.Log in SN
-4.Go to Latest Post Section
-5.Click on some post.
-6.Go to Leave Commnet section
-7.Write comment
-8.Send comment
-
-Expected result
-In the post in section comments the user comment is shown.
--------------------------------------------
 Test Case 5
-Title
-Like user's post
-
-Priority:
-Prio ??
-
-Description
-As a user I want to read and like users post.
-
-Prerequisites
-Client has computer connected to internet and has registration to SN
-
-Steps to reproduce
-1.Open browser - Chrome, Mozilla, Edge
-2.Navigate to https://protected-hamlet-40147.herokuapp.com/
-3.Log in SN
-4.Go to Latest Post Section
-5.Click on some post.
-6.Click Like button
-
-Expected result
-In the post there is one more "heart" as like
--------------------------------------------
-Test Case 6
-Title
-Unregistered user like or comment user's post
-
-Priority:
-Prio ??
-
-Description
-As a client I want to read, like or comment users post.
-
-Prerequisites
-Client has computer connected to internet and is not logged in SN
-
-Steps to reproduce
-1.Open browser - Chrome, Mozilla, Edge
-2.Navigate to https://protected-hamlet-40147.herokuapp.com/
-3.Go to section Latest  Post
-4.Navigate to some post
-5.Try to like or comment it
-
-Expected result
-The client without registration can't see like or comment section.
--------------------------------------------
-Test Case 7
 Title
 Write post
 
 Priority:
-Prio ??
+Prio 1
 
 Description
 As a client I want to write new post
@@ -163,59 +113,13 @@ Steps to reproduce
 
 Expected result
 The user's post is saved and is shown in post section
--------------------------------------------
-Test Case 8
-Title
-Write post on cirilic
-
-Priority:
-Prio ??
-
-Description
-As a client I want to write new post on cirilic
-
-Prerequisites
-Client has computer connected to internet and is logged in SN
-
-Steps to reproduce
-1.Go to section Latest  Post
-2.Click New Post button
-3.Fill all section
-4.Click Save button 
-
-Expected result
-The user's post is saved and is shown in post section and BG user can read it.
--------------------------------------------
-Test Case 9
-Title
-Write comment on cirilic
-
-Priority:
-Prio ??
-
-Description
-As a client I want to write new comment on cirilic
-
-Prerequisites
-Client has computer connected to internet and is logged in SN
-
-Steps to reproduce
-1.Go to section Latest  Post
-2.Navigate to a post
-3.Click on the post
-4.Goto section Leave Comment
-5.Write comment on cirilic
-6.Click Send button 
-
-Expected result
-The new comment is shown in section commnets
--------------------------------------------
-Test Case 10
+-----------------------------------------
+Test Case 6
 Title
 Edit post
 
 Priority:
-Prio ??
+Prio 1
 
 Description
 As a user I want to edit my post
@@ -225,14 +129,150 @@ Client has computer connected to internet, is logged in SN, and already wrote a 
 
 Steps to reproduce
 1.Go to section Profile
-2.Navigate to a post 
-3.Click on the post
+2.Navigate to posts
+3.Click on the post hase been wrote
 4.Click on edit post button
 5.Edit post
 6.Click save button
 
 Expected result
 The post was edited.
+--------------------------------------
+Test Case 7
+Title
+Comment user's post
 
+Priority:
+Prio 1
+
+Description
+As a user I want to read and commnet users post.
+
+Prerequisites
+Client has computer connected to internet, is logged in SN
+
+Steps to reproduce
+1.Go to Latest Post Section
+2.Click on some post.
+3.Go to Leave Commnet section
+4.Write comment
+5.Send comment
+
+Expected result
+In the post in section comments the user comment is shown.
+-------------------------------------------
+Test Case 8
+Title
+Like user's post
+
+Priority:
+Prio 1
+
+Description
+As a user I want to read and like users post.
+
+Prerequisites
+Client has computer connected to internet, is logged in SN
+
+Steps to reproduce
+1.Go to Latest Post Section
+2.Click on some post.
+3.Click Like button
+
+Expected result
+In the post there is one more "heart" as like
+-------------------------------------------
+Test Case 9
+Title
+Delete comment
+
+Priority:
+Prio 1
+
+Description
+As a user I want to delete my comment.
+
+Prerequisites
+Client has computer connected to internet and is logged in SN
+
+Steps to reproduce
+1.Go LAtest post Section
+2.Click on My Friends Posts
+3.Navigate to the post already wrote a comment
+4.Click on Edit in comment section
+5.Click Delete button
+
+Expected result
+The comment is deleted
+-------------------------------------------
+Test Case 10
+Title
+Delete post as User
+
+Priority:
+Prio 1
+
+Description
+As a user I want to delete my post.
+
+Prerequisites
+Client has computer connected to internet and is logged in SN
+
+Steps to reproduce
+1.Go to Profile section
+2.Click on Profile
+3.Navigate to Lately posts
+4.Click on post wants to delete
+5.Click on Edit button
+6.Click on Delete button.
+
+Expected result
+The post is deleted
+-------------------------------------------
+Test Case 11
+Title
+Send Connection Request
+
+Priority:
+Prio 1
+
+Description
+As a user I want to connect with other user
+
+Prerequisites
+Client has computer connected to internet and is logged in SN and there are some users registered in SN
+
+Steps to reproduce
+1.Go to Users section
+2.Click on Users
+3.Navigate to User wants to connect
+4.Click on User wants to connect
+5.Click on Connect button button
+
+Expected result
+The friend request was sent
+-------------------------------------------
+Test Case 11_1
+Title
+Recieve Connection Request
+
+Priority:
+Prio 1
+
+Description
+As a user I want to cancel friend request
+
+Prerequisites
+Client has computer connected to internet and is logged in SN and already has sent friends request
+
+Steps to reproduce
+1.Go to Users section
+2.Click on Users
+3.Navigate to User wants to connect
+4.Click on User wants to connect
+5.Click on REject button
+
+Expected result
+The friend request was rejected
 
 
