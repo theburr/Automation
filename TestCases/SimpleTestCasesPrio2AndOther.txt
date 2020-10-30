@@ -1,0 +1,70 @@
+
+Test Case 21
+Title 2 
+Delete User As Admin
+
+Test Case 22
+Title 2
+Edit User's Profile as Admin
+
+Test Case 23
+Title 2
+Add Nationality as Admin
+
+Test Case 24
+Title 2
+Sort post via Date works properly
+
+Test Case 25
+Title 2
+Sort post via Comments works properly
+
+Test Case 26
+Title 2
+Sort post via Likes works properly
+
+Test Case 27
+Title 2
+About us section shows info about developpers of site
+
+Test Case 28
+Title 3 
+Write post on cirilic
+
+Test Case 29
+Title 3
+Write comment on cirilic
+
+Test Case 30
+Title 
+Register User With Password - Bug
+Miss Spell when passwords don't match
+"Password does't match!"
+
+
+Test Case 31
+Title
+Login - Bug
+Prompts Enter your name
+Instead of Enter your email / username
+
+Test Case 32
+Title
+Change Password - Bug
+You can change to your old password
+
+Test Case 33
+Title
+Delete Profile as User - Missing feature
+
+Test Case 34
+Title
+Change Language - Missing feature
+
+Test Case 35
+Title
+Latest post section must be renamed something like "Posts" because it shows the all posts.
+
+Test Case 36
+Title 2
+About us section shows info about developpers of site
