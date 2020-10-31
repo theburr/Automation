@@ -260,16 +260,39 @@ Priority:
 Prio 1
 
 Description
-As a user I want to cancel friend request
+As a user I want to confirm friend request
 
 Prerequisites
 Client has computer connected to internet and is logged in SN and already has sent friends request
 
 Steps to reproduce
-1.Go to Users section
-2.Click on Users
-3.Navigate to User wants to connect
-4.Click on User wants to connect
+1.Navigate to Users section
+2.Click on Requests button
+3.Navigate to User's request
+4.Click on User
+5.Click on Confirm button
+
+Expected result
+The friend request was rejected
+-------------------------------------------
+Test Case 11_2
+Title
+Reject Connection Request
+
+Priority:
+Prio 1
+
+Description
+As a user I want to reject friend request
+
+Prerequisites
+Client has computer connected to internet and is logged in SN and already has sent friends request
+
+Steps to reproduce
+1.Navigate to Users section
+2.Click on Requests button
+3.Navigate to User's request
+4.Click on User
 5.Click on REject button
 
 Expected result
