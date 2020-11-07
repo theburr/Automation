@@ -1,0 +1,989 @@
+{
+	"info": {
+		"_postman_id": "ec3d9df7-2ed1-473f-b994-085ed666de1d",
+		"name": "HFSNproject",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "HFSNCategoriesRestController",
+			"item": [
+				{
+					"name": "GetAllCategories",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ede70da5-426b-42f0-a86a-d2875238e6b5",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"// pm.test(\"Assert that Categorie ID is greater than 0\", function () {\r",
+									"//     pm.expect(jsonData.id).not.eql(0);\r",
+									"// });\r",
+									"\r",
+									"var data = JSON.parse(responseBody); \r",
+									"\r",
+									"for (count = 0; count < data.length; count++)\r",
+									"{\r",
+									"    var userID = data[count].id;\r",
+									"    pm.test(\"Assert that the user ID is not 0\", function () {\r",
+									"    pm.expect(userID).to.greaterThan(0);\r",
+									"    });\r",
+									"\r",
+									"    var category = data[count].category;\r",
+									"    pm.test(\"Assert that the category name is a string\", function () {\r",
+									"    pm.expect(category).to.be.a('string');\r",
+									"    });\r",
+									"\r",
+									"};"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/admin/categories",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"admin",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostCreateCategory",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d4029038-c307-4ed6-85c7-e14dc88313d9",
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Assert that Categorie Name is string\", function () {\r",
+									"    pm.expect(jsonData.category).to.be.a('string');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Assert that Categorie ID is greater than 0\", function () {\r",
+									"    pm.expect(jsonData.id).not.eql(0);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Assert that picture with png format is upload\", function () {\r",
+									"    pm.expect(jsonData.emoji).to.include(\"png\");\r",
+									"});\r",
+									"\r",
+									"pm.environment.set(\"CategoryName\", jsonData.category);\r",
+									"pm.environment.get(\"CategoryName\");\r",
+									"\r",
+									"pm.environment.set(\"CategoryID\", jsonData.id);\r",
+									"pm.environment.get(\"CategoryID\");\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "a69db70a-03c6-407d-b90c-4ffead8e1d71",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "category",
+									"type": "file",
+									"src": "/D:/QA/FinalProjet/_GITrePO/zionalphaqaproject/Postman/categoryR.json"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/D:/QA/FinalProjet/_GITrePO/zionalphaqaproject/Postman/rakija.png"
+								}
+							],
+							"options": {
+								"formdata": {}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/admin/categories",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"admin",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PutUpdateCategory",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c9b27f58-1840-44c8-a843-408a7bbfa0a7",
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Assert that ID is the same and is not changed\", function () {\r",
+									"    pm.expect(jsonData.id).to.equal(pm.variables.get(\"CategoryID\"));\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Assert that category name is changed\", function () {\r",
+									"    pm.expect(jsonData.category).not.eql(pm.collectionVariables.get(\"CategoryName\"));\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "aba75d92-f03c-4b9e-a23d-f48eec59d040",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "category",
+									"type": "file",
+									"src": "/D:/QA/FinalProjet/_GITrePO/zionalphaqaproject/Postman/REcategory.json"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/User/Desktop/rakija.png"
+								}
+							],
+							"options": {
+								"formdata": {}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/admin/categories/{{CategoryID}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"admin",
+								"categories",
+								"{{CategoryID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteCategory",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2896f7c6-22dc-4f42-bc47-51975abc2831",
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Assert that CategorieID of deleted category is not exist in the list of categories\", function () {\r",
+									"    pm.expect(jsonData.id).not.eql(pm.collectionVariables.get(\"CategoryID\"));\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "370994c1-7731-4107-ba4d-809ac2b2f2e4",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"id\": \"{{CategoryID}}\"\r\n}",
+							"options": {
+								"formdata": {},
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/admin/categories/{{CategoryID}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"admin",
+								"categories",
+								"{{CategoryID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "HFSNCommentsRestControllers",
+			"item": [
+				{
+					"name": "GetCommentByID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7a65da84-f4ee-4572-83dd-1b19ed67d903",
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Assert that comment is not empty\", function () {\r",
+									"        pm.expect(jsonData.description).not.null;\r",
+									"});\r",
+									"pm.test(\"Assert that there is timestump and is not empty\", function () {\r",
+									"    pm.expect(jsonData.timestamp).not.null;\r",
+									"});\r",
+									"pm.collectionVariables.set(\"CommentDesc\", jsonData.description);\r",
+									"pm.collectionVariables.set(\"CommentedPostID\", jsonData.post.id);\r",
+									"pm.collectionVariables.set(\"CommentCreatorID\", jsonData.creator.id);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/comments/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"comments",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PutUpdateComment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e90f2724-1905-4268-ae67-df4d618ab77d",
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Assert that changed comment is for the same post\", function () {\r",
+									"    pm.expect(jsonData.post.id).to.equal(pm.collectionVariables.get(\"CommentedPostID\"));\r",
+									"});\r",
+									"pm.test(\"Assert that comment is changed\", function () {\r",
+									"    pm.expect(jsonData.description).not.equal(pm.collectionVariables.get(\"CommentDesc\"))\r",
+									"});\r",
+									"pm.test(\"Assert that the same user is made changes of comment\", function () {\r",
+									"    pm.expect(jsonData.creator.id).to.equal(pm.collectionVariables.get(\"CommentCreatorID\"));\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"comment\": \"{{$randomLoremSentence}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/comments/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"comments",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetShowCommentsLikes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c3628959-9852-4ab0-9bcf-5855629e632a",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Assert that response body is not empty\", function () {\r",
+									"    var res = (_.isEmpty(responseBody));\r",
+									"    pm.expect(res).to.be.false\r",
+									"})\r",
+									"pm.collectionVariables.set(\"CountOfCommentLikes\", parseInt(responseBody))\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/comments/2/likes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"comments",
+								"2",
+								"likes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostCommentLike",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6d3088fd-a985-4ae0-9a09-7b8a7109c46f",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"There is response body and it is not null\", function () {\r",
+									"    var res = (_.isEmpty(responseBody));\r",
+									"    pm.expect(res).to.be.false\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Assert that the count of likes are different than before\", function () {\r",
+									"    pm.expect(parseInt(responseBody)).not.eq(pm.collectionVariables.get(\"CountOfCommentLikes\"));\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/comments/2/likes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"comments",
+								"2",
+								"likes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetListOfAllComments",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bf9f744f-7ff6-4dc9-9bba-33ba3c80183d",
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Assert that ID of post is different than 0\", function () {\r",
+									"        pm.expect(parseInt(jsonData.id)).not.equal(0);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Assert that comment is not empty\", function () {\r",
+									"        pm.expect(jsonData.description).not.null;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Assert that there is timestamp and is not empty\", function () {\r",
+									"    pm.expect(jsonData.timestamp).not.null;\r",
+									"});\r",
+									"\r",
+									"pm.collectionVariables.set(\"CommentOfPost\", jsonData.description);\r",
+									"pm.collectionVariables.set(\"TimeStampOfCommentOfPost\", jsonData.timestamp);\r",
+									"pm.collectionVariables.set(\"CommentIfPostID\", parseInt(jsonData.id));\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/posts/2/comments",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"posts",
+								"2",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostCreateComment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "52be6bdc-fe8d-4354-aa18-d58dfd53c4c8",
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Assert that new comment is different than previous\", function () {\r",
+									"    pm.expect(jsonData.description).not.eql(pm.collectionVariables.get(\"CommentOfPost\"));\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Assert that new comment is post in different time\", function () {\r",
+									"    pm.expect(jsonData.timestamp).not.eql(pm.collectionVariables.get(\"TimeStampOfCommentOfPost\"));\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Assert that comment ID is not equal to previous ID\", function () {\r",
+									"    pm.expect(jsonData.id).not.eq(pm.collectionVariables.get(\"CommentIfPostID\"));\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"comment\": \"{{$randomLoremSentences}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/posts/2/comments",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"posts",
+								"2",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetListOfLatest5Comments",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9f06fbf5-e348-480f-ac3c-dc9f1ab51f34",
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Comment ID is greater than 0\", function () {\r",
+									"    pm.expect(jsonData.id).not.eq(0);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/posts/2/latest_comments",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"posts",
+								"2",
+								"latest_comments"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "HFSNConnectionsRestControllers",
+			"item": [
+				{
+					"name": "PostSendConnectionRequest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e095ed47-8b8f-403c-b014-4aeb652b21c7",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Assert that response body is not empty\", function () {\r",
+									"    var resB = (_.isEmpty(responseBody));\r",
+									"    pm.expect(resB).to.be.false\r",
+									"})\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/connections/users/3",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"connections",
+								"users",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DBConnections",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "6cc51db0-e923-4ba0-a92c-57326f81fa34",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "f6802772-5cb0-447f-a4c4-7345f7f869ec",
+								"exec": [
+									"var data = JSON.parse(responseBody); \r",
+									"\r",
+									"for (count = 0; count < data.length; count++)\r",
+									"{\r",
+									"    if (data[count].sender_id === 1 && data[count].receiver_id === 3)\r",
+									"    {\r",
+									"        var connectionID = data[count].connection_id;\r",
+									"        postman.setEnvironmentVariable(\"ConnectionID\", connectionID);\r",
+									"    }\r",
+									"};"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/connections",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"connections"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetListOfAllUsersRequests",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5c7ad05a-81fb-481b-8008-c29d45f7101c",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Assert that response body is not empty\", function () {\r",
+									"    var res = (_.isEmpty(responseBody));\r",
+									"    pm.expect(res).to.be.false\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/connections/requests",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"connections",
+								"requests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetListOfAlConnectedUser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a064d173-a2d5-442b-83a1-7a44560a237c",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Assert that response body is not empty\", function () {\r",
+									"    var res = (_.isEmpty(responseBody));\r",
+									"    pm.expect(res).to.be.false\r",
+									"})\r",
+									"pm.test(\"Body contains string\",() => {\r",
+									"  pm.expect(pm.response.text()).to.include(\"email\");\r",
+									"});\r",
+									"\r",
+									"var data = JSON.parse(responseBody); \r",
+									"\r",
+									"for (count = 0; count < data.length; count++)\r",
+									"{\r",
+									"    var userID = data[count].id;\r",
+									"    pm.test(\"Assert that the user ID is not empty\", function () {\r",
+									"    pm.expect(userID).to.greaterThan(0);\r",
+									"    });\r",
+									"\r",
+									"    var email = data[count].email;\r",
+									"    pm.test(\"Assert that the user has entered email\", function () {\r",
+									"    pm.expect(email).to.contain(\"@\");\r",
+									"    });\r",
+									"\r",
+									"    var age = data[count].age;\r",
+									"    pm.test(\"Assert that the age of the user is greater than 4\", function () {\r",
+									"    pm.expect(age).to.greaterThan(4);\r",
+									"    });\r",
+									"};\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/connections/my",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"connections",
+								"my"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PutConfirmConnection",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "52af71a1-56c6-4c20-adc1-4387887b8503",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Check connection sender ID\", function () {\r",
+									"    pm.expect(jsonData.id).to.eql(1);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Assert that there is an email shown\", function () {\r",
+									"    pm.expect(jsonData.email).to.contain(\"@\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "7b8c0155-e330-4128-bf06-e509089c3734",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/connections/{{ConnectionID}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"connections",
+								"{{ConnectionID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteRejectConnection",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "da86a503-2bd3-4481-8a91-d19e577e97af",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"    \r",
+									"pm.test(\"Assert that response body is not empty array\", function () {\r",
+									"    pm.expect(jsonData).not.empty;\r",
+									"});\r",
+									"\r",
+									"var data = JSON.parse(responseBody); \r",
+									"\r",
+									"for (count = 0; count < data.length; count++)\r",
+									"{\r",
+									"    var userID = data[count].id;\r",
+									"    pm.test(\"Assert that the user ID is not empty\", function () {\r",
+									"    pm.expect(userID).to.greaterThan(0);\r",
+									"    });\r",
+									"\r",
+									"    var email = data[count].email;\r",
+									"    pm.test(\"Assert that the user has entered email\", function () {\r",
+									"    pm.expect(email).to.contain(\"@\");\r",
+									"    });\r",
+									"\r",
+									"};"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/connections/{{ConnectionID}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"connections",
+								"{{ConnectionID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "9c27e50c-d163-4e89-bdb7-3b32d8b2e8df",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "e9c3a3a0-d3ca-4a9d-a8d2-356252db715b",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "5e5e36f9-be07-4689-bcbd-5fd54c34c813",
+			"key": "CommentDesc",
+			"value": "Libero debitis sint sed id qui voluptate quidem non optio."
+		},
+		{
+			"id": "1191e3a5-a2be-4703-8306-f7426eb351eb",
+			"key": "CommentedPostID",
+			"value": 4
+		},
+		{
+			"id": "c3981aad-eb38-461c-83ac-bdba09fcba2d",
+			"key": "CommentCreatorID",
+			"value": 1
+		},
+		{
+			"id": "1a2a574f-9b05-4ccb-9827-8852097da602",
+			"key": "CategoryID",
+			"value": ""
+		},
+		{
+			"id": "ab103004-77d9-423b-af92-fe26bd29d12e",
+			"key": "CountOfCommentLikes",
+			"value": 1
+		},
+		{
+			"id": "8d5c8caa-4964-406f-8657-91c3861e5c8b",
+			"key": "CommentOfPost",
+			"value": null
+		},
+		{
+			"id": "86b9934e-562f-4665-bc04-00f49ef06763",
+			"key": "TimeStampOfCommentOfPost",
+			"value": null
+		},
+		{
+			"id": "280fde77-db85-4749-8641-1bb104d36234",
+			"key": "ConnectionID",
+			"value": ""
+		},
+		{
+			"id": "03110397-2032-4d31-8054-495a406d43b0",
+			"key": "CommentIfPostID",
+			"value": null
+		}
+	],
+	"protocolProfileBehavior": {}
+}
