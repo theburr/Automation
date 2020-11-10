@@ -5,4 +5,5 @@ public class NavigationPage extends BasePage {
         super("base.url");
     }
     public final String homeButton = "navigation.Home";
+    public final String signInButton = "navigation.SignIn";
 }
