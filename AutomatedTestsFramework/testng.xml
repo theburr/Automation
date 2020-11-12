@@ -1,10 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Component Tests" verbose="2" annotations="JDK">
-<test name="a-t1" preserve-order="true" >
-    <classes>
-        <class name="testCases.SignInTest" />
-        <class name="testCases.HealthyFoodTests" />
-    </classes>
-</test>
-</suite>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd"><suite name="All Test Suite"><test verbose="2" preserve-order="true" name="C:/Users/ivang/Desktop/Final/zionalphaqaproject/AutomatedTestsFramework/src/test/java/testCases/AdminTests/AdminTests.java"><classes><class name="testCases.AdminTests.AdminTests"><methods><include name="login_As_Admin"/><include name="delete_User_Post_As_Admin"/><include name="create_Category"/></methods></class></classes></test></suite>
