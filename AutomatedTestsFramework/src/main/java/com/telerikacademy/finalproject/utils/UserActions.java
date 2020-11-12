@@ -1,11 +1,12 @@
 package com.telerikacademy.finalproject.utils;
 
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.concurrent.TimeUnit;
 
 public class UserActions {
     public WebDriver getDriver() {
@@ -35,6 +36,12 @@ public class UserActions {
         WebElement element = driver.findElement(By.xpath(locator));
         element.click();
     }
+    public void clickHiddenElement(String key, Object... arguments) {
+        String locator = Utils.getUIMappingByKey(key, arguments);
+        WebElement ele = driver.findElement(By.xpath(locator));
+        JavascriptExecutor executor = (JavascriptExecutor)driver;
+        executor.executeScript("arguments[0].click();", ele);
+    }
 
     public void typeValueInField(String value, String field, Object... fieldArguments) {
         String locator = Utils.getUIMappingByKey(field, fieldArguments);
@@ -45,6 +52,13 @@ public class UserActions {
     public void switchToIFrame(String iframe) {
         WebElement iFrame = driver.findElement(By.xpath(Utils.getUIMappingByKey(iframe)));
         getDriver().switchTo().frame(iFrame);
+    }
+
+    public void uploadImage(String key,Object... arguments){
+        WebElement element = driver.findElement(By.xpath("//input[@id='file']"));
+        String locator = Utils.getUIMappingByKey(key, arguments);
+        //enter the file path onto the file-selection input field
+        element.sendKeys(locator);
     }
 
     //############# WAITS #########
@@ -66,4 +80,11 @@ public class UserActions {
     public void assertElementPresent(String locator) {
         Assert.assertNotNull(driver.findElement(By.xpath(Utils.getUIMappingByKey(locator))));
     }
+    public void assertElementNotPresent(String locator) {
+            try {
+                driver.findElement(By.xpath(locator));
+            } catch (NoSuchElementException ex) {
+                /* do nothing, link is not present, assert is passed */
+            }
+        }
 }
