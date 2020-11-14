@@ -15,36 +15,36 @@ public class AdminFunctions extends BaseTest {
         actions.isElementPresentUntilTimeout(navPage.signInButton, 4);
         actions.clickElement(navPage.signInButton);
         actions.isElementPresentUntilTimeout("signInPage.Username", 4);
-        actions.typeValueInField("zionalpha22qa@gmail.com", "signInPage.Username");
-        actions.typeValueInField("telerikAlphaQA22$","signInPage.Password");
+        actions.typeValueInField("adminUsername", "signInPage.Username");
+        actions.typeValueInField("adminPassword","signInPage.Password");
         actions.clickElement("signInPage.LogInBtn");
     }
     public void admin_Delete_Post_Of_An_User(){
         admin_LogIn();
-        actions.isElementPresentUntilTimeout("//a[@href='/posts']",5 );
-        actions.clickElement("//a[@href='/posts']");
-        actions.isElementPresentUntilTimeout("//*[contains(text(), 'Post For Deletion')]",5 );
-        actions.assertElementPresent("//*[contains(text(), 'Post For Deletion')]");
-        actions.clickElement("//*[contains(text(), 'Post For Deletion')]");
-        actions.clickElement("//i[@class='fa fa-pencil-square-o like']");
-        actions.isElementPresentUntilTimeout("//a[@class='genric-btn primary-border e-large']",5 );
-        actions.assertElementPresent("//a[@class='genric-btn primary-border e-large']");
-        actions.clickElement("//a[@class='genric-btn primary-border e-large']");
-        actions.clickElement("//button[@type='submit']");
-        actions.isElementPresentUntilTimeout("//a[@href='/posts']", 5);
-        actions.clickElement("//a[@href='/posts']");
+        actions.isElementPresentUntilTimeout("adminPostsButton",5 );
+        actions.clickElement("adminPostsButton");
+        actions.isElementPresentUntilTimeout("adminPostForDeletion",5 );
+        actions.assertElementPresent("adminPostForDeletion");
+        actions.clickElement("adminPostForDeletion");
+        actions.clickElement("adminEditPost");
+        actions.isElementPresentUntilTimeout("adminDeletePostBtn",5 );
+        actions.assertElementPresent("adminDeletePostBtn");
+        actions.clickElement("adminDeletePostBtn");
+        actions.clickElement("adminConfirmDeletePostBtn");
+        actions.isElementPresentUntilTimeout("adminPostsButton", 5);
+        actions.clickElement("adminPostsButton");
     }
 
     public void create_Category_Admin(){
         admin_LogIn();
-        actions.isElementPresentUntilTimeout("//a[@href='/users/profile']",4);
-        actions.clickHiddenElement("//a[@href='/admin/categories']");
-        actions.isElementPresentUntilTimeout("//a[@href='/admin/categories/new']",4);
-        actions.clickHiddenElement("//a[@href='/admin/categories/new']");
-        actions.isElementPresentUntilTimeout("//input[@name='category']",4);
-        actions.uploadImage("category.UploadImage");
-        actions.typeValueInField("Delete Me","//input[@class='form-control']");
-        actions.clickElement("//button[@type='submit']");
+        actions.isElementPresentUntilTimeout("adminProfileBtn",4);
+        actions.clickHiddenElement("adminCategoriesBtn");
+        actions.isElementPresentUntilTimeout("adminNewCategoryBtn",4);
+        actions.clickHiddenElement("adminNewCategoryBtn");
+        actions.isElementPresentUntilTimeout("adminCategoryNameField",4);
+        actions.uploadImage("adminCategoryUploadImage");
+        actions.typeValueInField("Delete Me","adminCategoryNameField");
+        actions.clickElement("adminCreateCategoryBtn");
 
     }
 }
