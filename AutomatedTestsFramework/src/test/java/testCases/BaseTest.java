@@ -1,6 +1,7 @@
 package testCases;
 
 import com.telerikacademy.finalproject.pages.NavigationPage;
+import com.telerikacademy.finalproject.pages.CategoriesAdminPage;
 import com.telerikacademy.finalproject.utils.UserActions;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
