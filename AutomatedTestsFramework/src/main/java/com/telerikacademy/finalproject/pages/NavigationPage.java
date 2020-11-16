@@ -18,7 +18,7 @@ public class NavigationPage extends BasePage implements Elements {
     public void RegisteredUserWriteNewPost(String title, String description) {
         actions.isElementPresentUntilTimeout("post.Latest", 5);
         actions.clickHiddenElement("post.New");
-        actions.isElementPresentUntilTimeout("post.Title", 5);
+        actions.isElementPresentUntilTimeout("post.Title", 10);
         actions.typeValueInField(title, "post.Title");
         actions.typeValueInField(description, "post.Description");
         actions.uploadImage("upload.Image");
