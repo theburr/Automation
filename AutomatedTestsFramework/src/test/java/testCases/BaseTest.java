@@ -15,10 +15,10 @@ public class BaseTest implements Elements {
 		UserActions.loadBrowser("base.url");
 	}
 
-	@AfterClass
-	public static void tearDown() {
-		UserActions.quitDriver();
-	}
+//	@AfterClass
+//	public static void tearDown() {
+//		UserActions.quitDriver();
+//	}
 
 	public void logIn_As_User() {
 		NavigationPage navPage = new NavigationPage();
