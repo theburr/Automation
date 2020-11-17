@@ -16,6 +16,8 @@ public class NavigationPage extends BasePage implements Elements {
         super("base.url");
     }
 
+    // It is for delete //
+
     public void admin_LogIn() {
         NavigationPage navPage = new NavigationPage();
         actions.isElementPresentUntilTimeout(navPage.signInButton, 4);
