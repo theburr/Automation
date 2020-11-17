@@ -17,10 +17,9 @@ public class NavigationPage extends BasePage implements Elements {
     }
 
     //Created
-    public void admin_LogIn() {
-        NavigationPage navPage = new NavigationPage();
-        actions.isElementPresentUntilTimeout(navPage.signInButton, 4);
-        actions.clickElement(navPage.signInButton);
+    public void adminLogIn() {
+        actions.isElementPresentUntilTimeout(signInButton, 4);
+        actions.clickElement(signInButton);
         actions.isElementPresentUntilTimeout("signInPage.Username", 4);
         actions.typeValueInField("theburr@abv.bg", "adminUsername");
         actions.typeValueInField("telerikAlphaQA22$", "adminPassword");

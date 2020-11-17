@@ -2,9 +2,9 @@ package com.telerikacademy.finalproject.pages;
 
 
 public class CategoriesAdminPage extends NavigationPage{
-
+    public final String newCategoryBtn = "adminNewCategoryBtn";
     public void admin_Delete_Post_Of_An_User(){
-        admin_LogIn();
+        adminLogIn();
         actions.isElementPresentUntilTimeout("adminPostsButton",5 );
         actions.clickElement("adminPostsButton");
         actions.isElementPresentUntilTimeout("adminPostForDeletion",5 );
@@ -21,11 +21,11 @@ public class CategoriesAdminPage extends NavigationPage{
 
     public void create_Category_Admin(){
         NavigationPage navPage = new NavigationPage();
-        admin_LogIn();
+        adminLogIn();
         actions.isElementPresentUntilTimeout("adminProfileBtn",4);
         actions.clickHiddenElement(navPage.categoriesButton);
-        actions.isElementPresentUntilTimeout("adminNewCategoryBtn",4);
-        actions.clickHiddenElement("adminNewCategoryBtn");
+        actions.isElementPresentUntilTimeout(newCategoryBtn,4);
+        actions.clickHiddenElement(newCategoryBtn);
         actions.isElementPresentUntilTimeout("adminCategoryNameField",4);
         actions.uploadImage("adminCategoryUploadImage");
         actions.typeValueInField("Delete Me","adminCategoryNameField");

@@ -5,6 +5,8 @@ public class LoginPage extends BasePage{
     public LoginPage() {
         super("base.url");
     }
+    public final String username = "user.Username";
+
     public void NavigateToLoginPageAndLogInHFSN(String username, String password) {
         actions.clickElement("signIn.Button");
         actions.isElementPresentUntilTimeout("username.Field", 10);
