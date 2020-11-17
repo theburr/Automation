@@ -9,10 +9,20 @@ public class NavigationPage extends BasePage implements Elements {
     public final String homeButton = "navigation.Home";
     public final String signInButton = "navigation.SignIn";
     public final String logOutButton = "navigation.LogOut";
+    public final String categoriesButton = "adminCategoriesBtn";
     final String PAGE_URL = Utils.getConfigPropertyByKey("base.url");
 
     public NavigationPage() {
         super("base.url");
+    }
+    public void admin_LogIn() {
+        NavigationPage navPage = new NavigationPage();
+        actions.isElementPresentUntilTimeout(navPage.signInButton, 4);
+        actions.clickElement(navPage.signInButton);
+        actions.isElementPresentUntilTimeout("signInPage.Username", 4);
+        actions.typeValueInField("theburr@abv.bg", "adminUsername");
+        actions.typeValueInField("telerikAlphaQA22$", "adminPassword");
+        actions.clickElement("signInPage.LogInBtn");
     }
 
     public void RegisteredUserWriteNewPost(String title, String description) {
