@@ -1,13 +1,13 @@
 package testCases;
 
 import com.telerikacademy.finalproject.pages.NavigationPage;
-import com.telerikacademy.finalproject.pages.CategoriesAdminPage;
+import com.telerikacademy.finalproject.utils.Elements;
 import com.telerikacademy.finalproject.utils.UserActions;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class BaseTest {
+public class BaseTest implements Elements {
 	UserActions actions = new UserActions();
 
 	@BeforeClass
@@ -15,10 +15,10 @@ public class BaseTest {
 		UserActions.loadBrowser("base.url");
 	}
 
-	@AfterClass
-	public static void tearDown() {
-		UserActions.quitDriver();
-	}
+//	@AfterClass
+//	public static void tearDown() {
+//		UserActions.quitDriver();
+//	}
 
 	public void logIn_As_User() {
 		NavigationPage navPage = new NavigationPage();
