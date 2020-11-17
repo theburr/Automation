@@ -15,6 +15,7 @@ public class NavigationPage extends BasePage implements Elements {
     public NavigationPage() {
         super("base.url");
     }
+
     public void admin_LogIn() {
         NavigationPage navPage = new NavigationPage();
         actions.isElementPresentUntilTimeout(navPage.signInButton, 4);
