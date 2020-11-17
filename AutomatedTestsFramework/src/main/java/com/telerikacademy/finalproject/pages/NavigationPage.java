@@ -109,12 +109,12 @@ public class NavigationPage extends BasePage implements Elements {
         actions.clickElement("comment.DeleteCommentButton");
         actions.isElementPresentUntilTimeout("comment.ConfirmDeletionButton", 5);
         actions.clickElement("comment.ConfirmDeletionButton");
-
-
     }
     public void AssertTheCommentIsDeleted() {
         actions.assertElementPresent("comment.EditConfirmation");
     }
+
+
 }
 
 

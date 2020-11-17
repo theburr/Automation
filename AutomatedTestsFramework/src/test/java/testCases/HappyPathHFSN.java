@@ -5,6 +5,7 @@ import com.telerikacademy.finalproject.pages.NavigationPage;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import testCases.AdminTests.AdminFunctions;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
