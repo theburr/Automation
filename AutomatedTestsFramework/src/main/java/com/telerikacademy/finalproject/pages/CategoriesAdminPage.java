@@ -3,7 +3,6 @@ package com.telerikacademy.finalproject.pages;
 
 public class CategoriesAdminPage extends NavigationPage{
 
-
     public void admin_Delete_Post_Of_An_User(){
         admin_LogIn();
         actions.isElementPresentUntilTimeout("adminPostsButton",5 );
