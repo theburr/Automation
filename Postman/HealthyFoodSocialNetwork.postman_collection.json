@@ -1,12 +1,12 @@
 {
 	"info": {
 		"_postman_id": "ec3d9df7-2ed1-473f-b994-085ed666de1d",
-		"name": "HFSNproject",
+		"name": "HealthyFoodSocialNetwork",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "HFSNCategoriesRestController",
+			"name": "Categories",
 			"item": [
 				{
 					"name": "GetAllCategories",
@@ -43,6 +43,19 @@
 								],
 								"type": "text/javascript"
 							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "8436fd89-2a2b-4213-b12c-50c8f247cbcb",
+								"exec": [
+									"pm.request.headers.add({\r",
+									"key: \"Cookie\",\r",
+									"value: \"=\"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
 						}
 					],
 					"request": {
@@ -62,7 +75,7 @@
 					"response": []
 				},
 				{
-					"name": "PostCreateCategory",
+					"name": "CreateCategory",
 					"event": [
 						{
 							"listen": "test",
@@ -102,7 +115,10 @@
 							"script": {
 								"id": "a69db70a-03c6-407d-b90c-4ffead8e1d71",
 								"exec": [
-									""
+									"pm.request.headers.add({\r",
+									"key: \"Cookie\",\r",
+									"value: \"=\"\r",
+									"});"
 								],
 								"type": "text/javascript"
 							}
@@ -143,7 +159,7 @@
 					"response": []
 				},
 				{
-					"name": "PutUpdateCategory",
+					"name": "UpdateCategory",
 					"event": [
 						{
 							"listen": "test",
@@ -174,7 +190,10 @@
 							"script": {
 								"id": "aba75d92-f03c-4b9e-a23d-f48eec59d040",
 								"exec": [
-									""
+									"pm.request.headers.add({\r",
+									"key: \"Cookie\",\r",
+									"value: \"=\"\r",
+									"});"
 								],
 								"type": "text/javascript"
 							}
@@ -242,7 +261,10 @@
 							"script": {
 								"id": "370994c1-7731-4107-ba4d-809ac2b2f2e4",
 								"exec": [
-									""
+									"pm.request.headers.add({\r",
+									"key: \"Cookie\",\r",
+									"value: \"=\"\r",
+									"});"
 								],
 								"type": "text/javascript"
 							}
@@ -279,7 +301,7 @@
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "HFSNCommentsRestControllers",
+			"name": "Comments",
 			"item": [
 				{
 					"name": "GetCommentByID",
@@ -297,7 +319,7 @@
 									"pm.test(\"Assert that comment is not empty\", function () {\r",
 									"        pm.expect(jsonData.description).not.null;\r",
 									"});\r",
-									"pm.test(\"Assert that there is timestump and is not empty\", function () {\r",
+									"pm.test(\"Assert that there is timestamp and is not empty\", function () {\r",
 									"    pm.expect(jsonData.timestamp).not.null;\r",
 									"});\r",
 									"pm.collectionVariables.set(\"CommentDesc\", jsonData.description);\r",
@@ -326,7 +348,7 @@
 					"response": []
 				},
 				{
-					"name": "PutUpdateComment",
+					"name": "UpdateComment",
 					"event": [
 						{
 							"listen": "test",
@@ -346,6 +368,19 @@
 									"});\r",
 									"pm.test(\"Assert that the same user is made changes of comment\", function () {\r",
 									"    pm.expect(jsonData.creator.id).to.equal(pm.collectionVariables.get(\"CommentCreatorID\"));\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "d197692d-b402-4347-b8e9-0edd035a6181",
+								"exec": [
+									"pm.request.headers.add({\r",
+									"key: \"Cookie\",\r",
+									"value: \"=\"\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -378,7 +413,7 @@
 					"response": []
 				},
 				{
-					"name": "GetShowCommentsLikes",
+					"name": "ShowCommentsLikes",
 					"event": [
 						{
 							"listen": "test",
@@ -417,7 +452,7 @@
 					"response": []
 				},
 				{
-					"name": "PostCommentLike",
+					"name": "CommentLike",
 					"event": [
 						{
 							"listen": "test",
@@ -511,7 +546,7 @@
 					"response": []
 				},
 				{
-					"name": "PostCreateComment",
+					"name": "CreateComment",
 					"event": [
 						{
 							"listen": "test",
@@ -609,10 +644,10 @@
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "HFSNConnectionsRestControllers",
+			"name": "Connections",
 			"item": [
 				{
-					"name": "PostSendConnectionRequest",
+					"name": "SendConnectionRequest",
 					"event": [
 						{
 							"listen": "test",
@@ -660,7 +695,7 @@
 					"response": []
 				},
 				{
-					"name": "DBConnections",
+					"name": "GetRequestID",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -807,7 +842,7 @@
 					"response": []
 				},
 				{
-					"name": "PutConfirmConnection",
+					"name": "ConfirmConnection",
 					"event": [
 						{
 							"listen": "test",
@@ -940,47 +975,47 @@
 	],
 	"variable": [
 		{
-			"id": "5e5e36f9-be07-4689-bcbd-5fd54c34c813",
+			"id": "b41017ba-aaa1-45bf-8be1-41cb79baf5e2",
 			"key": "CommentDesc",
-			"value": "Libero debitis sint sed id qui voluptate quidem non optio."
+			"value": "Esse aliquid laudantium rerum ea provident enim voluptatem."
 		},
 		{
-			"id": "1191e3a5-a2be-4703-8306-f7426eb351eb",
+			"id": "dcc57788-5eb6-4971-ba33-5a001d214f8f",
 			"key": "CommentedPostID",
 			"value": 4
 		},
 		{
-			"id": "c3981aad-eb38-461c-83ac-bdba09fcba2d",
+			"id": "d4ccc219-5601-4be4-a606-a45be7447434",
 			"key": "CommentCreatorID",
 			"value": 1
 		},
 		{
-			"id": "1a2a574f-9b05-4ccb-9827-8852097da602",
+			"id": "eaa27634-e2a4-4ac1-a23e-f66bbf86b98b",
 			"key": "CategoryID",
 			"value": ""
 		},
 		{
-			"id": "ab103004-77d9-423b-af92-fe26bd29d12e",
+			"id": "0696eb8d-e328-48a3-b50e-5fcf07e03de9",
 			"key": "CountOfCommentLikes",
 			"value": 1
 		},
 		{
-			"id": "8d5c8caa-4964-406f-8657-91c3861e5c8b",
+			"id": "4817ccb6-b886-40f4-bca9-69a6ea40b1b3",
 			"key": "CommentOfPost",
 			"value": null
 		},
 		{
-			"id": "86b9934e-562f-4665-bc04-00f49ef06763",
+			"id": "955a8194-484b-46f9-862b-4afc765e042c",
 			"key": "TimeStampOfCommentOfPost",
 			"value": null
 		},
 		{
-			"id": "280fde77-db85-4749-8641-1bb104d36234",
+			"id": "87cadbcc-105c-44b0-b4bb-8b6b467a7a4e",
 			"key": "ConnectionID",
 			"value": ""
 		},
 		{
-			"id": "03110397-2032-4d31-8054-495a406d43b0",
+			"id": "7fddcbd0-b5d8-4bd2-a2bf-0cec6866f157",
 			"key": "CommentIfPostID",
 			"value": null
 		}
