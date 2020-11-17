@@ -15,7 +15,6 @@ public class NavigationPage extends BasePage implements Elements {
     public NavigationPage() {
         super("base.url");
     }
-    //comment for deletion
 
     public void admin_LogIn() {
         NavigationPage navPage = new NavigationPage();
