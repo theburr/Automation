@@ -10,7 +10,7 @@ public class AdminTests extends BaseTest{
         @Test
         public void login_As_Admin(){
             NavigationPage navPage = new NavigationPage();
-            navPage.admin_LogIn();
+            navPage.adminLogIn();
             actions.assertElementPresent("navigation.LogOut");
         }
         @Test
