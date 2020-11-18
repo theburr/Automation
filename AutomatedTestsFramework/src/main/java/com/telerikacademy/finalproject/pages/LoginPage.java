@@ -1,12 +1,23 @@
 package com.telerikacademy.finalproject.pages;
 
-public class LoginPage extends BasePage{
+import static com.telerikacademy.finalproject.utils.Utils.getUIMappingByKey;
 
-    public LoginPage() {
-        super("base.url");
-    }
+public class LoginPage extends NavigationPage{
+
     public final String usernameUser = "username.User";
     public final String passwordUser = "password.User";
+    public final String adminUsername = getUIMappingByKey("admin.Username");
+    public final String adminPassword = getUIMappingByKey("admin.Password");
+
+
+    public void adminLogIn() {
+        actions.isElementPresentUntilTimeout(signInButton, 4);
+        actions.clickElement(signInButton);
+        actions.isElementPresentUntilTimeout("signInPage.Username", 4);
+        actions.typeValueInField(adminUsername, "signInPage.Username");
+        actions.typeValueInField(adminPassword, "signInPage.Password");
+        actions.clickElement("signInPage.LogInBtn");
+    }
 
     public void NavigateToLoginPageAndLogInHFSN() {
         actions.clickElement("signIn.Button");

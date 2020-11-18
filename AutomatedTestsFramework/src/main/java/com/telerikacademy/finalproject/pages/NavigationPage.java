@@ -1,7 +1,7 @@
 package com.telerikacademy.finalproject.pages;
 
 import com.telerikacademy.finalproject.utils.Elements;
-import com.telerikacademy.finalproject.utils.Utils;
+import static com.telerikacademy.finalproject.utils.Utils.getUIMappingByKey;
 
 
 public class NavigationPage extends BasePage implements Elements {
@@ -10,25 +10,15 @@ public class NavigationPage extends BasePage implements Elements {
     public final String signInButton = "navigation.SignIn";
     public final String logOutButton = "navigation.LogOut";
     public final String categoriesButton = "adminCategoriesBtn";
-    final String PAGE_URL = Utils.getConfigPropertyByKey("base.url");
-    public final String postTypeTitle = "post.TypeTitle";
-    public final String postTypeNewTitle = "post.TypeNewTitle";
-    public final String postTypeText = "post.TypeText";
+    public final String postTypeTitle = getUIMappingByKey("post.TypeTitle");
+    public final String postTypeNewTitle = getUIMappingByKey("post.TypeNewTitle");
+    public final String postTypeText = getUIMappingByKey("post.TypeText");
     public final String commentType = "comment.Type";
 
     public NavigationPage() {
         super("base.url");
     }
 
-    //Created
-    public void adminLogIn() {
-        actions.isElementPresentUntilTimeout(signInButton, 4);
-        actions.clickElement(signInButton);
-        actions.isElementPresentUntilTimeout("signInPage.Username", 4);
-        actions.typeValueInField("theburr@abv.bg", "adminUsername");
-        actions.typeValueInField("telerikAlphaQA22$", "adminPassword");
-        actions.clickElement("signInPage.LogInBtn");
-    }
 
     public void RegisteredUserWriteNewPost() {
         actions.isElementPresentUntilTimeout("post.Latest", 5);

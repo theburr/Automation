@@ -1,23 +1,21 @@
 package testCases;
 
 import com.telerikacademy.finalproject.pages.NavigationPage;
-import com.telerikacademy.finalproject.utils.Elements;
+import com.telerikacademy.finalproject.TastyFoodAPI.UserAuthentication;
 import com.telerikacademy.finalproject.utils.UserActions;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import org.junit.Test;
 
-public class BaseTest implements Elements {
+public class BaseTest {
 	UserActions actions = new UserActions();
+	UserAuthentication tastyFoodAPI = new UserAuthentication();
 
 	@BeforeClass
-	public static void setUp() {
-		UserActions.loadBrowser("base.url");
-	}
+	public static void setUp(){  UserActions.loadBrowser("base.url");	}
 
-//	@AfterClass
-//	public static void tearDown() {
-//		UserActions.quitDriver();
+	//@AfterClass
+	//public static void tearDown(){
+	//	UserActions.quitDriver();
 //	}
 
 	public void logIn_As_User() {
