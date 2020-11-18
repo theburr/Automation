@@ -5,13 +5,14 @@ public class LoginPage extends BasePage{
     public LoginPage() {
         super("base.url");
     }
-    public final String username = "user.Username";
+    public final String usernameUser = "username.User";
+    public final String passwordUser = "password.User";
 
-    public void NavigateToLoginPageAndLogInHFSN(String username, String password) {
+    public void NavigateToLoginPageAndLogInHFSN() {
         actions.clickElement("signIn.Button");
         actions.isElementPresentUntilTimeout("username.Field", 10);
-        actions.typeValueInField(username, "username.Field");
-        actions.typeValueInField(password, "password.Field");
+        actions.typeValueInField(usernameUser, "username.Field");
+        actions.typeValueInField(passwordUser, "password.Field");
         actions.clickElement("login.Button");
 
     }
