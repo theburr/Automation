@@ -1,8 +1,8 @@
 package testCases;
 
-import com.sun.org.apache.xml.internal.serializer.ElemDesc;
 import com.telerikacademy.finalproject.pages.LoginPage;
 import com.telerikacademy.finalproject.pages.NavigationPage;
+import com.telerikacademy.finalproject.pages.PostsPage;
 import com.telerikacademy.finalproject.utils.Elements;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -32,16 +32,16 @@ public class HappyPathHFSN extends BaseTest implements Elements {
         LoginPage logPage = new LoginPage();
         logPage.NavigateToLoginPageAndLogInHFSN();
 
-        NavigationPage navPage = new NavigationPage();
-        navPage.RegisteredUserWriteNewPost();
-        navPage.AssertNewPostIsPosted();
+        PostsPage postsPage = new PostsPage();
+        postsPage.RegisteredUserWriteNewPost();
+        postsPage.AssertNewPostIsPosted();
     }
     @Test
     public void test_004_edit_Post_As_User(){
         //##Use Login Method below if have to run single test ## //
 
-//        LoginPage logPage = new LoginPage();
-//        logPage.NavigateToLoginPageAndLogInHFSN(USERNAME,PASSWORD);
+        LoginPage logPage = new LoginPage();
+        logPage.NavigateToLoginPageAndLogInHFSN();
 
         NavigationPage navPage = new NavigationPage();
         navPage.RegisteredUserCanEditHimPost();

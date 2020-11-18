@@ -4,8 +4,8 @@ import static com.telerikacademy.finalproject.utils.Utils.getUIMappingByKey;
 
 public class LoginPage extends NavigationPage{
 
-    public final String usernameUser = "username.User";
-    public final String passwordUser = "password.User";
+    public final String usernameUser = getUIMappingByKey("username.User");
+    public final String passwordUser = getUIMappingByKey("password.User");
     public final String adminUsername = getUIMappingByKey("admin.Username");
     public final String adminPassword = getUIMappingByKey("admin.Password");
 

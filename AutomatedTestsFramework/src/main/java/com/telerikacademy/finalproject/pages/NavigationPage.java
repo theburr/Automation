@@ -20,20 +20,20 @@ public class NavigationPage extends BasePage implements Elements {
     }
 
 
-    public void RegisteredUserWriteNewPost() {
-        actions.isElementPresentUntilTimeout("post.Latest", 5);
-        actions.clickHiddenElement("post.New");
-        actions.isElementPresentUntilTimeout("post.Title", 10);
-        actions.typeValueInField(postTypeTitle, "post.Title");
-        actions.typeValueInField(postTypeText, "post.Description");
-        actions.uploadImage("upload.Image");
-        actions.isElementPresentUntilTimeout("post.ButtonSave", 5);
-        actions.clickElement("post.ButtonSave");
-    }
+//    public void RegisteredUserWriteNewPost() {
+//        actions.isElementPresentUntilTimeout("post.Latest", 5);
+//        actions.clickHiddenElement("post.New");
+//        actions.isElementPresentUntilTimeout("post.Title", 10);
+//        actions.typeValueInField(postTypeTitle, "post.Title");
+//        actions.typeValueInField(postTypeText, "post.Description");
+//        actions.uploadImage("upload.Image");
+//        actions.isElementPresentUntilTimeout("post.ButtonSave", 5);
+//        actions.clickElement("post.ButtonSave");
+//    }
 
-    public void AssertNewPostIsPosted() {
-        actions.assertIsTextPresent("The post " + postTypeTitle + " is not posted ");
-    }
+//    public void AssertNewPostIsPosted() {
+//        actions.assertIsTextPresent("The post " + postTypeTitle + " is not posted ");
+//    }
 
     public void RegisteredUserCanEditHimPost() {
         actions.isElementPresentUntilTimeout("profile.Button", 20);
