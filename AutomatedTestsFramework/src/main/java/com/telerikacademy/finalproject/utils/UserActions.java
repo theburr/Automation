@@ -2,22 +2,12 @@ package com.telerikacademy.finalproject.utils;
 
 import org.junit.Assert;
 import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.util.NoSuchElementException;
-import java.util.concurrent.TimeUnit;
-import java.util.function.Function;
-
-import java.util.concurrent.TimeUnit;
 
 public class UserActions {
     public WebDriver getDriver() {
@@ -93,7 +83,7 @@ public class UserActions {
     }
     public void assertElementNotPresent(String locator) {
             try {
-                driver.findElement(By.xpath(locator));
+                driver.findElement(By.xpath(Utils.getUIMappingByKey(locator)));
             } catch (NoSuchElementException ex) {
                 /* do nothing, link is not present, assert is passed */
             }
