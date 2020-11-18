@@ -17,6 +17,6 @@ public class UserAuthentication {
         String requestBody = "username=" + username + "&password=" + password;
         Response response = client.sendPostRequest("https://protected-hamlet-40147.herokuapp.com/authenticate", requestBody, ContentType.URLENC);
         String cookieValue = response.getDetailedCookie("JSESSIONID").getValue();
-        driver.manage().addCookie(new Cookie("JSESSIONID", cookieValue, "fast-taiga-64065.herokuapp.com", "/", null, true, true));
+        driver.manage().addCookie(new Cookie("JSESSIONID", cookieValue, "protected-hamlet-40147.herokuapp.com", "/", null, true, true));
     }
 }

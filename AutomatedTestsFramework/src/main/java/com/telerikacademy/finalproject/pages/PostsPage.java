@@ -1,5 +1,7 @@
 package com.telerikacademy.finalproject.pages;
 
+import com.telerikacademy.finalproject.TastyFoodAPI.UserAuthentication;
+
 import static com.telerikacademy.finalproject.utils.Utils.getUIMappingByKey;
 
 public class PostsPage extends LoginPage {
@@ -18,7 +20,8 @@ public class PostsPage extends LoginPage {
     public final String commentType = "comment.Type";
 
     public void admin_Delete_Post_Of_An_User(){
-        adminLogIn();
+        UserAuthentication tastyFoodAPI = new UserAuthentication();
+        tastyFoodAPI.authenticateDriverForUser("healthyFoodAdmin.username.encoded", "healthyFoodAdmin.pass.encoded", actions.getDriver());
         actions.isElementPresentUntilTimeout(latestPostsButton,5 );
         actions.clickElement(latestPostsButton);
         actions.isElementPresentUntilTimeout(adminPostForDeletion,5 );
