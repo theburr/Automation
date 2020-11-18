@@ -1,5 +1,6 @@
 package com.telerikacademy.finalproject.pages;
 
+import com.telerikacademy.finalproject.TastyFoodAPI.UserAuthentication;
 import com.telerikacademy.finalproject.utils.UserActions;
 import com.telerikacademy.finalproject.utils.Utils;
 import org.junit.Assert;
@@ -10,6 +11,10 @@ public abstract class BasePage {
     protected WebDriver driver;
     public UserActions actions;
 
+    public void auto_Login(String username, String password) {
+        UserAuthentication tastyFoodAPI = new UserAuthentication();
+        tastyFoodAPI.authenticateDriverForUser(username, password, actions.getDriver());
+    }
     public BasePage(String urlKey) {
         String pageUrl = Utils.getConfigPropertyByKey(urlKey);
         this.driver = Utils.getWebDriver();
@@ -30,4 +35,5 @@ public abstract class BasePage {
         Assert.assertTrue("Landed URL is not as expected. Actual URL: "
                 + currentUrl + ". Expected URL: " + url, currentUrl.contains(url));
     }
+
 }

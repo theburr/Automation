@@ -18,23 +18,28 @@ public class PostsPage extends LoginPage {
     public final String postTypeNewTitle = getUIMappingByKey("post.TypeNewTitle");
     public final String postTypeText = getUIMappingByKey("post.TypeText");
     public final String commentType = "comment.Type";
+    public final String adminUsername = "admin.Username";
+    public final String adminPassword = "admin.Password";
 
-    public void admin_Delete_Post_Of_An_User(){
-        UserAuthentication tastyFoodAPI = new UserAuthentication();
-        tastyFoodAPI.authenticateDriverForUser("healthyFoodAdmin.username.encoded", "healthyFoodAdmin.pass.encoded", actions.getDriver());
-        actions.isElementPresentUntilTimeout(latestPostsButton,5 );
+
+
+    public void admin_Delete_Post_Of_An_User() {
+        auto_Login(adminUsername, adminPassword);
+        actions.isElementPresentUntilTimeout(latestPostsButton, 5);
         actions.clickElement(latestPostsButton);
-        actions.isElementPresentUntilTimeout(adminPostForDeletion,5 );
+        actions.isElementPresentUntilTimeout(adminPostForDeletion, 5);
         actions.assertElementPresent(adminPostForDeletion);
         actions.clickElement(adminPostForDeletion);
         actions.clickElement(editPostButton);
-        actions.isElementPresentUntilTimeout(deletePostButton,5 );
+        actions.isElementPresentUntilTimeout(deletePostButton, 5);
         actions.assertElementPresent(deletePostButton);
         actions.clickElement(deletePostButton);
         actions.clickElement(confirmDeletePostButton);
         actions.isElementPresentUntilTimeout(latestPostsButton, 5);
         actions.clickElement(latestPostsButton);
+        actions.isElementPresentUntilTimeout(adminPostForDeletion,5);
     }
+
     public void RegisteredUserWriteNewPost() {
         actions.isElementPresentUntilTimeout("post.Latest", 5);
         actions.clickHiddenElement("post.New");
@@ -45,6 +50,7 @@ public class PostsPage extends LoginPage {
         actions.isElementPresentUntilTimeout("post.ButtonSave", 5);
         actions.clickElement("post.ButtonSave");
     }
+
     public void AssertNewPostIsPosted() {
         actions.assertIsTextPresent("The post " + postTypeTitle + " is not posted ");
     }
