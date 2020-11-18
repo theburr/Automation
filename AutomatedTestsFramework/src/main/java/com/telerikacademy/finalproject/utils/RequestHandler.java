@@ -17,14 +17,13 @@ public class RequestHandler {
                 .extract().response();
     }
 
-    public Response sendPostRequest(String endpoint, Object body){
+    public Response sendPostRequest(String endpoint, Object body, ContentType contentType){
         return RestAssured.given()
-                .contentType(ContentType.JSON)
+                .contentType(contentType)
                 .body(body)
                 .when()
                 .post(endpoint)
                 .then()
-                .statusCode(200)
                 .extract().response();
     }
 }

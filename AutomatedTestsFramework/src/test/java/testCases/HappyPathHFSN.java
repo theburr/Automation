@@ -1,14 +1,17 @@
 package testCases;
 
+import com.sun.org.apache.xml.internal.serializer.ElemDesc;
 import com.telerikacademy.finalproject.pages.LoginPage;
 import com.telerikacademy.finalproject.pages.NavigationPage;
+import com.telerikacademy.finalproject.utils.Elements;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import test.tmp.Base;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
-public class HappyPathHFSN extends BaseTest {
+public class HappyPathHFSN extends BaseTest implements Elements {
 
     @Test
     public void test_001_navigate_To_Home_Using_Navigation(){
