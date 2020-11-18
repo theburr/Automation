@@ -12,4 +12,5 @@ public interface Elements {
             "instead of a sugary juice is already a healthy choice.";
     String COMMENT = "It was pleasure for me to drink this type of cocktail";
     String EDIT_COMMENT = "....and I promise that I'll drink them every day";
+
 }

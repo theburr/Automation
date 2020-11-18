@@ -17,7 +17,9 @@ public abstract class BasePage {
         actions = new UserActions();
     }
 
-    public String getUrl(){ return url; }
+    public String getUrl(){
+        return url;
+    }
 
     public void navigateToPage(){
         this.driver.get(url);
@@ -25,6 +27,7 @@ public abstract class BasePage {
 
     public void assertPageNavigated() {
         String currentUrl = driver.getCurrentUrl();
-        Assert.assertTrue("Landed URL is not as expected. Actual URL: " + currentUrl + ". Expected URL: " + url, currentUrl.contains(url));
+        Assert.assertTrue("Landed URL is not as expected. Actual URL: "
+                + currentUrl + ". Expected URL: " + url, currentUrl.contains(url));
     }
 }

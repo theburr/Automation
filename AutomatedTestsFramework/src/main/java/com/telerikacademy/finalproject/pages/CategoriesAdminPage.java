@@ -3,6 +3,7 @@ package com.telerikacademy.finalproject.pages;
 
 public class CategoriesAdminPage extends NavigationPage{
     public final String newCategoryBtn = "adminNewCategoryBtn";
+
     public void admin_Delete_Post_Of_An_User(){
         adminLogIn();
         actions.isElementPresentUntilTimeout("adminPostsButton",5 );

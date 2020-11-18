@@ -11,6 +11,10 @@ public class NavigationPage extends BasePage implements Elements {
     public final String logOutButton = "navigation.LogOut";
     public final String categoriesButton = "adminCategoriesBtn";
     final String PAGE_URL = Utils.getConfigPropertyByKey("base.url");
+    public final String postTypeTitle = "post.TypeTitle";
+    public final String postTypeNewTitle = "post.TypeNewTitle";
+    public final String postTypeText = "post.TypeText";
+    public final String commentType = "comment.Type";
 
     public NavigationPage() {
         super("base.url");
@@ -26,22 +30,22 @@ public class NavigationPage extends BasePage implements Elements {
         actions.clickElement("signInPage.LogInBtn");
     }
 
-    public void RegisteredUserWriteNewPost(String title, String description) {
+    public void RegisteredUserWriteNewPost() {
         actions.isElementPresentUntilTimeout("post.Latest", 5);
         actions.clickHiddenElement("post.New");
         actions.isElementPresentUntilTimeout("post.Title", 10);
-        actions.typeValueInField(title, "post.Title");
-        actions.typeValueInField(description, "post.Description");
+        actions.typeValueInField(postTypeTitle, "post.Title");
+        actions.typeValueInField(postTypeText, "post.Description");
         actions.uploadImage("upload.Image");
         actions.isElementPresentUntilTimeout("post.ButtonSave", 5);
         actions.clickElement("post.ButtonSave");
     }
 
-    public void AssertNewPostIsPosted(String text) {
-        actions.assertIsTextPresent(text);
+    public void AssertNewPostIsPosted() {
+        actions.assertIsTextPresent("The post " + postTypeTitle + " is not posted ");
     }
 
-    public void RegisteredUserCanEditHimPost(String title, String description) {
+    public void RegisteredUserCanEditHimPost() {
         actions.isElementPresentUntilTimeout("profile.Button", 20);
         actions.clickHiddenElement("profile.Button");
         actions.isElementPresentUntilTimeout("post.NewForEdit", 10);
@@ -50,7 +54,7 @@ public class NavigationPage extends BasePage implements Elements {
         actions.isElementPresentUntilTimeout("post.EditButton", 5);
         actions.clickElement("post.EditButton");
         actions.isElementPresentUntilTimeout("post.TitleEditField", 5);
-        actions.typeValueInField(title, "post.TitleEditField");
+        actions.typeValueInField("post.TypeNewTitle", "post.TitleEditField");
         actions.clickElement("post.EditSaveButton");
     }
 

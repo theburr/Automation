@@ -19,19 +19,19 @@ public class HappyPathHFSN extends BaseTest {
     @Test
     public void test_002_login_HFSN_With_Right_Credentials(){
         LoginPage logPage = new LoginPage();
-        logPage.NavigateToLoginPageAndLogInHFSN(USERNAME,PASSWORD);
+        logPage.NavigateToLoginPageAndLogInHFSN();
         logPage.assertPageNavigated();
     }
     @Test
     public void test_003_write_New_Post_As_Registered_User(){
         // ## Use Login Method below if have to run single test  ## //
-//
-//        LoginPage logPage = new LoginPage();
-//        logPage.NavigateToLoginPageAndLogInHFSN(USERNAME,PASSWORD);
+
+        LoginPage logPage = new LoginPage();
+        logPage.NavigateToLoginPageAndLogInHFSN();
 
         NavigationPage navPage = new NavigationPage();
-        navPage.RegisteredUserWriteNewPost(TITLE, DESCRIPTION);
-        navPage.AssertNewPostIsPosted(TITLE);
+        navPage.RegisteredUserWriteNewPost();
+        navPage.AssertNewPostIsPosted();
     }
     @Test
     public void test_004_edit_Post_As_User(){
@@ -41,7 +41,7 @@ public class HappyPathHFSN extends BaseTest {
 //        logPage.NavigateToLoginPageAndLogInHFSN(USERNAME,PASSWORD);
 
         NavigationPage navPage = new NavigationPage();
-        navPage.RegisteredUserCanEditHimPost(NEW_TITLE, DESCRIPTION);
+        navPage.RegisteredUserCanEditHimPost();
         navPage.AssertThePostIsEdited();
     }
     @Test
