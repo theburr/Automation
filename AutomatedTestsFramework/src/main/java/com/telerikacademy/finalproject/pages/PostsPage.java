@@ -29,6 +29,7 @@ public class PostsPage extends LoginPage {
     public final String commentEditButton = "comment.ButtonEdit";
     public final String commentConfirmDeleteButton = "comment.ConfirmDeletionButton";
     public final String commentEditConfirmation = "comment.EditConfirmation";
+    public final String homeButton = "homeButton";
 
 
     public void admin_Delete_Post_Of_An_User() {
@@ -49,8 +50,9 @@ public class PostsPage extends LoginPage {
     }
 
     public void registered_User_Write_New_Post() {
-        //auto_Login(userUsername, userPassword);
-        actions.isElementPresentUntilTimeout(latestPostsButton, 5);
+        auto_Login(userUsername, userPassword);
+        actions.isElementPresentUntilTimeout(homeButton, 5);
+        actions.clickElement(homeButton);
         actions.clickHiddenElement(newPostButton);
         actions.isElementPresentUntilTimeout(fieldPostTitle, 10);
         actions.typeValueInField(postTypeTitle, fieldPostTitle);
@@ -66,6 +68,8 @@ public class PostsPage extends LoginPage {
 
     public void registered_User_Can_Edit_His_Post() {
         auto_Login(userUsername, userPassword);
+        actions.isElementPresentUntilTimeout(homeButton, 5);
+        actions.clickElement(homeButton);
         actions.isElementPresentUntilTimeout(profileButton, 20);
         actions.clickHiddenElement(profileButton);
         actions.isElementPresentUntilTimeout(postTitleEdit, 10);
@@ -83,6 +87,8 @@ public class PostsPage extends LoginPage {
     }
     public void registered_User_Can_Delete_His_Post() {
         auto_Login(userUsername, userPassword);
+        actions.isElementPresentUntilTimeout(homeButton, 5);
+        actions.clickElement(homeButton);
         actions.isElementPresentUntilTimeout(profileButton, 20);
         actions.clickHiddenElement(profileButton);
         actions.isElementPresentUntilTimeout(postTitleEdit, 10);
@@ -101,6 +107,8 @@ public class PostsPage extends LoginPage {
 
     public void registered_User_Can_Comment_A_Post() {
         auto_Login(userUsername, userPassword);
+        actions.isElementPresentUntilTimeout(homeButton, 5);
+        actions.clickElement(homeButton);
         actions.isElementPresentUntilTimeout(latestPostsButton, 5);
         actions.clickHiddenElement(profileButton);
         actions.isElementPresentUntilTimeout(postTitleEdit, 10);
@@ -117,6 +125,8 @@ public class PostsPage extends LoginPage {
 
     public void registered_User_Can_Delete_His_Comment() {
         auto_Login(userUsername, userPassword);
+        actions.isElementPresentUntilTimeout(homeButton, 5);
+        actions.clickElement(homeButton);
         actions.isElementPresentUntilTimeout(latestPostsButton, 5);
         actions.clickHiddenElement(profileButton);
         actions.isElementPresentUntilTimeout(postTitleEdit, 10);

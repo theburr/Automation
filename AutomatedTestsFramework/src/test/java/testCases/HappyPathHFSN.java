@@ -3,7 +3,6 @@ package testCases;
 import com.telerikacademy.finalproject.pages.LoginPage;
 import com.telerikacademy.finalproject.pages.NavigationPage;
 import com.telerikacademy.finalproject.pages.PostsPage;
-import com.telerikacademy.finalproject.utils.Elements;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
@@ -21,18 +20,15 @@ public class HappyPathHFSN extends BaseTest {
     @Test
     public void test_002_login_HFSN_With_Right_Credentials(){
         LoginPage logPage = new LoginPage();
-        logPage.NavigateToLoginPageAndLogInHFSN();
-        logPage.assertPageNavigated();
+        logPage.navigate_To_Login_Page_And_Log_In_HFSN();
+        logPage.assert_Log_In_HFSN();
     }
     @Test
     public void test_003_write_New_Post_As_Registered_User(){
-//        LoginPage loginPage = new LoginPage();
-//        loginPage.NavigateToLoginPageAndLogInHFSN();
         PostsPage postsPage = new PostsPage();
         postsPage.registered_User_Write_New_Post();
         postsPage.assert_New_Post_Is_Posted();
     }
-
     @Test
     public void test_004_edit_Post_As_User(){
         PostsPage postsPage = new PostsPage();
@@ -58,5 +54,6 @@ public class HappyPathHFSN extends BaseTest {
         postPage.registered_User_Can_Delete_His_Comment();
         postPage.assert_The_Comment_Is_Deleted();
    }
+
 }
 

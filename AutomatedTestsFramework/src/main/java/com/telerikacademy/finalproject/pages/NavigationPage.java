@@ -6,7 +6,7 @@ import static com.telerikacademy.finalproject.utils.Utils.getUIMappingByKey;
 
 public class NavigationPage extends BasePage implements Elements {
 
-    public final String homeButton = "navigation.Home";
+    public final String homeButton = "homeButton";
     public final String signInButton = "navigation.SignIn";
     public final String logOutButton = "navigation.LogOut";
     public final String categoriesButton = "adminCategoriesBtn";
