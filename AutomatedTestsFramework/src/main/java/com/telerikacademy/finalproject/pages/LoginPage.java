@@ -19,7 +19,7 @@ public class LoginPage extends NavigationPage{
         actions.clickElement("signInPage.LogInBtn");
     }
 
-    public void NavigateToLoginPageAndLogInHFSN() {
+    public void navigate_To_Login_Page_And_Log_In_HFSN() {
         actions.clickElement("signIn.Button");
         actions.isElementPresentUntilTimeout("username.Field", 10);
         actions.typeValueInField(usernameUser, "username.Field");
@@ -28,7 +28,7 @@ public class LoginPage extends NavigationPage{
         actions.isElementPresentUntilTimeout("PostButton", 10);
 
     }
-    public void AssertLogInHFSN(){
+    public void assert_Log_In_HFSN(){
         actions.assertElementPresent("logOut.Button");
     }
 }
