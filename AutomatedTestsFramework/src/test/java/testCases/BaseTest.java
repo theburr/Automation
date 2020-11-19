@@ -2,11 +2,12 @@ package testCases;
 
 import com.telerikacademy.finalproject.pages.NavigationPage;
 import com.telerikacademy.finalproject.TastyFoodAPI.UserAuthentication;
+import com.telerikacademy.finalproject.utils.Elements;
 import com.telerikacademy.finalproject.utils.UserActions;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 
-public class BaseTest {
+public class BaseTest implements Elements {
 	UserActions actions = new UserActions();
 	UserAuthentication tastyFoodAPI = new UserAuthentication();
 

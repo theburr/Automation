@@ -1,5 +1,7 @@
 package com.telerikacademy.finalproject.utils;
 
+import javax.print.DocFlavor;
+
 import static com.telerikacademy.finalproject.utils.Utils.getUIMappingByKey;
 
 public interface Elements {
@@ -8,10 +10,15 @@ public interface Elements {
     String ADMIN_PASSWORD = "admin.Password";
     String USER_USERNAME = "user.Username";
     String USER_PASSWORD = "user.Password";
+
+    String DELETE_BUTTON = "deletePostButton";
+
+    String FIRST_USER_PROFILE = "users.firstUserProfile";
+    String SECOND_USER_PROFILE = "users.secondUserProfile";
+    String ADMIN_POST_FOR_DELETING_COMMENT = "adminPostForDeletingComment";
     String ADMIN_POST_FOR_DELETION = "adminPostForDeletion";
     String LATEST_POST_BUTTON = "latestPostButton";
     String EDIT_POST_BUTTON = "editPostButton";
-    String DELETE_POST_BUTTON = "deletePostButton";
     String CONFIRM_BUTTON = "confirmActionsPostButton";
     String POST_TYPE_TITLE = getUIMappingByKey("post.TypeTitle");
     String POST_TYPE_TEXT = getUIMappingByKey("post.TypeText");
@@ -31,7 +38,23 @@ public interface Elements {
     String COMMENT_CONFIRM_DELETION_BUTTON = "comment.ConfirmDeletionButton";
     String COMMENT_EDIT_CONFIRMATION = "comment.EditConfirmation";
 
+    String SEND_CONNECTION = "send.ConnectionBtn";
+    String CONFIRM_CONNECTION= "confirm.ConnectionBtn";
+    String REJECT_CONNECTION= "reject.ConnectionBtn";
+    String DISCONNECT_CONNECTION= "disconnect.ConnectionBtn";
+    String CONNECTION_IS_SENT= "isSent.ConnectionBtn";
+
+    String NEW_CATEGORY_BUTTON = "admin.NewCategoryBtn";
+    String CATEGORY_ENTER_NAME_FIELD ="admin.CategoryNameField";
+    String CATEGORY_NAME_TO_ENTER = getUIMappingByKey("admin.CategoryNameForField");
+    String CATEGORY_UPLOAD_IMAGE = "admin.CategoryUploadImage";
+    String CREATE_CATEGORY = "admin.CreateCategoryBtn";
+    String CREATED_CATEGORY = "admin.CreatedCategory";
+
+    String CONNECTIONS_BUTTON = "users.Connections";
+    String CONNECTIONS_REQUESTS_BUTTON="users.ConnectionsReq";
+    String USERS_BUTTON = "navigation.Users";
     String SIGN_IN_BUTTON = "navigation.SignIn";
     String LOG_OUT_BUTTON = "navigation.LogOut";
-    String CATEGORIES_BUTTON = "adminCategoriesBtn";
+    String CATEGORIES_BUTTON = "admin.CategoriesBtn";
 }

@@ -37,13 +37,33 @@ public class PostsPage extends LoginPage {
         actions.assertElementPresent(ADMIN_POST_FOR_DELETION);
         actions.clickElement(ADMIN_POST_FOR_DELETION);
         actions.clickElement(EDIT_POST_BUTTON);
-        actions.isElementPresentUntilTimeout(DELETE_POST_BUTTON, 5);
-        actions.assertElementPresent(DELETE_POST_BUTTON);
-        actions.clickElement(DELETE_POST_BUTTON);
+        actions.isElementPresentUntilTimeout(DELETE_BUTTON, 5);
+        actions.assertElementPresent(DELETE_BUTTON);
+        actions.clickElement(DELETE_BUTTON);
         actions.clickElement(CONFIRM_BUTTON);
         actions.isElementPresentUntilTimeout(LATEST_POST_BUTTON, 5);
         actions.clickElement(LATEST_POST_BUTTON);
         actions.isElementPresentUntilTimeout(ADMIN_POST_FOR_DELETION,5);
+    }
+    public void admin_Delete_Comment_Of_An_User() {
+        auto_Login(ADMIN_USERNAME, ADMIN_PASSWORD);
+        actions.isElementPresentUntilTimeout(LATEST_POST_BUTTON, 5);
+        actions.clickElement(LATEST_POST_BUTTON);
+        actions.isElementPresentUntilTimeout(ADMIN_POST_FOR_DELETING_COMMENT, 5);
+        actions.clickElement(ADMIN_POST_FOR_DELETING_COMMENT);
+        actions.clickElement(COMMENT_EDIT_BUTTON);
+        actions.isElementPresentUntilTimeout(DELETE_BUTTON, 5);
+        actions.clickElement(DELETE_BUTTON);
+        actions.clickElement(CONFIRM_BUTTON);
+        actions.isElementPresentUntilTimeout(LATEST_POST_BUTTON, 5);
+        actions.clickElement(LATEST_POST_BUTTON);
+        actions.isElementPresentUntilTimeout(ADMIN_POST_FOR_DELETING_COMMENT, 5);
+        actions.clickElement(ADMIN_POST_FOR_DELETING_COMMENT);
+    }
+
+    public void assert_Comment_Is_Deleted(){
+        actions.assertElementNotPresent(COMMENT_EDIT_BUTTON);
+        System.out.println("Comment is missing thus successfully deleted!");
     }
 
     public void registered_User_Write_New_Post() {
@@ -93,8 +113,8 @@ public class PostsPage extends LoginPage {
         actions.clickElement(POST_TITLE_EDIT);
         actions.isElementPresentUntilTimeout(EDIT_POST_BUTTON, 5);
         actions.clickElement(EDIT_POST_BUTTON);
-        actions.isElementPresentUntilTimeout(DELETE_POST_BUTTON, 5);
-        actions.clickElement(DELETE_POST_BUTTON);
+        actions.isElementPresentUntilTimeout(DELETE_BUTTON, 5);
+        actions.clickElement(DELETE_BUTTON);
         actions.clickElement(CONFIRM_BUTTON);
     }
 
@@ -131,8 +151,8 @@ public class PostsPage extends LoginPage {
         actions.clickElement(POST_TITLE_EDIT);
         actions.isElementPresentUntilTimeout(COMMENT_EDIT_BUTTON, 5);
         actions.clickElement(COMMENT_EDIT_BUTTON);
-        actions.isElementPresentUntilTimeout(DELETE_POST_BUTTON, 5);
-        actions.clickElement(DELETE_POST_BUTTON);
+        actions.isElementPresentUntilTimeout(DELETE_BUTTON, 5);
+        actions.clickElement(DELETE_BUTTON);
         actions.isElementPresentUntilTimeout(COMMENT_CONFIRM_DELETION_BUTTON, 5);
         actions.clickElement(COMMENT_CONFIRM_DELETION_BUTTON);
     }
