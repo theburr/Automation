@@ -11,8 +11,8 @@ public class HealthyFoodTests extends BaseTest {
         tastyFoodAPI.authenticateDriverForUser("admin.Username", "admin.Password", actions.getDriver());
 
         NavigationPage navPage = new NavigationPage();
-        actions.clickElement(navPage.homeButton);
+        actions.clickElement(navPage.HOME_BUTTON);
         navPage.assertPageNavigated();
-        actions.assertElementPresent(navPage.logOutButton);
+        actions.assertElementPresent(navPage.LOG_OUT_BUTTON);
     }
 }
