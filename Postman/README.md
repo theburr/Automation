@@ -17,7 +17,7 @@ to rename a Category in the App. The name of key have to be "category".
 **You must** also add image file from folder **images** as file
  in **Body** form-data. The name of key have to be "file".
 
-# For getting CategoryID we use xmysql extension for Postman following the link:
+# For getting ConnectionID we use xmysql extension for Postman following the link:
 https://documenter.getpostman.com/view/5922408/RznJmGfn
 We made local DB. 
 We made GET request to local serwer localhost:3000/api/connections in order to get "ConnectionID"as environement.

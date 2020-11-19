@@ -7,11 +7,10 @@ import com.telerikacademy.finalproject.utils.Elements;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
-import test.tmp.Base;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
-public class HappyPathHFSN extends BaseTest implements Elements {
+public class HappyPathHFSN extends BaseTest {
 
     @Test
     public void test_001_navigate_To_Home_Using_Navigation(){
@@ -27,58 +26,37 @@ public class HappyPathHFSN extends BaseTest implements Elements {
     }
     @Test
     public void test_003_write_New_Post_As_Registered_User(){
-        // ## Use Login Method below if have to run single test  ## //
-
-        LoginPage logPage = new LoginPage();
-        logPage.NavigateToLoginPageAndLogInHFSN();
-
+//        LoginPage loginPage = new LoginPage();
+//        loginPage.NavigateToLoginPageAndLogInHFSN();
         PostsPage postsPage = new PostsPage();
-        postsPage.RegisteredUserWriteNewPost();
-        postsPage.AssertNewPostIsPosted();
+        postsPage.registered_User_Write_New_Post();
+        postsPage.assert_New_Post_Is_Posted();
     }
+
     @Test
     public void test_004_edit_Post_As_User(){
-        //##Use Login Method below if have to run single test ## //
-
-        LoginPage logPage = new LoginPage();
-        logPage.NavigateToLoginPageAndLogInHFSN();
-
-        NavigationPage navPage = new NavigationPage();
-        navPage.RegisteredUserCanEditHimPost();
-        navPage.AssertThePostIsEdited();
+        PostsPage postsPage = new PostsPage();
+        postsPage.registered_User_Can_Edit_His_Post();
+        postsPage.assert_The_Post_Is_Edited();
     }
     @Test
     public void test_005_delete_Post_As_User(){
-        // ## Use Login Method below if have to run single test  ## //
-//
-//        LoginPage logPage = new LoginPage();
-//        logPage.NavigateToLoginPageAndLogInHFSN(USERNAME,PASSWORD);
-
-        NavigationPage navPage = new NavigationPage();
-        navPage.RegisteredUserCanDeleteHimPost(NEW_TITLE,DESCRIPTION);
-        navPage.AssertThePostIsDeleted();
+        PostsPage postsPage = new PostsPage();
+        postsPage.registered_User_Can_Delete_His_Post();
+        postsPage.assert_The_Post_Is_Deleted();
     }
     @Test
     public void test_006_user_can_comment_Post(){
-        // ## Use Login Method below if have to run single test  ## //
-//
-//        LoginPage logPage = new LoginPage();
-//        logPage.NavigateToLoginPageAndLogInHFSN(USERNAME,PASSWORD);
-
-        NavigationPage navPage = new NavigationPage();
-        navPage.RegisteredUserCanCommentAPost(COMMENT);
-        navPage.AssertTheCommentIsPosted(COMMENT);
+        PostsPage postPage = new PostsPage();
+        postPage.registered_User_Can_Comment_A_Post();
+        postPage.assert_The_Comment_Is_Posted();
     }
+
     @Test
-    public void test_007_user_Can_Delete_Him_Comment(){
-        // ## Use Login Method below if have to run single test  ## //
-
-//        LoginPage logPage = new LoginPage();
-//        logPage.NavigateToLoginPageAndLogInHFSN(USERNAME,PASSWORD);
-
-        NavigationPage navPage = new NavigationPage();
-        navPage.RegisteredUserCanDeleteHimComment();
-        navPage.AssertTheCommentIsDeleted();
-    }
+    public void test_007_user_Can_Delete_His_Comment(){
+        PostsPage postPage = new PostsPage();
+        postPage.registered_User_Can_Delete_His_Comment();
+        postPage.assert_The_Comment_Is_Deleted();
+   }
 }
 
