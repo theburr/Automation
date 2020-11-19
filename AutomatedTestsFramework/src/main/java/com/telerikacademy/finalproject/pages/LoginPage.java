@@ -25,7 +25,7 @@ public class LoginPage extends NavigationPage{
         actions.typeValueInField(usernameUser, "username.Field");
         actions.typeValueInField(passwordUser, "password.Field");
         actions.clickElement("login.Button");
-        actions.isElementPresentUntilTimeout("PostButton", 10);
+        actions.isElementPresentUntilTimeout("latestPostButton", 10);
 
     }
     public void assert_Log_In_HFSN(){
