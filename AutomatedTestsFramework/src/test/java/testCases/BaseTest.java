@@ -20,8 +20,8 @@ public class BaseTest {
 
 	public void logIn_As_User() {
 		NavigationPage navPage = new NavigationPage();
-		actions.isElementPresentUntilTimeout(navPage.signInButton, 4);
-		actions.clickElement(navPage.signInButton);
+		actions.isElementPresentUntilTimeout(navPage.SIGN_IN_BUTTON, 4);
+		actions.clickElement(navPage.SIGN_IN_BUTTON);
 		actions.isElementPresentUntilTimeout("signInPage.Username", 4);
 		actions.typeValueInField("theburr@abv.bg", "signInPage.Username");
 		actions.typeValueInField("telerikAlphaQA22$", "signInPage.Password");

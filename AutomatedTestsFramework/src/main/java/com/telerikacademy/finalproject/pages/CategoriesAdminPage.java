@@ -11,13 +11,13 @@ public class CategoriesAdminPage extends LoginPage{
         NavigationPage navPage = new NavigationPage();
         adminLogIn();
         actions.isElementPresentUntilTimeout(adminProfileBtn,4);
-        actions.clickHiddenElement(navPage.categoriesButton);
+        actions.clickHiddenElement(navPage.CATEGORIES_BUTTON);
         actions.isElementPresentUntilTimeout(newCategoryBtn,4);
         actions.clickHiddenElement(newCategoryBtn);
         actions.isElementPresentUntilTimeout(adminCategoryNameField,4);
         actions.uploadImage(adminCategoryUploadImage);
         actions.typeValueInField("Delete Me",adminCategoryNameField);
-        actions.clickElement(navPage.categoriesButton);
+        actions.clickElement(navPage.CATEGORIES_BUTTON);
 
     }
 }

@@ -14,7 +14,7 @@ public class HappyPathHFSN extends BaseTest {
     @Test
     public void test_001_navigate_To_Home_Using_Navigation(){
         NavigationPage navPage = new NavigationPage();
-        actions.clickElement(navPage.homeButton);
+        actions.clickElement(navPage.HOME_BUTTON);
         navPage.assertPageNavigated();
     }
     @Test
@@ -47,7 +47,6 @@ public class HappyPathHFSN extends BaseTest {
         postPage.registered_User_Can_Comment_A_Post();
         postPage.assert_The_Comment_Is_Posted();
     }
-
     @Test
     public void test_007_user_Can_Delete_His_Comment(){
         PostsPage postPage = new PostsPage();

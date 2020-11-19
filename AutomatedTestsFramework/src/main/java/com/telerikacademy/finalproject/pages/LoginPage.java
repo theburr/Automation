@@ -11,8 +11,8 @@ public class LoginPage extends NavigationPage{
 
 
     public void adminLogIn() {
-        actions.isElementPresentUntilTimeout(signInButton, 4);
-        actions.clickElement(signInButton);
+        actions.isElementPresentUntilTimeout(SIGN_IN_BUTTON, 4);
+        actions.clickElement(SIGN_IN_BUTTON);
         actions.isElementPresentUntilTimeout("signInPage.Username", 4);
         actions.typeValueInField(adminUsername, "signInPage.Username");
         actions.typeValueInField(adminPassword, "signInPage.Password");
