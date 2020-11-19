@@ -1,12 +1,13 @@
 package com.telerikacademy.finalproject.pages;
 
 import com.telerikacademy.finalproject.TastyFoodAPI.UserAuthentication;
+import com.telerikacademy.finalproject.utils.Elements;
 import com.telerikacademy.finalproject.utils.UserActions;
 import com.telerikacademy.finalproject.utils.Utils;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
-public abstract class BasePage {
+public abstract class BasePage implements Elements {
     protected String url;
     protected WebDriver driver;
     public UserActions actions;
