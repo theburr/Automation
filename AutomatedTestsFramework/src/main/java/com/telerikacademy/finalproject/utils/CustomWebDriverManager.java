@@ -13,23 +13,23 @@ public class CustomWebDriverManager {
 
 //// ### Use script below for Firefox Browser  ####////
 
-		private WebDriver setupBrowser(){
-			WebDriverManager.firefoxdriver().setup();
-			WebDriver firefoxDriver = new FirefoxDriver();
-			firefoxDriver.manage().window().maximize();
-			driver = firefoxDriver;
-			return firefoxDriver;
-		}
+//		private WebDriver setupBrowser(){
+//			WebDriverManager.firefoxdriver().setup();
+//			WebDriver firefoxDriver = new FirefoxDriver();
+//			firefoxDriver.manage().window().maximize();
+//			driver = firefoxDriver;
+//			return firefoxDriver;
+//		}
 
 		//// ### Use script below for Chrome Browser  ####////
 
-//		private WebDriver setupBrowser(){
-//			WebDriverManager.chromedriver().setup();
-//			WebDriver chromeDriver = new ChromeDriver();
-//			chromeDriver.manage().window().maximize();
-//			driver = chromeDriver;
-//			return chromeDriver;
-//		}
+		private WebDriver setupBrowser(){
+			WebDriverManager.chromedriver().setup();
+			WebDriver chromeDriver = new ChromeDriver();
+			chromeDriver.manage().window().maximize();
+			driver = chromeDriver;
+			return chromeDriver;
+		}
 
 
 		public void quitDriver() {

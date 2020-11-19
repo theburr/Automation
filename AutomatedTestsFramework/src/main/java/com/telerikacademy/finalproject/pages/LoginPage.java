@@ -4,8 +4,8 @@ import static com.telerikacademy.finalproject.utils.Utils.getUIMappingByKey;
 
 public class LoginPage extends NavigationPage{
 
-    public final String usernameUser = getUIMappingByKey("username.User");
-    public final String passwordUser = getUIMappingByKey("password.User");
+    public final String usernameUser = getUIMappingByKey("user.Username");
+    public final String passwordUser = getUIMappingByKey("user.Password");
     public final String adminUsername = getUIMappingByKey("admin.Username");
     public final String adminPassword = getUIMappingByKey("admin.Password");
 
@@ -25,6 +25,7 @@ public class LoginPage extends NavigationPage{
         actions.typeValueInField(usernameUser, "username.Field");
         actions.typeValueInField(passwordUser, "password.Field");
         actions.clickElement("login.Button");
+        actions.isElementPresentUntilTimeout("PostButton", 10);
 
     }
     public void AssertLogInHFSN(){
