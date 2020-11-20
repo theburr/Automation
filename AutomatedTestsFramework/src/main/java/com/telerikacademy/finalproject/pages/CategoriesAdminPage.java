@@ -1,7 +1,9 @@
 package com.telerikacademy.finalproject.pages;
 
 
-public class CategoriesAdminPage extends LoginPage{
+import com.telerikacademy.finalproject.pages.Elements.CategoriesAdmin;
+
+public class CategoriesAdminPage extends NavigationPage implements CategoriesAdmin {
 
     public void create_Category_Admin(){
         auto_Login(ADMIN_USERNAME, ADMIN_PASSWORD);
@@ -15,5 +17,9 @@ public class CategoriesAdminPage extends LoginPage{
         actions.clickElement(CREATE_CATEGORY);
         actions.isElementPresentUntilTimeout(CATEGORIES_BUTTON,5);
         actions.clickElement(CATEGORIES_BUTTON);
+    }
+    public void assert_Category_Is_Created(){
+        actions.assertElementPresent(CREATED_CATEGORY);
+        System.out.println("Category is present thus successfully created!");
     }
 }

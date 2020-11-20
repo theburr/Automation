@@ -1,19 +1,9 @@
 package com.telerikacademy.finalproject.pages;
 
-import com.telerikacademy.finalproject.utils.Elements;
-import static com.telerikacademy.finalproject.utils.Utils.getUIMappingByKey;
 
+import com.telerikacademy.finalproject.pages.Elements.Navigation;
 
-public class NavigationPage extends BasePage implements Elements {
-
-//    public final String homeButton = "homeButton";
-//    public final String signInButton = "navigation.SignIn";
-//    public final String logOutButton = "navigation.LogOut";
-//    public final String categoriesButton = "adminCategoriesBtn";
-//    public final String postTypeTitle = getUIMappingByKey("post.TypeTitle");
-//    public final String postTypeNewTitle = getUIMappingByKey("post.TypeNewTitle");
-//    public final String postTypeText = getUIMappingByKey("post.TypeText");
-//    public final String commentType = "comment.Type";
+public class NavigationPage extends BasePage implements Navigation {
 
     public NavigationPage() {
         super("base.url");

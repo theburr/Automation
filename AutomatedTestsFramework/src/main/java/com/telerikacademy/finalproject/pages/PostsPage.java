@@ -1,33 +1,8 @@
 package com.telerikacademy.finalproject.pages;
 
-public class PostsPage extends LoginPage {
-//    public final String adminUsername = "admin.Username";
-//    public final String adminPassword = "admin.Password";
-//    public final String userUsername = "user.Username";
-//    public final String userPassword = "user.Password";
-//    public final String adminPostForDeletion = "adminPostForDeletion";
-//    public final String latestPostsButton = "latestPostButton";
-//    public final String editPostButton = "editPostButton";
-//    public final String deletePostButton = "deletePostButton";
-//    public final String confirmButton = "confirmActionsPostButton";
-//    public final String postTypeTitle = getUIMappingByKey("post.TypeTitle");
-//    public final String postTypeText = getUIMappingByKey("post.TypeText");
-//    public final String postNewTitle = getUIMappingByKey("post.TypeNewTitle");
-//    public final String newPostButton = "post.New";
-//    public final String fieldPostTitle = "post.Title";
-//    public final String fieldPostDescription = "post.Description";
-//    public final String uploadImage = "upload.Image";
-//    public final String profileButton = "profile.Button";
-//    public final String postTitleEdit = "post.TitleForEdit";
-//    public final String titleEditField = "post.TitleEditField";
-//    public final String postEditCommentSection = "post.EditCommentSection";
-//    public final String postDeleteAssertion = "post.DeleteAssertion";
-//    public final String commentField = "comment.Field";
-//    public final String commentText = getUIMappingByKey("comment.Text");
-//    public final String commentEditButton = "comment.ButtonEdit";
-//    public final String commentConfirmDeleteButton = "comment.ConfirmDeletionButton";
-//    public final String commentEditConfirmation = "comment.EditConfirmation";
-//    public final String homeButton = "homeButton";
+import com.telerikacademy.finalproject.pages.Elements.Posts;
+
+public class PostsPage extends NavigationPage implements Posts {
 
     public void admin_Delete_Post_Of_An_User() {
         auto_Login(ADMIN_USERNAME, ADMIN_PASSWORD);
@@ -45,6 +20,12 @@ public class PostsPage extends LoginPage {
         actions.clickElement(LATEST_POST_BUTTON);
         actions.isElementPresentUntilTimeout(ADMIN_POST_FOR_DELETION,5);
     }
+
+    public void assert_Post_Is_Deleted(){
+        actions.assertElementNotPresent(ADMIN_POST_FOR_DELETION);
+        System.out.println("Post is missing thus successfully deleted!");
+    }
+
     public void admin_Delete_Comment_Of_An_User() {
         auto_Login(ADMIN_USERNAME, ADMIN_PASSWORD);
         actions.isElementPresentUntilTimeout(LATEST_POST_BUTTON, 5);
