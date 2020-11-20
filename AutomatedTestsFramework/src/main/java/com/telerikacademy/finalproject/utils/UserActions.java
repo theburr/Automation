@@ -61,6 +61,12 @@ public class UserActions {
         //enter the file path onto the file-selection input field
         element.sendKeys(locator);
     }
+    public void uploadPic(String key,Object... arguments){
+        WebElement element = driver.findElement(By.xpath("//input[@id='picture']"));
+        String locator = Utils.getUIMappingByKey(key, arguments);
+        //enter the file path onto the file-selection input field
+        element.sendKeys(locator);
+    }
 
     //############# WAITS #########
 
