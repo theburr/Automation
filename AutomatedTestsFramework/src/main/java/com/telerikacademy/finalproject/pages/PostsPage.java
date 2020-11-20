@@ -106,7 +106,7 @@ public class PostsPage extends LoginPage {
         auto_Login(USER_USERNAME, USER_PASSWORD);
         actions.isElementPresentUntilTimeout(HOME_BUTTON, 5);
         actions.clickElement(HOME_BUTTON);
-        actions.isElementPresentUntilTimeout(PROFILE_BUTTON, 20);
+        actions.isElementPresentUntilTimeout(PROFILE_BUTTON, 10);
         actions.clickHiddenElement(PROFILE_BUTTON);
         actions.isElementPresentUntilTimeout(POST_TITLE_EDIT, 10);
         actions.assertElementPresent(POST_TITLE_EDIT);

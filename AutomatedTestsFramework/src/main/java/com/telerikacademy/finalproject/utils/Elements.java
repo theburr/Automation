@@ -1,7 +1,5 @@
 package com.telerikacademy.finalproject.utils;
 
-import javax.print.DocFlavor;
-
 import static com.telerikacademy.finalproject.utils.Utils.getUIMappingByKey;
 
 public interface Elements {
@@ -11,6 +9,9 @@ public interface Elements {
     String USER_USERNAME = "user.Username";
     String USER_PASSWORD = "user.Password";
 
+    String USERNAME_FIELD = "username.Field";
+    String PASSWORD_FIELD = "password.Field";
+
     String DELETE_BUTTON = "deletePostButton";
 
     String FIRST_USER_PROFILE = "users.firstUserProfile";
@@ -19,7 +20,7 @@ public interface Elements {
     String ADMIN_POST_FOR_DELETION = "adminPostForDeletion";
     String LATEST_POST_BUTTON = "latestPostButton";
     String EDIT_POST_BUTTON = "editPostButton";
-    String CONFIRM_BUTTON = "confirmActionsPostButton";
+    String CONFIRM_BUTTON = "confirmActionsButton";
     String POST_TYPE_TITLE = getUIMappingByKey("post.TypeTitle");
     String POST_TYPE_TEXT = getUIMappingByKey("post.TypeText");
     String POST_NEW_TITLE = getUIMappingByKey("post.TypeNewTitle");
@@ -57,4 +58,18 @@ public interface Elements {
     String SIGN_IN_BUTTON = "navigation.SignIn";
     String LOG_OUT_BUTTON = "navigation.LogOut";
     String CATEGORIES_BUTTON = "admin.CategoriesBtn";
+
+    String WRONG_MESSAGE = "negative.WrongMessage";
+    String SIGN_UP_BUTTON = "signUp.button";
+    String PASSWORD_CONFIRM_FIELD = "field.PasswordConfirm";
+
+    String FIRST_NAME_FIELD = "user.FirstNameField";
+    String LAST_NAME_FIELD = "user.LastNameField";
+    String FIRST_NAME = getUIMappingByKey("user.FirstName");
+    String LAST_NAME = getUIMappingByKey("user.LastName");
+    String MENU_TYPE_VISIBILITY = "menu.TypeVisibility";
+    String MENU_VISIBILITY = "menu.Visibility";
+    String ERROR_PAGE = "error.Page";
+    String LOGOUT_BUTTON = "logout.Button";
+
 }
