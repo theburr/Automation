@@ -1,5 +1,6 @@
 package testCases;
 
+import com.telerikacademy.finalproject.pages.CategoriesAdminPage;
 import com.telerikacademy.finalproject.pages.LoginPage;
 import com.telerikacademy.finalproject.pages.NavigationPage;
 import com.telerikacademy.finalproject.pages.PostsPage;
@@ -9,7 +10,7 @@ import org.junit.runners.MethodSorters;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
-public class HappyPathHFSN extends BaseTest {
+public class CriticalPriority extends BaseTest {
 
     @Test
     public void test_001_navigate_To_Home_Using_Navigation(){
@@ -17,6 +18,7 @@ public class HappyPathHFSN extends BaseTest {
         actions.clickElement(navPage.HOME_BUTTON);
         navPage.assertPageNavigated();
     }
+
     @Test
     public void test_002_login_HFSN_With_Right_Credentials(){
         LoginPage logPage = new LoginPage();
@@ -29,30 +31,34 @@ public class HappyPathHFSN extends BaseTest {
         postsPage.registered_User_Write_New_Post();
         postsPage.assert_New_Post_Is_Posted();
     }
+
     @Test
-    public void test_004_edit_Post_As_User(){
-        PostsPage postsPage = new PostsPage();
-        postsPage.registered_User_Can_Edit_His_Post();
-        postsPage.assert_The_Post_Is_Edited();
-    }
-    @Test
-    public void test_005_delete_Post_As_User(){
-        PostsPage postsPage = new PostsPage();
-        postsPage.registered_User_Can_Delete_His_Post();
-        postsPage.assert_The_Post_Is_Deleted();
-    }
-    @Test
-    public void test_006_user_can_comment_Post(){
+    public void test_004_user_can_comment_Post(){
         PostsPage postPage = new PostsPage();
         postPage.registered_User_Can_Comment_A_Post();
         postPage.assert_The_Comment_Is_Posted();
     }
+
     @Test
-    public void test_007_user_Can_Delete_His_Comment(){
-        PostsPage postPage = new PostsPage();
-        postPage.registered_User_Can_Delete_His_Comment();
-        postPage.assert_The_Comment_Is_Deleted();
-   }
+    public void test_005_delete_User_Post_As_Admin() {
+        PostsPage postsPage = new PostsPage();
+        postsPage.admin_Delete_Post_Of_An_User();
+        postsPage.assert_Post_Is_Deleted();
+    }
+
+    @Test
+    public void test_006_delete_Comment_Of_An_User() {
+        PostsPage postsPage = new PostsPage();
+        postsPage.admin_Delete_Comment_Of_An_User();
+        postsPage.assert_Comment_Is_Deleted();
+    }
+
+    @Test
+    public void test_007_create_Category() {
+        CategoriesAdminPage catePage = new CategoriesAdminPage();
+        catePage.create_Category_Admin();
+        catePage.assert_Category_Is_Created();
+    }
 
 }
 
