@@ -17,15 +17,15 @@ public class StepDefinitions extends BaseStepDefinitions{
         actions.clickElement(element);
     }
 
-    @Given("Type $value in $name field")
-    @When("Type $value in $name field")
-    @Then("Type $value in $name field")
+    @Given("Type $name in $name field")
+    @When("Type $name in $name field")
+    @Then("Type $name in $name field")
     public void typeInField(String value, String field){
         actions.typeValueInField(value, field);
     }
-    @Given("Wait for $element")
-    @When("Wait for $element")
-    @Then("Wait for $element")
+
+    @When("Wait for $element, $value seconds")
+    @Then("Wait for $element, $value seconds")
     public void waitForElement(String locator,int timeout){
         actions.isElementPresentUntilTimeout(locator, timeout);
     }
