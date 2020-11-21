@@ -17,7 +17,6 @@ public class LoginPage extends NavigationPage implements Login {
         actions.assertElementPresent(LOG_OUT_BUTTON);
     }
 
-
     public void user_is_trying_to_logIn_with_invalid_credentials() {
         actions.clickElement(SIGN_IN_BUTTON);
         actions.isElementPresentUntilTimeout(USERNAME_FIELD, 10);

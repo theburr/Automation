@@ -30,7 +30,7 @@ public class Runner extends JUnitStories {
         public Runner() {
             super();
             Embedder embedder = configuredEmbedder();
-            String metaFilters = "endToEnd";
+            String metaFilters = "LogIN";
             embedder.useMetaFilters(Arrays.asList(metaFilters));
 
             EmbedderControls embedderControls = embedder.embedderControls();
