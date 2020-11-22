@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "ec3d9df7-2ed1-473f-b994-085ed666de1d",
+		"_postman_id": "332c6747-509a-497d-88ff-7e3c10ffc602",
 		"name": "HealthyFoodSocialNetwork",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -9,12 +9,69 @@
 			"name": "Categories",
 			"item": [
 				{
+					"name": "AuthenticationCategories",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4b4bdeca-f289-4270-ad26-f9ce903a5786",
+								"exec": [
+									"pm.collectionVariables.set('SessionCookie', pm.cookies.get(\"JSESSIONID\"));\r",
+									"\r",
+									"console.log(pm.cookies.get(\"JSESSIONID\"));\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "{{Admin_UserName}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{Admin_Pass}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/authenticate",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"authenticate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "GetAllCategories",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
-								"id": "ede70da5-426b-42f0-a86a-d2875238e6b5",
+								"id": "d5e45a96-3534-4799-a75b-615daa192d86",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
@@ -47,7 +104,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "8436fd89-2a2b-4213-b12c-50c8f247cbcb",
+								"id": "827b2a1d-988e-4241-9b68-883dd951b5e8",
 								"exec": [
 									"pm.request.headers.add({\r",
 									"key: \"Cookie\",\r",
@@ -62,11 +119,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/admin/categories",
+							"raw": "{{url}}/api/v1/admin/categories",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
+								"api",
+								"v1",
 								"admin",
 								"categories"
 							]
@@ -80,7 +139,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "d4029038-c307-4ed6-85c7-e14dc88313d9",
+								"id": "a2518399-36a0-4a83-a3c0-328d459814ad",
 								"exec": [
 									"var jsonData = pm.response.json();\r",
 									"\r",
@@ -113,7 +172,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "a69db70a-03c6-407d-b90c-4ffead8e1d71",
+								"id": "f1d39c3f-8d29-46dc-a9ef-c4dd3e79d8ba",
 								"exec": [
 									"pm.request.headers.add({\r",
 									"key: \"Cookie\",\r",
@@ -146,11 +205,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/admin/categories",
+							"raw": "{{url}}/api/v1/admin/categories",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
+								"api",
+								"v1",
 								"admin",
 								"categories"
 							]
@@ -164,7 +225,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "c9b27f58-1840-44c8-a843-408a7bbfa0a7",
+								"id": "4e164b0e-3c73-4942-9a29-ec2de64ba636",
 								"exec": [
 									"var jsonData = pm.response.json();\r",
 									"\r",
@@ -188,7 +249,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "aba75d92-f03c-4b9e-a23d-f48eec59d040",
+								"id": "60ef7ac4-77f8-424e-981a-4396f75daf2b",
 								"exec": [
 									"pm.request.headers.add({\r",
 									"key: \"Cookie\",\r",
@@ -221,11 +282,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/admin/categories/{{CategoryID}}",
+							"raw": "{{url}}/api/v1/admin/categories/{{CategoryID}}",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
+								"api",
+								"v1",
 								"admin",
 								"categories",
 								"{{CategoryID}}"
@@ -240,7 +303,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "2896f7c6-22dc-4f42-bc47-51975abc2831",
+								"id": "bfd8fbff-4fe0-45ce-b6e4-653641911851",
 								"exec": [
 									"var jsonData = pm.response.json();\r",
 									"\r",
@@ -259,7 +322,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "370994c1-7731-4107-ba4d-809ac2b2f2e4",
+								"id": "fbc3d48a-afaa-40ab-acdd-939f23f1f01e",
 								"exec": [
 									"pm.request.headers.add({\r",
 									"key: \"Cookie\",\r",
@@ -284,11 +347,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/admin/categories/{{CategoryID}}",
+							"raw": "{{url}}/api/v1/admin/categories/{{CategoryID}}",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
+								"api",
+								"v1",
 								"admin",
 								"categories",
 								"{{CategoryID}}"
@@ -304,12 +369,69 @@
 			"name": "Comments",
 			"item": [
 				{
+					"name": "AuthenticationComments",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d2f8351d-c52d-485e-b8e5-925d20fd6206",
+								"exec": [
+									"pm.collectionVariables.set('SessionCookie', pm.cookies.get(\"JSESSIONID\"));\r",
+									"\r",
+									"console.log(pm.cookies.get(\"JSESSIONID\"));\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "{{Admin_UserName}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{Admin_Pass}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/authenticate",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"authenticate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "GetCommentByID",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
-								"id": "7a65da84-f4ee-4572-83dd-1b19ed67d903",
+								"id": "1282d7df-817f-4c4d-897a-4a8ac1d1e088",
 								"exec": [
 									"var jsonData = pm.response.json();\r",
 									"\r",
@@ -335,11 +457,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/comments/2",
+							"raw": "{{url}}/api/v1/comments/2",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
+								"api",
+								"v1",
 								"comments",
 								"2"
 							]
@@ -353,7 +477,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "e90f2724-1905-4268-ae67-df4d618ab77d",
+								"id": "738d51fe-3041-480e-87e5-eb6244b0670d",
 								"exec": [
 									"var jsonData = pm.response.json();\r",
 									"\r",
@@ -376,7 +500,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "d197692d-b402-4347-b8e9-0edd035a6181",
+								"id": "303cdfe7-e8be-4915-85e1-e3ec0f6a7727",
 								"exec": [
 									"pm.request.headers.add({\r",
 									"key: \"Cookie\",\r",
@@ -400,11 +524,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/comments/2",
+							"raw": "{{url}}/api/v1/comments/2",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
+								"api",
+								"v1",
 								"comments",
 								"2"
 							]
@@ -418,7 +544,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "c3628959-9852-4ab0-9bcf-5855629e632a",
+								"id": "f1eb11c9-a234-4662-9a50-3e74e2d11ffb",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
@@ -438,11 +564,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/comments/2/likes",
+							"raw": "{{url}}/api/v1/comments/2/likes",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
+								"api",
+								"v1",
 								"comments",
 								"2",
 								"likes"
@@ -457,7 +585,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "6d3088fd-a985-4ae0-9a09-7b8a7109c46f",
+								"id": "2c08d283-1e3d-4ea3-90a7-26ff84c8321c",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
@@ -480,11 +608,13 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/comments/2/likes",
+							"raw": "{{url}}/api/v1/comments/2/likes",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
+								"api",
+								"v1",
 								"comments",
 								"2",
 								"likes"
@@ -499,7 +629,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "bf9f744f-7ff6-4dc9-9bba-33ba3c80183d",
+								"id": "52c74833-f9d9-4dfb-a3a4-34e33f851c88",
 								"exec": [
 									"var jsonData = pm.response.json();\r",
 									"\r",
@@ -532,11 +662,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/posts/2/comments",
+							"raw": "{{url}}/api/v1/posts/2/comments",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
+								"api",
+								"v1",
 								"posts",
 								"2",
 								"comments"
@@ -551,7 +683,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "52be6bdc-fe8d-4354-aa18-d58dfd53c4c8",
+								"id": "42f318e0-2211-4a9c-b830-646440709119",
 								"exec": [
 									"var jsonData = pm.response.json();\r",
 									"\r",
@@ -589,11 +721,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/posts/2/comments",
+							"raw": "{{url}}/api/v1/posts/2/comments",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
+								"api",
+								"v1",
 								"posts",
 								"2",
 								"comments"
@@ -608,7 +742,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "9f06fbf5-e348-480f-ac3c-dc9f1ab51f34",
+								"id": "daebddcb-2c9a-4ab8-92e4-f817c7fbb4fc",
 								"exec": [
 									"var jsonData = pm.response.json();\r",
 									"\r",
@@ -627,11 +761,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/posts/2/latest_comments",
+							"raw": "{{url}}/api/v1/posts/2/latest_comments",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
+								"api",
+								"v1",
 								"posts",
 								"2",
 								"latest_comments"
@@ -647,12 +783,69 @@
 			"name": "Connections",
 			"item": [
 				{
+					"name": "AuthenticationConnections",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f5f08352-134a-4085-93a3-d435a6c9bf3a",
+								"exec": [
+									"pm.collectionVariables.set('SessionCookie', pm.cookies.get(\"JSESSIONID\"));\r",
+									"\r",
+									"console.log(pm.cookies.get(\"JSESSIONID\"));\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "{{Admin_UserName}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{Admin_Pass}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/authenticate",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"authenticate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "SendConnectionRequest",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
-								"id": "e095ed47-8b8f-403c-b014-4aeb652b21c7",
+								"id": "71b7ec5b-7364-4318-8b78-ba1f1ef471a5",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
@@ -681,11 +874,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/connections/users/3",
+							"raw": "{{url}}/api/v1/connections/users/3",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
+								"api",
+								"v1",
 								"connections",
 								"users",
 								"3"
@@ -700,7 +895,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "6cc51db0-e923-4ba0-a92c-57326f81fa34",
+								"id": "5a825ac0-1912-41d9-9c9b-438c020ca850",
 								"exec": [
 									""
 								],
@@ -710,7 +905,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "f6802772-5cb0-447f-a4c4-7345f7f869ec",
+								"id": "4b2ad50c-09b0-4db8-9cda-bd668d32803e",
 								"exec": [
 									"var data = JSON.parse(responseBody); \r",
 									"\r",
@@ -750,7 +945,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "5c7ad05a-81fb-481b-8008-c29d45f7101c",
+								"id": "ca6fc99b-1e00-482d-bfae-0f704cad9822",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
@@ -768,11 +963,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/connections/requests",
+							"raw": "{{url}}/api/v1/connections/requests",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
+								"api",
+								"v1",
 								"connections",
 								"requests"
 							]
@@ -786,7 +983,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "a064d173-a2d5-442b-83a1-7a44560a237c",
+								"id": "161e443c-d280-439b-9703-8128e7d08d87",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
@@ -829,11 +1026,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/connections/my",
+							"raw": "{{url}}/api/v1/connections/my",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
+								"api",
+								"v1",
 								"connections",
 								"my"
 							]
@@ -847,7 +1046,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "52af71a1-56c6-4c20-adc1-4387887b8503",
+								"id": "cdabb316-3bef-48b3-9981-3410af9788ee",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
@@ -869,7 +1068,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "7b8c0155-e330-4128-bf06-e509089c3734",
+								"id": "6cad3bf7-35dc-4d5e-a0b4-871f3f510c8c",
 								"exec": [
 									""
 								],
@@ -881,11 +1080,13 @@
 						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/connections/{{ConnectionID}}",
+							"raw": "{{url}}/api/v1/connections/{{ConnectionID}}",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
+								"api",
+								"v1",
 								"connections",
 								"{{ConnectionID}}"
 							]
@@ -899,7 +1100,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "da86a503-2bd3-4481-8a91-d19e577e97af",
+								"id": "a021b818-c2ca-4d3d-83bb-d32793d7d684",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
@@ -935,13 +1136,1055 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/connections/{{ConnectionID}}",
+							"raw": "{{url}}/api/v1/connections/{{ConnectionID}}",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
+								"api",
+								"v1",
 								"connections",
 								"{{ConnectionID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "AuthenticationUsers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dcf3231f-8735-4be6-a0b4-2d24012ac23c",
+								"exec": [
+									"pm.collectionVariables.set('SessionCookie', pm.cookies.get(\"JSESSIONID\"));\r",
+									"\r",
+									"console.log(pm.cookies.get(\"JSESSIONID\"));\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "{{Admin_UserName}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{Admin_Pass}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/authenticate",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"authenticate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "18f9841c-9f65-492c-9ab1-ced478a143e4",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"var data = JSON.parse(responseBody);   \r",
+									"pm.collectionVariables.set(\"idUser\", data[3].id);\r",
+									"\r",
+									"var data = JSON.parse(responseBody);   \r",
+									"pm.collectionVariables.set(\"emailUser\", data[3].email);\r",
+									"\r",
+									"stringofnumbers = pm.collectionVariables.get(\"numberOfUsers\")\r",
+									"var numberOfUsers = parseInt(stringofnumbers);\r",
+									"\r",
+									"pm.test(\"Assert if correct number of users is returned.\", function () {\r",
+									"    var jsonData = JSON.parse(responseBody);   \r",
+									"pm.expect(jsonData.length).to.eql(numberOfUsers);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User By ID",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "3921e99a-58bb-4126-9cd9-e81b3fbdecd3",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "87dd9e93-d836-4941-8a96-c0559d4a866a",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"var id = pm.collectionVariables.get(\"idUser\");\r",
+									"var userID = parseInt(id);\r",
+									"\r",
+									"pm.test(\"Assert user with the requested ID should be returned.\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.id).to.eql(id);\r",
+									"});\r",
+									"\r",
+									"pm.collectionVariables.set(\"initialUser\", pm.response.json());\r",
+									"\r",
+									"var userEmail = pm.collectionVariables.get(\"emailUser\");\r",
+									"\r",
+									"pm.test(\"Assert body matches \", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(userEmail);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/users/{{idUser}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{idUser}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "c1a64384-c8ea-4218-a268-0ee6fadfda0e",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "4c193b11-6204-4290-8386-13b242a1d74c",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"initialUser = pm.collectionVariables.get(\"user\")\r",
+									"\r",
+									"pm.test(\"Assert updated user must be different than the initial.\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).not.to.eql(initialUser);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/ivang/Desktop/Final/zionalphaqaproject/Postman/userProfilePicture.jpg"
+								},
+								{
+									"key": "user",
+									"type": "file",
+									"src": "/C:/Users/ivang/Desktop/Final/zionalphaqaproject/Postman/user.json"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/users/{{idUser}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{idUser}}"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1e7dba06-4516-45b6-a49b-a8dd029c8340",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"userID = pm.collectionVariables.get(\"idUser\");\r",
+									"\r",
+									"pm.test(\"Assert user with the given ID must not be shown after deletion.\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.id).not.to.eql(userID);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/users/{{idUser}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{idUser}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Nationalities",
+			"item": [
+				{
+					"name": "AuthenticationNationalities",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "41a63379-b503-4110-b0ab-f9b4e82d1044",
+								"exec": [
+									"pm.collectionVariables.set('SessionCookie', pm.cookies.get(\"JSESSIONID\"));\r",
+									"\r",
+									"console.log(pm.cookies.get(\"JSESSIONID\"));\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "{{Admin_UserName}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{Admin_Pass}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/authenticate",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"authenticate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show All Nationalities",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "78eda433-de44-41c4-b34d-37b6bf405f01",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"var number = pm.collectionVariables.get(\"numberOfNationalities\");\r",
+									"var numberOfNationalities = parseInt(number);\r",
+									"\r",
+									"pm.test(\"Assert if 194 objects are returned.\", function () {\r",
+									"    var jsonData = JSON.parse(responseBody);   \r",
+									"pm.expect(jsonData.length).to.eql(numberOfNationalities);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/admin/nationalities",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"nationalities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Nationality",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8a115f7b-98f1-4dff-ad8a-d767d2883542",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Successful POST request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 202 ,200]);\r",
+									"});\r",
+									"\r",
+									"pm.collectionVariables.set(\"idNationality\" , pm.response.json().id)\r",
+									"\r",
+									"pm.collectionVariables.set(\"createdNationality\", pm.response.json());\r",
+									"\r",
+									"var nationalityTitle = pm.collectionVariables.get(\"nationalityTitle\")\r",
+									"\r",
+									"pm.test(\"Assert body data of a nationality should be returned.\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.nationality).to.eql(nationalityTitle);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nationality\": \"Banani\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/admin/nationalities",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"nationalities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Nationality",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9a65d687-91e4-47e4-b45e-cf404176ef8d",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"createdNationality = pm.collectionVariables.get(\"createdNationality\")\r",
+									"\r",
+									"pm.test(\"Assert updated nationality must be different than the initial\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).not.to.eql(createdNationality);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : {{idNationality}},\r\n  \"nationality\": \"BananiUpdated\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/admin/nationalities",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"nationalities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Nationality",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "40516556-c15c-4d1a-afff-d676ff7c3d22",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"createdIdNationality = pm.environment.get(\"idNationality\");\r",
+									"\r",
+									"pm.test(\"Assert nationality with the given ID must not be shown after deletion.\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.id).not.to.eql(createdIdPost);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : 197,\r\n  \"nationality\": \"BananiUpdated\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/admin/nationalities/{{idNationality}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"nationalities",
+								"{{idNationality}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Posts",
+			"item": [
+				{
+					"name": "AuthenticationPosts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4dafa590-ea89-4bf2-a880-8c15debefe13",
+								"exec": [
+									"pm.collectionVariables.set('SessionCookie', pm.cookies.get(\"JSESSIONID\"));\r",
+									"\r",
+									"console.log(pm.cookies.get(\"JSESSIONID\"));\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "{{Admin_UserName}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{Admin_Pass}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/authenticate",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"authenticate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Public Posts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b6e0cfcc-4c4d-4118-b1c3-8d42d14b14a6",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Assert if a public posts is returned.\", function () {\r",
+									"    var jsonData = JSON.parse(responseBody);   \r",
+									"pm.expect(jsonData[1].visibility.type).to.eql(\"public\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/posts?category=1&page=0&size=5",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"posts"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "1"
+								},
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create A Post",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "403ca95f-d703-4025-a27a-ae2186917fdd",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Successful POST request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 202 ,200]);\r",
+									"});\r",
+									"\r",
+									"pm.collectionVariables.set(\"createdPost\", pm.response.json());\r",
+									"\r",
+									"pm.collectionVariables.set(\"idPost\" , pm.response.json().id)\r",
+									"idPost = pm.collectionVariables.get(\"idPost\")\r",
+									"\r",
+									"pm.test(\"Assert body data of a post should be returned.\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.id).to.eql(idPost);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "post",
+									"type": "file",
+									"src": "/C:/Users/ivang/Desktop/Final/zionalphaqaproject/Postman/post.json"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/posts",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Post By Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "34357167-b12f-4c39-acfb-bc5242abd350",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"var idPost = pm.collectionVariables.get(\"idPost\");\r",
+									"\r",
+									"pm.test(\"Assert the requested post with the given id is returned.\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.id).to.eql(idPost);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/posts/{{idPost}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"posts",
+								"{{idPost}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update A Post",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d3206927-f27d-477c-9798-ea185c30ffd1",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"createdPost = pm.collectionVariables.get(\"createdPost\")\r",
+									"\r",
+									"pm.test(\"Assert updated post must be different than the initial.\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).not.to.eql(createdPost);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "post",
+									"type": "file",
+									"src": "/C:/Users/ivang/Desktop/Final/zionalphaqaproject/Postman/REpost.json"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/ivang/Desktop/Final/zionalphaqaproject/Postman/postImage.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/posts/{{idPost}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"posts",
+								"{{idPost}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Post's Likes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "614b73b2-a61c-44f9-8be3-42883013d244",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.collectionVariables.set(\"isInteger\" ,pm.response.json());\r",
+									"var isInteger = Number.isInteger(pm.collectionVariables.get(\"isInteger\"));\r",
+									"\r",
+									"pm.test(\"Assert a number should be returned.\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(Number.isInteger(jsonData)).to.eql(isInteger);\r",
+									"});\r",
+									"pm.collectionVariables.set(\"numLikes\" , pm.response.json())"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/posts/{{idPost}}/likes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"posts",
+								"{{idPost}}",
+								"likes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Like A Post",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "648bab25-6d31-485f-9e5f-f08b60877501",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Successful POST request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201,202]);\r",
+									"});\r",
+									"\r",
+									"var initialLikes = pm.collectionVariables.get(\"numLikes\");\r",
+									"\r",
+									"pm.test(\"Assert likes Must Be More Than The Initial.\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).greaterThan(initialLikes);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/posts/{{idPost}}/likes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"posts",
+								"{{idPost}}",
+								"likes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Of My Posts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0493c2cf-cebf-4311-9a32-14b91e98a1d1",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"var creator = pm.collectionVariables.get(\"Admin_UserName\");\r",
+									"\r",
+									"pm.test(\"Assert if post of the given user is returned.\", function () {\r",
+									"    var jsonData = JSON.parse(responseBody);   \r",
+									"pm.expect(jsonData[0].creator.email).to.eql(creator);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/posts/my?page=1&size=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"posts",
+								"my"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Of Top 3 Posts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c0ea894b-2f02-41a9-aeec-36060b1eb514",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Assert if 3 objects are returned.\", function () {\r",
+									"    var jsonData = JSON.parse(responseBody);   \r",
+									"pm.expect(jsonData.length).to.eql(3);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/posts/top",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"posts",
+								"top"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete A Post",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7354228a-3ccd-489c-aeb5-65825fcc929c",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"createdIdPost = pm.collectionVariables.get(\"idPost\");\r",
+									"\r",
+									"pm.test(\"Assert post with the given ID must not be shown after deletion.\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.id).not.to.eql(createdIdPost);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/posts/{{idPost}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"posts",
+								"{{idPost}}"
 							]
 						}
 					},
@@ -955,7 +2198,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "9c27e50c-d163-4e89-bdb7-3b32d8b2e8df",
+				"id": "830df001-77b6-4585-8978-2990ed19ece8",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -965,7 +2208,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "e9c3a3a0-d3ca-4a9d-a8d2-356252db715b",
+				"id": "7d063cfe-1038-4551-b61b-9a2ced1a3efe",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -975,49 +2218,129 @@
 	],
 	"variable": [
 		{
-			"id": "b41017ba-aaa1-45bf-8be1-41cb79baf5e2",
+			"id": "e3cadd97-e217-4222-ad8f-46f16dee464f",
 			"key": "CommentDesc",
 			"value": "Esse aliquid laudantium rerum ea provident enim voluptatem."
 		},
 		{
-			"id": "dcc57788-5eb6-4971-ba33-5a001d214f8f",
+			"id": "83ae12d2-9e0e-4108-ae8d-c3b6f3149cf5",
 			"key": "CommentedPostID",
-			"value": 4
+			"value": "4"
 		},
 		{
-			"id": "d4ccc219-5601-4be4-a606-a45be7447434",
+			"id": "4d3a329b-c126-47a7-8b29-d1a1056ffbc3",
 			"key": "CommentCreatorID",
-			"value": 1
+			"value": "1"
 		},
 		{
-			"id": "eaa27634-e2a4-4ac1-a23e-f66bbf86b98b",
+			"id": "375f09c8-ba48-4186-bd1c-a58bb3f16846",
 			"key": "CategoryID",
 			"value": ""
 		},
 		{
-			"id": "0696eb8d-e328-48a3-b50e-5fcf07e03de9",
+			"id": "03ff7d5b-5545-42dd-9d64-b3bbd9c86a0a",
 			"key": "CountOfCommentLikes",
-			"value": 1
+			"value": "1"
 		},
 		{
-			"id": "4817ccb6-b886-40f4-bca9-69a6ea40b1b3",
+			"id": "b6affe16-3eff-44c5-9d78-e1a9dff71ae0",
 			"key": "CommentOfPost",
-			"value": null
+			"value": ""
 		},
 		{
-			"id": "955a8194-484b-46f9-862b-4afc765e042c",
+			"id": "5f18f513-85ea-45d6-a0d1-ab2e8774ecdd",
 			"key": "TimeStampOfCommentOfPost",
-			"value": null
+			"value": ""
 		},
 		{
-			"id": "87cadbcc-105c-44b0-b4bb-8b6b467a7a4e",
+			"id": "11e7ace8-d899-4309-bf55-314b1ef0f690",
 			"key": "ConnectionID",
 			"value": ""
 		},
 		{
-			"id": "7fddcbd0-b5d8-4bd2-a2bf-0cec6866f157",
+			"id": "5193e07f-f732-444e-a8b9-171a2f96aedd",
 			"key": "CommentIfPostID",
-			"value": null
+			"value": ""
+		},
+		{
+			"id": "6b4c1574-cb84-4d44-b203-a8c4d49e272e",
+			"key": "Admin_UserName",
+			"value": "zionalpha22qa@gmail.com"
+		},
+		{
+			"id": "1d429973-fb64-4a91-afbd-98378db13d26",
+			"key": "Admin_Pass",
+			"value": "telerikAlphaQA22$"
+		},
+		{
+			"id": "eb407c1b-cc7a-49f4-b146-f51f3e0ee566",
+			"key": "SessionCookie",
+			"value": ""
+		},
+		{
+			"id": "d8517027-8b70-4766-bd43-1f2b67e43afa",
+			"key": "numberOfUsers",
+			"value": "4"
+		},
+		{
+			"id": "fb611309-7440-45fc-b55f-1542fec41f62",
+			"key": "numberOfNationalities",
+			"value": "194"
+		},
+		{
+			"id": "b4496945-4c87-4a38-8e0f-296c412da9ea",
+			"key": "nationalityTitle",
+			"value": "Banani"
+		},
+		{
+			"id": "b5974232-5b0a-4d6b-b28e-975cc400c4df",
+			"key": "nationalityTitle",
+			"value": ""
+		},
+		{
+			"id": "d1d8fcd4-6439-4e01-b5cb-3a6f44ac391f",
+			"key": "createdNationality",
+			"value": ""
+		},
+		{
+			"id": "da2fcbb7-10a6-4bde-9255-ece43c00c32c",
+			"key": "idNationality",
+			"value": ""
+		},
+		{
+			"id": "6f42a527-09e5-4b56-a05a-37e3e0a1c5b8",
+			"key": "initialUser",
+			"value": ""
+		},
+		{
+			"id": "b4126a5d-9c67-445c-ae5a-0933b262ebef",
+			"key": "idUser",
+			"value": ""
+		},
+		{
+			"id": "3f6695a6-6a93-42c5-9cdd-dc730f0d65c6",
+			"key": "createdPost",
+			"value": ""
+		},
+		{
+			"id": "24c67fbe-3045-4027-8ffb-e254adcec23e",
+			"key": "idPost",
+			"value": ""
+		},
+		{
+			"id": "07b6acfd-8324-4873-8f53-7d38840ff113",
+			"key": "numLikes",
+			"value": ""
+		},
+		{
+			"id": "ff0f8c0f-f3eb-4180-a127-dbc14af22124",
+			"key": "isInteger",
+			"value": ""
+		},
+		{
+			"id": "93dd3bc7-d1b6-411f-82f6-d71fc3fee94c",
+			"key": "emailUser",
+			"value": ""
 		}
 	],
 	"protocolProfileBehavior": {}
