@@ -9,23 +9,23 @@ import org.jbehave.core.annotations.BeforeStories;
 import javax.lang.model.util.Elements;
 
 public class BaseStepDefinitions {
-//    @BeforeStories
-//    public void beforeStories(){
-//        UserActions.loadBrowser("base.url");
-//    }
-
-//    @AfterStories
-//    public void afterStories(){
-//        UserActions.quitDriver();
-//    }
-
-    @BeforeScenario
+    @BeforeStories
     public void beforeStories(){
         UserActions.loadBrowser("base.url");
     }
 
-    @AfterScenario
+    @AfterStories
     public void afterStories(){
         UserActions.quitDriver();
     }
+
+//    @BeforeScenario
+//    public void beforeStories(){
+//        UserActions.loadBrowser("base.url");
+//    }
+//
+//    @AfterScenario
+//    public void afterStories(){
+//        UserActions.quitDriver();
+//    }
 }

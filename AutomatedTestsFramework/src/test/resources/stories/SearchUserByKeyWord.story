@@ -23,3 +23,5 @@ And Click myFriend element
 Then Assert that confirmActionsButton present
 
 Given Click logout.Button element
+When Wait for logInHomeButton, 5 seconds
+Then Click logInHomeButton element
