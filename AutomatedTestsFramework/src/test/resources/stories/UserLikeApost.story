@@ -25,4 +25,6 @@ And Click post.LikeButton element
 Then Assert that post.DislikeButton present
 
 Given Click post.DislikeButton element
-Then Click logout.Button element
+When Click logout.Button element
+When Wait for logInHomeButton, 5 seconds
+Then Click logInHomeButton element

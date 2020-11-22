@@ -18,3 +18,5 @@ And Wait for post.TypeTitle, 10 seconds
 Then Assert that post.DeleteAssertion present
 
 Given Click logout.Button element
+When Wait for logInHomeButton, 5 seconds
+Then Click logInHomeButton element

@@ -22,3 +22,5 @@ And Click confirmActionsButton element
 Then Assert that userEditButton present
 
 Given Click logout.Button element
+When Wait for logInHomeButton, 5 seconds
+Then Click logInHomeButton element
