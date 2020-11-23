@@ -47,14 +47,14 @@ public class CriticalPriority extends BaseTest {
     }
 
     @Test
-    public void test_006_delete_Comment_Of_An_User() {
+    public void test_006_delete_Comment_Of_An_User_As_admin() {
         PostsPage postsPage = new PostsPage();
         postsPage.admin_Delete_Comment_Of_An_User();
         postsPage.assert_Comment_Is_Deleted();
     }
 
     @Test
-    public void test_007_create_Category() {
+    public void test_007_create_Category_As_Admin() {
         CategoriesAdminPage catePage = new CategoriesAdminPage();
         catePage.create_Category_Admin();
         catePage.assert_Category_Is_Created();
