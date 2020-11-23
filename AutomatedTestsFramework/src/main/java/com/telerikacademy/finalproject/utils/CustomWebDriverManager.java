@@ -3,6 +3,7 @@ package com.telerikacademy.finalproject.utils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 
@@ -25,7 +26,11 @@ public class CustomWebDriverManager {
 
 		private WebDriver setupBrowser(){
 			WebDriverManager.chromedriver().setup();
-			WebDriver chromeDriver = new ChromeDriver();
+		//// ### Remove Chrome option from code to run browser ###////
+			ChromeOptions chromeOptions = new ChromeOptions();
+			chromeOptions.addArguments("--headless");
+
+			WebDriver chromeDriver = new ChromeDriver(chromeOptions);
 			chromeDriver.manage().window().maximize();
 			driver = chromeDriver;
 			return chromeDriver;
