@@ -18,11 +18,7 @@
 								"exec": [
 									"pm.collectionVariables.set('SessionCookie', pm.cookies.get(\"JSESSIONID\"));\r",
 									"\r",
-									"console.log(pm.cookies.get(\"JSESSIONID\"));\r",
-									"\r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
+									"console.log(pm.cookies.get(\"JSESSIONID\"));"
 								],
 								"type": "text/javascript"
 							}
@@ -73,9 +69,7 @@
 							"script": {
 								"id": "d5e45a96-3534-4799-a75b-615daa192d86",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
+									"\r",
 									"var jsonData = pm.response.json();\r",
 									"\r",
 									"// pm.test(\"Assert that Categorie ID is greater than 0\", function () {\r",
@@ -106,10 +100,7 @@
 							"script": {
 								"id": "827b2a1d-988e-4241-9b68-883dd951b5e8",
 								"exec": [
-									"pm.request.headers.add({\r",
-									"key: \"Cookie\",\r",
-									"value: \"=\"\r",
-									"});"
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -143,10 +134,6 @@
 								"exec": [
 									"var jsonData = pm.response.json();\r",
 									"\r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
 									"pm.test(\"Assert that Categorie Name is string\", function () {\r",
 									"    pm.expect(jsonData.category).to.be.a('string');\r",
 									"});\r",
@@ -174,10 +161,7 @@
 							"script": {
 								"id": "f1d39c3f-8d29-46dc-a9ef-c4dd3e79d8ba",
 								"exec": [
-									"pm.request.headers.add({\r",
-									"key: \"Cookie\",\r",
-									"value: \"=\"\r",
-									"});"
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -229,10 +213,6 @@
 								"exec": [
 									"var jsonData = pm.response.json();\r",
 									"\r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
 									"pm.test(\"Assert that ID is the same and is not changed\", function () {\r",
 									"    pm.expect(jsonData.id).to.equal(pm.variables.get(\"CategoryID\"));\r",
 									"});\r",
@@ -251,10 +231,7 @@
 							"script": {
 								"id": "60ef7ac4-77f8-424e-981a-4396f75daf2b",
 								"exec": [
-									"pm.request.headers.add({\r",
-									"key: \"Cookie\",\r",
-									"value: \"=\"\r",
-									"});"
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -307,10 +284,6 @@
 								"exec": [
 									"var jsonData = pm.response.json();\r",
 									"\r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
 									"pm.test(\"Assert that CategorieID of deleted category is not exist in the list of categories\", function () {\r",
 									"    pm.expect(jsonData.id).not.eql(pm.collectionVariables.get(\"CategoryID\"));\r",
 									"});\r",
@@ -324,10 +297,7 @@
 							"script": {
 								"id": "fbc3d48a-afaa-40ab-acdd-939f23f1f01e",
 								"exec": [
-									"pm.request.headers.add({\r",
-									"key: \"Cookie\",\r",
-									"value: \"=\"\r",
-									"});"
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -379,10 +349,7 @@
 									"pm.collectionVariables.set('SessionCookie', pm.cookies.get(\"JSESSIONID\"));\r",
 									"\r",
 									"console.log(pm.cookies.get(\"JSESSIONID\"));\r",
-									"\r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -435,9 +402,6 @@
 								"exec": [
 									"var jsonData = pm.response.json();\r",
 									"\r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
 									"pm.test(\"Assert that comment is not empty\", function () {\r",
 									"        pm.expect(jsonData.description).not.null;\r",
 									"});\r",
@@ -481,9 +445,6 @@
 								"exec": [
 									"var jsonData = pm.response.json();\r",
 									"\r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
 									"pm.test(\"Assert that changed comment is for the same post\", function () {\r",
 									"    pm.expect(jsonData.post.id).to.equal(pm.collectionVariables.get(\"CommentedPostID\"));\r",
 									"});\r",
@@ -502,10 +463,7 @@
 							"script": {
 								"id": "303cdfe7-e8be-4915-85e1-e3ec0f6a7727",
 								"exec": [
-									"pm.request.headers.add({\r",
-									"key: \"Cookie\",\r",
-									"value: \"=\"\r",
-									"});"
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -587,10 +545,6 @@
 							"script": {
 								"id": "2c08d283-1e3d-4ea3-90a7-26ff84c8321c",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
 									"pm.test(\"There is response body and it is not null\", function () {\r",
 									"    var res = (_.isEmpty(responseBody));\r",
 									"    pm.expect(res).to.be.false\r",
@@ -632,10 +586,6 @@
 								"id": "52c74833-f9d9-4dfb-a3a4-34e33f851c88",
 								"exec": [
 									"var jsonData = pm.response.json();\r",
-									"\r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
 									"\r",
 									"pm.test(\"Assert that ID of post is different than 0\", function () {\r",
 									"        pm.expect(parseInt(jsonData.id)).not.equal(0);\r",
@@ -686,10 +636,6 @@
 								"id": "42f318e0-2211-4a9c-b830-646440709119",
 								"exec": [
 									"var jsonData = pm.response.json();\r",
-									"\r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
 									"\r",
 									"pm.test(\"Assert that new comment is different than previous\", function () {\r",
 									"    pm.expect(jsonData.description).not.eql(pm.collectionVariables.get(\"CommentOfPost\"));\r",
@@ -746,9 +692,6 @@
 								"exec": [
 									"var jsonData = pm.response.json();\r",
 									"\r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
 									"pm.test(\"Comment ID is greater than 0\", function () {\r",
 									"    pm.expect(jsonData.id).not.eq(0);\r",
 									"});"
@@ -793,10 +736,7 @@
 									"pm.collectionVariables.set('SessionCookie', pm.cookies.get(\"JSESSIONID\"));\r",
 									"\r",
 									"console.log(pm.cookies.get(\"JSESSIONID\"));\r",
-									"\r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -847,10 +787,6 @@
 							"script": {
 								"id": "71b7ec5b-7364-4318-8b78-ba1f1ef471a5",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
 									"pm.test(\"Assert that response body is not empty\", function () {\r",
 									"    var resB = (_.isEmpty(responseBody));\r",
 									"    pm.expect(resB).to.be.false\r",
@@ -947,9 +883,7 @@
 							"script": {
 								"id": "ca6fc99b-1e00-482d-bfae-0f704cad9822",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
+									"\r",
 									"pm.test(\"Assert that response body is not empty\", function () {\r",
 									"    var res = (_.isEmpty(responseBody));\r",
 									"    pm.expect(res).to.be.false\r",
@@ -1048,10 +982,6 @@
 							"script": {
 								"id": "cdabb316-3bef-48b3-9981-3410af9788ee",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
 									"var jsonData = pm.response.json();\r",
 									"\r",
 									"pm.test(\"Check connection sender ID\", function () {\r",
@@ -1102,10 +1032,6 @@
 							"script": {
 								"id": "a021b818-c2ca-4d3d-83bb-d32793d7d684",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
 									"var jsonData = pm.response.json();\r",
 									"    \r",
 									"pm.test(\"Assert that response body is not empty array\", function () {\r",
@@ -1166,11 +1092,7 @@
 								"exec": [
 									"pm.collectionVariables.set('SessionCookie', pm.cookies.get(\"JSESSIONID\"));\r",
 									"\r",
-									"console.log(pm.cookies.get(\"JSESSIONID\"));\r",
-									"\r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
+									"console.log(pm.cookies.get(\"JSESSIONID\"));"
 								],
 								"type": "text/javascript"
 							}
@@ -1221,11 +1143,6 @@
 							"script": {
 								"id": "18f9841c-9f65-492c-9ab1-ced478a143e4",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
-									"\r",
 									"var data = JSON.parse(responseBody);   \r",
 									"pm.collectionVariables.set(\"idUser\", data[3].id);\r",
 									"\r",
@@ -1279,10 +1196,6 @@
 							"script": {
 								"id": "87dd9e93-d836-4941-8a96-c0559d4a866a",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
 									"var id = pm.collectionVariables.get(\"idUser\");\r",
 									"var userID = parseInt(id);\r",
 									"\r",
@@ -1340,10 +1253,6 @@
 							"script": {
 								"id": "4c193b11-6204-4290-8386-13b242a1d74c",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
 									"initialUser = pm.collectionVariables.get(\"user\")\r",
 									"\r",
 									"pm.test(\"Assert updated user must be different than the initial.\", function () {\r",
@@ -1403,10 +1312,6 @@
 							"script": {
 								"id": "1e7dba06-4516-45b6-a49b-a8dd029c8340",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
 									"userID = pm.collectionVariables.get(\"idUser\");\r",
 									"\r",
 									"pm.test(\"Assert user with the given ID must not be shown after deletion.\", function () {\r",
@@ -1453,10 +1358,7 @@
 									"pm.collectionVariables.set('SessionCookie', pm.cookies.get(\"JSESSIONID\"));\r",
 									"\r",
 									"console.log(pm.cookies.get(\"JSESSIONID\"));\r",
-									"\r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -1507,10 +1409,6 @@
 							"script": {
 								"id": "78eda433-de44-41c4-b34d-37b6bf405f01",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
 									"var number = pm.collectionVariables.get(\"numberOfNationalities\");\r",
 									"var numberOfNationalities = parseInt(number);\r",
 									"\r",
@@ -1549,10 +1447,6 @@
 							"script": {
 								"id": "8a115f7b-98f1-4dff-ad8a-d767d2883542",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
 									"pm.test(\"Successful POST request\", function () {\r",
 									"    pm.expect(pm.response.code).to.be.oneOf([201, 202 ,200]);\r",
 									"});\r",
@@ -1570,6 +1464,17 @@
 								],
 								"type": "text/javascript"
 							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "9316bc68-a8fa-4136-a294-482813c00626",
+								"exec": [
+									"var nationalityTitle = pm.collectionVariables.set(\"nationalityTitle\",\"Banani\")\r",
+									""
+								],
+								"type": "text/javascript"
+							}
 						}
 					],
 					"request": {
@@ -1577,7 +1482,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"nationality\": \"Banani\"\r\n}",
+							"raw": "{\r\n  \"nationality\": \"{{nationalityTitle}}\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1607,11 +1512,9 @@
 							"script": {
 								"id": "9a65d687-91e4-47e4-b45e-cf404176ef8d",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
+									"var createdNationality = pm.collectionVariables.get(\"createdNationality\")\r",
 									"\r",
-									"createdNationality = pm.collectionVariables.get(\"createdNationality\")\r",
+									"pm.collectionVariables.set(\"nationalityTitle\" , pm.response.json().nationality)\r",
 									"\r",
 									"pm.test(\"Assert updated nationality must be different than the initial\", function () {\r",
 									"    var jsonData = pm.response.json();\r",
@@ -1657,15 +1560,10 @@
 							"script": {
 								"id": "40516556-c15c-4d1a-afff-d676ff7c3d22",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
+									"var nationalityTitle = pm.collectionVariables.get(\"nationalityTitle\");\r",
 									"\r",
-									"createdIdNationality = pm.environment.get(\"idNationality\");\r",
-									"\r",
-									"pm.test(\"Assert nationality with the given ID must not be shown after deletion.\", function () {\r",
-									"    var jsonData = pm.response.json();\r",
-									"    pm.expect(jsonData.id).not.to.eql(createdIdPost);\r",
+									"pm.test(\"Assert nationality with the given Title must not be shown after deletion.\", function () {\r",
+									"    pm.expect(pm.response.text()).not.to.include(nationalityTitle);\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -1716,11 +1614,7 @@
 								"exec": [
 									"pm.collectionVariables.set('SessionCookie', pm.cookies.get(\"JSESSIONID\"));\r",
 									"\r",
-									"console.log(pm.cookies.get(\"JSESSIONID\"));\r",
-									"\r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
+									"console.log(pm.cookies.get(\"JSESSIONID\"));"
 								],
 								"type": "text/javascript"
 							}
@@ -1771,9 +1665,6 @@
 							"script": {
 								"id": "b6e0cfcc-4c4d-4118-b1c3-8d42d14b14a6",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
 									"pm.test(\"Assert if a public posts is returned.\", function () {\r",
 									"    var jsonData = JSON.parse(responseBody);   \r",
 									"pm.expect(jsonData[1].visibility.type).to.eql(\"public\");\r",
@@ -1823,10 +1714,6 @@
 							"script": {
 								"id": "403ca95f-d703-4025-a27a-ae2186917fdd",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
 									"pm.test(\"Successful POST request\", function () {\r",
 									"    pm.expect(pm.response.code).to.be.oneOf([201, 202 ,200]);\r",
 									"});\r",
@@ -1880,10 +1767,6 @@
 							"script": {
 								"id": "34357167-b12f-4c39-acfb-bc5242abd350",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
 									"var idPost = pm.collectionVariables.get(\"idPost\");\r",
 									"\r",
 									"pm.test(\"Assert the requested post with the given id is returned.\", function () {\r",
@@ -1921,10 +1804,6 @@
 							"script": {
 								"id": "d3206927-f27d-477c-9798-ea185c30ffd1",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
 									"createdPost = pm.collectionVariables.get(\"createdPost\")\r",
 									"\r",
 									"pm.test(\"Assert updated post must be different than the initial.\", function () {\r",
@@ -1977,10 +1856,6 @@
 							"script": {
 								"id": "614b73b2-a61c-44f9-8be3-42883013d244",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
 									"pm.collectionVariables.set(\"isInteger\" ,pm.response.json());\r",
 									"var isInteger = Number.isInteger(pm.collectionVariables.get(\"isInteger\"));\r",
 									"\r",
@@ -2021,10 +1896,6 @@
 							"script": {
 								"id": "648bab25-6d31-485f-9e5f-f08b60877501",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
 									"pm.test(\"Successful POST request\", function () {\r",
 									"    pm.expect(pm.response.code).to.be.oneOf([200, 201,202]);\r",
 									"});\r",
@@ -2067,10 +1938,6 @@
 							"script": {
 								"id": "0493c2cf-cebf-4311-9a32-14b91e98a1d1",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
 									"var creator = pm.collectionVariables.get(\"Admin_UserName\");\r",
 									"\r",
 									"pm.test(\"Assert if post of the given user is returned.\", function () {\r",
@@ -2118,10 +1985,6 @@
 							"script": {
 								"id": "c0ea894b-2f02-41a9-aeec-36060b1eb514",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
 									"pm.test(\"Assert if 3 objects are returned.\", function () {\r",
 									"    var jsonData = JSON.parse(responseBody);   \r",
 									"pm.expect(jsonData.length).to.eql(3);\r",
@@ -2157,10 +2020,6 @@
 							"script": {
 								"id": "7354228a-3ccd-489c-aeb5-65825fcc929c",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
 									"createdIdPost = pm.collectionVariables.get(\"idPost\");\r",
 									"\r",
 									"pm.test(\"Assert post with the given ID must not be shown after deletion.\", function () {\r",
@@ -2211,134 +2070,131 @@
 				"id": "7d063cfe-1038-4551-b61b-9a2ced1a3efe",
 				"type": "text/javascript",
 				"exec": [
-					""
+					"pm.test(\"Status code is 200\", function () {",
+					"    pm.response.to.have.status(200);",
+					"});"
 				]
 			}
 		}
 	],
 	"variable": [
 		{
-			"id": "e3cadd97-e217-4222-ad8f-46f16dee464f",
+			"id": "c4eaf825-8df6-4eb5-b634-8ca2e1e7b892",
 			"key": "CommentDesc",
 			"value": "Esse aliquid laudantium rerum ea provident enim voluptatem."
 		},
 		{
-			"id": "83ae12d2-9e0e-4108-ae8d-c3b6f3149cf5",
+			"id": "5a1b0144-9044-4b0a-9dd1-24025aeb358a",
 			"key": "CommentedPostID",
 			"value": "4"
 		},
 		{
-			"id": "4d3a329b-c126-47a7-8b29-d1a1056ffbc3",
+			"id": "eed045ff-f7cb-45d9-8ba1-9362a709ebc1",
 			"key": "CommentCreatorID",
 			"value": "1"
 		},
 		{
-			"id": "375f09c8-ba48-4186-bd1c-a58bb3f16846",
+			"id": "aaa8d044-cbc0-4033-9813-faf4e2c650c9",
 			"key": "CategoryID",
 			"value": ""
 		},
 		{
-			"id": "03ff7d5b-5545-42dd-9d64-b3bbd9c86a0a",
+			"id": "064f5afd-86de-4d89-8a73-50e8374e281e",
 			"key": "CountOfCommentLikes",
 			"value": "1"
 		},
 		{
-			"id": "b6affe16-3eff-44c5-9d78-e1a9dff71ae0",
+			"id": "0ee3c2d2-479a-47ce-9b4c-ab5b32a8b497",
 			"key": "CommentOfPost",
 			"value": ""
 		},
 		{
-			"id": "5f18f513-85ea-45d6-a0d1-ab2e8774ecdd",
+			"id": "81e2b6aa-99e8-412c-ae5e-adda30f5e698",
 			"key": "TimeStampOfCommentOfPost",
 			"value": ""
 		},
 		{
-			"id": "11e7ace8-d899-4309-bf55-314b1ef0f690",
+			"id": "97832c9e-2e4f-472a-a067-4066688a41ae",
 			"key": "ConnectionID",
 			"value": ""
 		},
 		{
-			"id": "5193e07f-f732-444e-a8b9-171a2f96aedd",
+			"id": "502ead8e-258c-4c75-8679-0bc2872e3efd",
 			"key": "CommentIfPostID",
 			"value": ""
 		},
 		{
-			"id": "6b4c1574-cb84-4d44-b203-a8c4d49e272e",
+			"id": "f7d0923c-d6c7-4669-a3dd-bbced0438b01",
 			"key": "Admin_UserName",
 			"value": "zionalpha22qa@gmail.com"
 		},
 		{
-			"id": "1d429973-fb64-4a91-afbd-98378db13d26",
+			"id": "6f5f3ff4-d850-4f1d-b6d3-5db31aa1e674",
 			"key": "Admin_Pass",
 			"value": "telerikAlphaQA22$"
 		},
 		{
-			"id": "eb407c1b-cc7a-49f4-b146-f51f3e0ee566",
+			"id": "e4d638e7-1150-4daf-b047-2fb3073a098e",
 			"key": "SessionCookie",
 			"value": ""
 		},
 		{
-			"id": "d8517027-8b70-4766-bd43-1f2b67e43afa",
+			"id": "4728aa4f-f9cc-46a5-bc09-6bb3e81ede46",
 			"key": "numberOfUsers",
 			"value": "4"
 		},
 		{
-			"id": "fb611309-7440-45fc-b55f-1542fec41f62",
+			"id": "9c951092-dd9b-431e-b223-563c2fdd69fc",
 			"key": "numberOfNationalities",
 			"value": "194"
 		},
 		{
-			"id": "b4496945-4c87-4a38-8e0f-296c412da9ea",
+			"id": "b74de177-de7c-4147-9393-b72198ae3a64",
 			"key": "nationalityTitle",
 			"value": "Banani"
 		},
 		{
-			"id": "b5974232-5b0a-4d6b-b28e-975cc400c4df",
-			"key": "nationalityTitle",
-			"value": ""
-		},
-		{
-			"id": "d1d8fcd4-6439-4e01-b5cb-3a6f44ac391f",
+			"id": "3082d39a-8194-472b-8b03-c89e458e18c0",
 			"key": "createdNationality",
 			"value": ""
 		},
 		{
-			"id": "da2fcbb7-10a6-4bde-9255-ece43c00c32c",
+			"id": "8459b130-edc6-473a-9438-e36583f2ad44",
 			"key": "idNationality",
 			"value": ""
 		},
 		{
-			"id": "6f42a527-09e5-4b56-a05a-37e3e0a1c5b8",
+			"id": "ccca574d-cc98-44b6-a542-02570c590e7d",
 			"key": "initialUser",
 			"value": ""
 		},
 		{
-			"id": "b4126a5d-9c67-445c-ae5a-0933b262ebef",
+			"id": "5224a5d4-6a53-44ed-b5e6-2fdf6af7bcb8",
 			"key": "idUser",
 			"value": ""
 		},
 		{
-			"id": "3f6695a6-6a93-42c5-9cdd-dc730f0d65c6",
+			"id": "768bbd34-e005-45a4-b3f9-d98e2e3e8d79",
 			"key": "createdPost",
 			"value": ""
 		},
 		{
-			"id": "24c67fbe-3045-4027-8ffb-e254adcec23e",
+			"id": "efa25a0f-2ac7-42ad-9a4b-559b78df27cb",
 			"key": "idPost",
 			"value": ""
 		},
 		{
-			"id": "07b6acfd-8324-4873-8f53-7d38840ff113",
+			"id": "56580b98-fc2f-436c-8b31-e4b2adea8e7d",
 			"key": "numLikes",
 			"value": ""
 		},
 		{
-			"id": "ff0f8c0f-f3eb-4180-a127-dbc14af22124",
+			"id": "960ad10e-b601-4b0b-9ccc-c49fc585faf1",
 			"key": "isInteger",
 			"value": ""
 		},
 		{
-			"id": "93dd3bc7-d1b6-411f-82f6-d71fc3fee94c",
+			"id": "314359a6-a9eb-4da2-a799-258eb0fc372b",
 			"key": "emailUser",
 			"value": ""
 		}
