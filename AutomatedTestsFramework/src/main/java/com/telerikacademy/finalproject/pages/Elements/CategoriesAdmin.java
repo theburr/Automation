@@ -2,7 +2,7 @@ package com.telerikacademy.finalproject.pages.Elements;
 
 import static com.telerikacademy.finalproject.utils.Utils.getUIMappingByKey;
 
-public interface CategoriesAdmin {
+public interface CategoriesAdmin extends Navigation {
     String NEW_CATEGORY_BUTTON = "admin.NewCategoryBtn";
     String CATEGORY_ENTER_NAME_FIELD ="admin.CategoryNameField";
     String CATEGORY_NAME_TO_ENTER = getUIMappingByKey("admin.CategoryNameForField");

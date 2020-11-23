@@ -81,7 +81,7 @@ public class PostsPage extends NavigationPage implements Posts {
     }
 
     public void assert_The_Post_Is_Edited() {
-        actions.assertElementPresent("The post " + POST_EDIT_COMMENT_SECTION + "is not edited");
+        actions.assertElementPresent( POST_EDIT_COMMENT_SECTION);
     }
     public void registered_User_Can_Delete_His_Post() {
         auto_Login(USER_USERNAME, USER_PASSWORD);
