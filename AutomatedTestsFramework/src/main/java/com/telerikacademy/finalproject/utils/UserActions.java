@@ -85,15 +85,22 @@ public class UserActions {
     //############# ASSERTS #########
 
     public void assertElementPresent(String locator) {
-        Assert.assertNotNull(driver.findElement(By.xpath(Utils.getUIMappingByKey(locator))));
+        try {
+            Assert.assertNotNull(driver.findElement(By.xpath(Utils.getUIMappingByKey(locator))));
+        } catch (AssertionError e) {
+            System.out.println("Element is not created!");
+            throw e;
+        }
+        System.out.println("Element is present thus successfully created!");
     }
     public void assertElementNotPresent(String locator) {
             try {
                 driver.findElement(By.xpath(Utils.getUIMappingByKey(locator)));
             } catch (NoSuchElementException ex) {
-                /* do nothing, link is not present, assert is passed */
+                System.out.println("Element is not present thus successfully deleted!");
             }
-        }
+        System.out.println("Element is present thus not deleted!");
+    }
 
     public boolean assertIsTextPresent(String text) {
         try {
