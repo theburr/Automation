@@ -22,12 +22,12 @@ import java.util.Arrays;
 import java.util.List;
 
 @RunWith(JUnitReportingRunner.class)
-public class Runner extends JUnitStories {
+public class TestRunner extends JUnitStories {
         /**
          * Initialize JUnitStoryRunner with {@linkplain Embedder} configuration
          * and meta filters (can be read from System property {@code metaFilters})
          */
-        public Runner() {
+        public TestRunner() {
             super();
             Embedder embedder = configuredEmbedder();
             String metaFilters = "+LogIN +EditProfile +SearchUser +LikePost -endToEnd";

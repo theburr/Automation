@@ -3,6 +3,7 @@ package testCases;
 import com.telerikacademy.finalproject.pages.Elements.Navigation;
 import com.telerikacademy.finalproject.pages.NavigationPage;
 import com.telerikacademy.finalproject.utils.UserActions;
+import org.junit.AfterClass;
 import org.junit.BeforeClass;
 
 public class BaseTest extends NavigationPage {
@@ -12,8 +13,8 @@ public class BaseTest extends NavigationPage {
 	public static void setUp(){
 		UserActions.loadBrowser("base.url");	}
 
-//	@AfterClass
-//	public static void tearDown(){
-//		UserActions.quitDriver();
-//	}
+	@AfterClass
+	public static void tearDown(){
+		UserActions.quitDriver();
+	}
 }

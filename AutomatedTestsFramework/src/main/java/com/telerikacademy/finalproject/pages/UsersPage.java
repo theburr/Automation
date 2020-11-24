@@ -19,7 +19,6 @@ public class UsersPage extends NavigationPage implements Users {
 
     public void assert_Connection_Is_Sent(){
         actions.assertElementPresent(CONNECTION_IS_SENT);
-        System.out.println("Category is present thus successfully created!");
     }
 
     public void confirm_Connection_Request() {
@@ -36,7 +35,6 @@ public class UsersPage extends NavigationPage implements Users {
     }
     public void assert_Connection_Is_Confirmed(){
         actions.assertElementPresent(DISCONNECT_CONNECTION);
-        System.out.println("Category is present thus successfully created!");
     }
 
     public void reject_Connection_Request() {
@@ -53,8 +51,8 @@ public class UsersPage extends NavigationPage implements Users {
     }
     public void assert_Connection_Is_Rejected(){
         actions.assertElementPresent(SEND_CONNECTION);
-        System.out.println("Category is present thus successfully created!");
     }
+
     public void disconnect_Connection_Request() {
         auto_Login(ADMIN_USERNAME, ADMIN_PASSWORD);
         actions.isElementPresentUntilTimeout(HOME_BUTTON, 5);
@@ -69,6 +67,5 @@ public class UsersPage extends NavigationPage implements Users {
     }
     public void assert_Users_Are_Disconnected(){
         actions.assertElementPresent(SEND_CONNECTION);
-        System.out.println("Category is present thus successfully created!");
     }
 }

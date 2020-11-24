@@ -107,6 +107,7 @@ public class UserActions {
             boolean b = driver.getPageSource().contains(text);
             return b;
         } catch (Exception e) {
+            System.out.println("The text is not found!");
             return false;
         }
     }

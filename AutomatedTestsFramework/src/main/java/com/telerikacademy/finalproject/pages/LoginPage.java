@@ -20,7 +20,7 @@ public class LoginPage extends NavigationPage implements Login {
     public void user_is_trying_to_logIn_with_invalid_credentials() {
         actions.clickElement(SIGN_IN_BUTTON);
         actions.isElementPresentUntilTimeout(USERNAME_FIELD, 10);
-        actions.typeValueInField(USER_USERNAME, USERNAME_FIELD);
+        actions.typeValueInField(LOW_USER_USERNAME, USERNAME_FIELD);
         actions.typeValueInField(WRONG_PASSWORD_USER, PASSWORD_FIELD);
         actions.clickElement(CONFIRM_BUTTON);
         actions.isElementPresentUntilTimeout(LATEST_POST_BUTTON, 10);
@@ -37,9 +37,9 @@ public class LoginPage extends NavigationPage implements Login {
         actions.isElementPresentUntilTimeout(SIGN_UP_BUTTON, 5);
         actions.clickElement(SIGN_UP_BUTTON);
         actions.isElementPresentUntilTimeout(USERNAME_FIELD, 5);
-        actions.typeValueInField(USER_USERNAME, USERNAME_FIELD);;
-        actions.typeValueInField(USER_PASSWORD, PASSWORD_FIELD);
-        actions.typeValueInField(USER_PASSWORD, PASSWORD_CONFIRM_FIELD);
+        actions.typeValueInField(LOW_USER_USERNAME, USERNAME_FIELD);;
+        actions.typeValueInField(LOW_USER_PASSWORD, PASSWORD_FIELD);
+        actions.typeValueInField(LOW_USER_PASSWORD, PASSWORD_CONFIRM_FIELD);
         actions.typeValueInField(FIRST_NAME, FIRST_NAME_FIELD);
         actions.typeValueInField(LAST_NAME, LAST_NAME_FIELD);
         actions.clickElement(MENU_VISIBILITY);
