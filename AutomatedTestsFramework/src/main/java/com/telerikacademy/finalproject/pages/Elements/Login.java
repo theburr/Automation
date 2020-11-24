@@ -5,6 +5,8 @@ import static com.telerikacademy.finalproject.utils.Utils.getUIMappingByKey;
 public interface Login extends Navigation {
      String WRONG_USERNAME_USER = getUIMappingByKey("user.WrongUsername");
      String WRONG_PASSWORD_USER = getUIMappingByKey("user.WrongPassword");
+     String LOW_USER_USERNAME = getUIMappingByKey("user.Username");
+     String LOW_USER_PASSWORD = getUIMappingByKey("user.Password");
 
     String USERNAME_FIELD = "username.Field";
     String PASSWORD_FIELD = "password.Field";

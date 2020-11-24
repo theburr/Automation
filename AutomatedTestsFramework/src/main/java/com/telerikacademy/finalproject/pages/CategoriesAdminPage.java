@@ -2,7 +2,6 @@ package com.telerikacademy.finalproject.pages;
 
 
 import com.telerikacademy.finalproject.pages.Elements.CategoriesAdmin;
-import jdk.jfr.Category;
 
 public class CategoriesAdminPage extends NavigationPage implements CategoriesAdmin {
 

@@ -23,7 +23,6 @@ public class PostsPage extends NavigationPage implements Posts {
 
     public void assert_Post_Is_Deleted(){
         actions.assertElementNotPresent(ADMIN_POST_FOR_DELETION);
-        System.out.println("Post is missing thus successfully deleted!");
     }
 
     public void admin_Delete_Comment_Of_An_User() {
@@ -44,7 +43,6 @@ public class PostsPage extends NavigationPage implements Posts {
 
     public void assert_Comment_Is_Deleted(){
         actions.assertElementNotPresent(COMMENT_EDIT_BUTTON);
-        System.out.println("Comment is missing thus successfully deleted!");
     }
 
     public void registered_User_Write_New_Post() {
