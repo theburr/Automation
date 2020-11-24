@@ -176,12 +176,12 @@
 								{
 									"key": "category",
 									"type": "file",
-									"src": "/D:/QA/FinalProjet/_GITrePO/zionalphaqaproject/Postman/categoryR.json"
+									"src": "categoryR.json"
 								},
 								{
 									"key": "file",
 									"type": "file",
-									"src": "/D:/QA/FinalProjet/_GITrePO/zionalphaqaproject/Postman/rakija.png"
+									"src": "rakija.png"
 								}
 							],
 							"options": {
@@ -246,12 +246,12 @@
 								{
 									"key": "category",
 									"type": "file",
-									"src": "/D:/QA/FinalProjet/_GITrePO/zionalphaqaproject/Postman/REcategory.json"
+									"src": "REcategory.json"
 								},
 								{
 									"key": "file",
 									"type": "file",
-									"src": "/C:/Users/User/Desktop/rakija.png"
+									"src": "rakija.png"
 								}
 							],
 							"options": {
@@ -1273,12 +1273,12 @@
 								{
 									"key": "file",
 									"type": "file",
-									"src": "/C:/Users/ivang/Desktop/Final/zionalphaqaproject/Postman/userProfilePicture.jpg"
+									"src": "userProfilePicture.jpg"
 								},
 								{
 									"key": "user",
 									"type": "file",
-									"src": "/C:/Users/ivang/Desktop/Final/zionalphaqaproject/Postman/user.json"
+									"src": "user.json"
 								}
 							]
 						},

@@ -4,11 +4,9 @@ import com.telerikacademy.finalproject.pages.CategoriesAdminPage;
 import com.telerikacademy.finalproject.pages.LoginPage;
 import com.telerikacademy.finalproject.pages.NavigationPage;
 import com.telerikacademy.finalproject.pages.PostsPage;
-import org.junit.FixMethodOrder;
 import org.junit.Test;
-import org.junit.runners.MethodSorters;
 
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+import java.awt.*;
 
 public class CriticalPriority extends BaseTest {
 
@@ -21,9 +19,9 @@ public class CriticalPriority extends BaseTest {
 
     @Test
     public void test_002_login_HFSN_With_Right_Credentials(){
-        LoginPage logPage = new LoginPage();
-        logPage.navigate_To_Login_Page_And_Log_In_HFSN();
-        logPage.assert_Log_In_HFSN();
+        LoginPage logInPage = new LoginPage();
+        logInPage.navigate_To_Login_Page_And_Log_In_HFSN();
+        logInPage.assert_Log_In_HFSN();
     }
     @Test
     public void test_003_write_New_Post_As_Registered_User(){
@@ -47,17 +45,17 @@ public class CriticalPriority extends BaseTest {
     }
 
     @Test
-    public void test_006_delete_Comment_Of_An_User_As_admin() {
+    public void test_006_delete_Comment_Of_An_User_As_Admin() {
         PostsPage postsPage = new PostsPage();
         postsPage.admin_Delete_Comment_Of_An_User();
         postsPage.assert_Comment_Is_Deleted();
     }
 
     @Test
-    public void test_007_create_Category_As_Admin() {
-        CategoriesAdminPage catePage = new CategoriesAdminPage();
-        catePage.create_Category_Admin();
-        catePage.assert_Category_Is_Created();
+    public void test_007_create_Category_As_Admin() throws AWTException {
+        CategoriesAdminPage categoryPage = new CategoriesAdminPage();
+        categoryPage.create_Category_Admin();
+        categoryPage.assert_Category_Is_Created();
     }
 
 }
