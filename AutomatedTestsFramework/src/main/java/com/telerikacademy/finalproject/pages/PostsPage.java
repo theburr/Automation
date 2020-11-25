@@ -52,7 +52,7 @@ public class PostsPage extends NavigationPage implements PostsElements {
         actions.isElementPresentUntilTimeout(FIELD_POST_TITLE, WAIT_TIME);
         actions.typeValueInField(POST_TYPE_TITLE, FIELD_POST_TITLE);
         actions.typeValueInField(POST_TYPE_TEXT, FIELD_POST_DESCRIPTION);
-        actions.uploadImage(UPLOAD_IMAGE);
+        actions.uploadImage(POST_COPIED_IMG);
         actions.clickElement(CONFIRM_BUTTON);
         actions.isElementPresentUntilTimeout(POST_TYPE_TITLE, WAIT_TIME);
     }

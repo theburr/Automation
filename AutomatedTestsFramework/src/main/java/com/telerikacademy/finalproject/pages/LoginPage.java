@@ -7,8 +7,8 @@ public class LoginPage extends NavigationPage implements LoginElements {
     public void navigate_To_Login_Page_And_Log_In_HFSN() {
         actions.clickElement(SIGN_IN_BUTTON);
         actions.isElementPresentUntilTimeout(USERNAME_FIELD, WAIT_TIME);
-        actions.typeValueInField(USER_USERNAME, USERNAME_FIELD);
-        actions.typeValueInField(USER_PASSWORD, PASSWORD_FIELD);
+        actions.typeValueInField(LOW_USER_USERNAME, USERNAME_FIELD);
+        actions.typeValueInField(LOW_USER_PASSWORD, PASSWORD_FIELD);
         actions.clickElement(CONFIRM_BUTTON);
         actions.isElementPresentUntilTimeout(LATEST_POST_BUTTON, WAIT_TIME);
     }
@@ -44,7 +44,7 @@ public class LoginPage extends NavigationPage implements LoginElements {
         actions.typeValueInField(LAST_NAME, LAST_NAME_FIELD);
         actions.clickElement(MENU_VISIBILITY);
         actions.clickElement(MENU_TYPE_VISIBILITY);
-        actions.uploadImage(UPLOAD_IMAGE);
+        actions.uploadImage(NEW_IMG);
         actions.clickElement(CONFIRM_BUTTON);
         actions.isElementPresentUntilTimeout(ERROR_PAGE, WAIT_TIME);
     }

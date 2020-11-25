@@ -27,7 +27,6 @@ public class Administration extends BaseTest {
         postsPage.assert_Comment_Is_Deleted();
     }
 
-
     @Test
     @Category(CriticalPriority.class)
     public void test_007_create_Category_As_Admin(){

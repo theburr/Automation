@@ -15,4 +15,6 @@ public interface BaseElements {
     Integer WAIT_TIME = Integer.parseInt(getConfigPropertyByKey("config.defaultTimeoutSeconds"));
     File CATEGORY_ORIGINAL_IMG = new File("Images/drinks.png");
     File CATEGORY_COPIED_IMG = new File("C:/ImageForHFSN/drinks.png");
+    File NEW_POST_ORIGINAL_IMG = new File("Images/veganZombie.jpg");
+    File NEW_POST_COPIED_IMG = new File("C:/ImageForHFSN/veganZombie.jpg");
 }
