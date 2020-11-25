@@ -10,7 +10,8 @@ public class BaseTest extends NavigationPage {
 
 	@BeforeClass
 	public static void setUp(){
-		UserActions.loadBrowser("base.url");	}
+		UserActions.loadBrowser("base.url");
+	}
 
 	@AfterClass
 	public static void tearDown(){
