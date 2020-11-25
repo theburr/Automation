@@ -2,7 +2,7 @@ package com.telerikacademy.finalproject.pages.Elements;
 
 import static com.telerikacademy.finalproject.utils.Utils.getUIMappingByKey;
 
-public interface Posts extends Navigation {
+public interface PostsElements extends NavigationElements {
     String ADMIN_POST_FOR_DELETING_COMMENT = "adminPostForDeletingComment";
     String ADMIN_POST_FOR_DELETION = "adminPostForDeletion";
     String EDIT_POST_BUTTON = "editPostButton";

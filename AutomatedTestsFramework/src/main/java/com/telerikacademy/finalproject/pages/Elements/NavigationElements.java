@@ -1,7 +1,7 @@
 package com.telerikacademy.finalproject.pages.Elements;
 
-public interface Navigation extends Base {
-    String HOME_BUTTON = "homeButton";
+public interface NavigationElements extends BaseElements {
+    String HOME_BUTTON = "navigation.HomeBtn";
     String LATEST_POST_BUTTON = "latestPostButton";
     String CONNECTIONS_BUTTON = "users.Connections";
     String CONNECTIONS_REQUESTS_BUTTON="users.ConnectionsReq";

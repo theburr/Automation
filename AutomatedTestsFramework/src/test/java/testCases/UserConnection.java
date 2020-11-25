@@ -1,36 +1,13 @@
 package testCases;
 
-import com.telerikacademy.finalproject.pages.PostsPage;
+import categoriesForGroupTesting.HighPriority;
 import com.telerikacademy.finalproject.pages.UsersPage;
-import org.junit.FixMethodOrder;
 import org.junit.Test;
-import org.junit.runners.MethodSorters;
+import org.junit.experimental.categories.Category;
 
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class  HighPriority extends BaseTest {
-
+public class UserConnection {
     @Test
-    public void test_011_delete_Post_As_User(){
-        PostsPage postsPage = new PostsPage();
-        postsPage.registered_User_Can_Delete_His_Post();
-        postsPage.assert_The_Post_Is_Deleted();
-    }
-
-    @Test
-    public void test_012_edit_Post_As_User(){
-        PostsPage postsPage = new PostsPage();
-        postsPage.registered_User_Can_Edit_His_Post();
-        postsPage.assert_The_Post_Is_Edited();
-    }
-
-    @Test
-    public void test_013_user_Can_Delete_His_Comment(){
-        PostsPage postPage = new PostsPage();
-        postPage.registered_User_Can_Delete_His_Comment();
-        postPage.assert_The_Comment_Is_Deleted();
-    }
-
-    @Test
+    @Category(HighPriority.class)
     public void test_014_send_ConnectionRequest() {
         UsersPage usersPage = new UsersPage();
         usersPage.send_Connection_Request();
@@ -38,6 +15,7 @@ public class  HighPriority extends BaseTest {
     }
 
     @Test
+    @Category(HighPriority.class)
     public void test_015_confirm_ConnectionRequest() {
         UsersPage usersPage = new UsersPage();
         usersPage.confirm_Connection_Request();
@@ -45,6 +23,7 @@ public class  HighPriority extends BaseTest {
     }
 
     @Test
+    @Category(HighPriority.class)
     public void test_016_reject_ConnectionRequest() {
         UsersPage usersPage = new UsersPage();
         usersPage.reject_Connection_Request();
@@ -52,6 +31,7 @@ public class  HighPriority extends BaseTest {
     }
 
     @Test
+    @Category(HighPriority.class)
     public void test_017_disconnect_FromUser() {
         UsersPage usersPage = new UsersPage();
         usersPage.disconnect_Connection_Request();

@@ -1,6 +1,5 @@
 package testCases;
 
-import com.telerikacademy.finalproject.pages.Elements.Navigation;
 import com.telerikacademy.finalproject.pages.NavigationPage;
 import com.telerikacademy.finalproject.utils.UserActions;
 import org.junit.AfterClass;

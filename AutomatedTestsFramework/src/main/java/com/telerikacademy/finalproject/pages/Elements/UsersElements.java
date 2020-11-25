@@ -1,6 +1,6 @@
 package com.telerikacademy.finalproject.pages.Elements;
 
-public interface Users extends Navigation {
+public interface UsersElements extends NavigationElements {
     String FIRST_USER_PROFILE = "users.firstUserProfile";
     String SECOND_USER_PROFILE = "users.secondUserProfile";
 
