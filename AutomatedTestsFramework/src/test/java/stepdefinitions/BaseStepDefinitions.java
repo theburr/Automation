@@ -14,18 +14,9 @@ public class BaseStepDefinitions {
         UserActions.loadBrowser("base.url");
     }
 
-    @AfterStories
-    public void afterStories(){
-        UserActions.quitDriver();
-    }
-
-//    @BeforeScenario
-//    public void beforeStories(){
-//        UserActions.loadBrowser("base.url");
-//    }
-//
-//    @AfterScenario
+//    @AfterStories
 //    public void afterStories(){
 //        UserActions.quitDriver();
 //    }
+
 }

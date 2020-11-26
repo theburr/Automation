@@ -17,6 +17,13 @@ public class StepDefinitions extends BaseStepDefinitions{
         actions.clickElement(element);
     }
 
+    @Given("Click hidden $element element")
+    @When("Click hidden $element element")
+    @Then("Click hidden $element element")
+    public void clickHiddenElement(String element){
+        actions.clickHiddenElement(element);
+    }
+
     @Given("Type $name in $name field")
     @When("Type $name in $name field")
     @Then("Type $name in $name field")

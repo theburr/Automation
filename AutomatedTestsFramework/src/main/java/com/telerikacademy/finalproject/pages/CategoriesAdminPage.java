@@ -9,7 +9,7 @@ public class CategoriesAdminPage extends NavigationPage implements CategoriesAdm
         auto_Login(ADMIN_USERNAME, ADMIN_PASSWORD);
         actions.isElementPresentUntilTimeout(LATEST_POST_BUTTON, WAIT_TIME);
         actions.clickElement(HOME_BUTTON );
-        actions.isElementPresentUntilTimeout(CATEGORIES_BUTTON, WAIT_TIME);
+        actions.isElementPresentUntilTimeout(LATEST_NEW_POST_BUTTON, WAIT_TIME);
         actions.clickHiddenElement(CATEGORIES_BUTTON);
         actions.isElementPresentUntilTimeout(NEW_CATEGORY_BUTTON, WAIT_TIME);
         actions.clickHiddenElement(NEW_CATEGORY_BUTTON);

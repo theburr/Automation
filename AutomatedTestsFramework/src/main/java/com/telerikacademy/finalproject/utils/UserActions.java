@@ -71,6 +71,12 @@ public class UserActions {
         element.sendKeys(locator);
     }
 
+    public void uploadPic(String key,Object... arguments){
+        WebElement element = driver.findElement(By.xpath(Utils.getUIMappingByKey("upload.Pic")));
+        String locator = Utils.getUIMappingByKey(key, arguments);
+        //enter the file path onto the file-selection input field
+        element.sendKeys(locator);
+    }
     public void copy_Image(File original , File copied) throws IOException {
         FileUtils.copyFile(original,copied);
         System.out.println("Image has been sent to "+copied);

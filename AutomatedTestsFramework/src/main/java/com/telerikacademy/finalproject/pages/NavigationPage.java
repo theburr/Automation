@@ -8,7 +8,6 @@ public class NavigationPage extends BasePage implements NavigationElements {
     public NavigationPage() {
         super("base.url");
     }
-
 }
 
 
