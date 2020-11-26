@@ -5,8 +5,8 @@ import com.telerikacademy.finalproject.pages.Elements.CategoriesAdminElements;
 
 public class CategoriesAdminPage extends NavigationPage implements CategoriesAdminElements {
 
-    public void create_Category_Admin() {
-        auto_Login(ADMIN_USERNAME, ADMIN_PASSWORD);
+    public void create_CategoryAsAdmin() {
+        auto_Login(ADMIN_USERNAME_ENCODED, ADMIN_PASSWORD_ENCODED);
         actions.isElementPresentUntilTimeout(LATEST_POST_BUTTON, WAIT_TIME);
         actions.clickElement(HOME_BUTTON );
         actions.isElementPresentUntilTimeout(LATEST_NEW_POST_BUTTON, WAIT_TIME);
@@ -22,7 +22,7 @@ public class CategoriesAdminPage extends NavigationPage implements CategoriesAdm
         actions.isElementPresentUntilTimeout(CREATED_CATEGORY, WAIT_TIME);
     }
 
-    public void assert_Category_Is_Created() {
+    public void assert_CategoryIsCreated() {
         actions.assertElementPresent(CREATED_CATEGORY);
     }
 }

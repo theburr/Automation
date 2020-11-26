@@ -6,10 +6,15 @@ import static com.telerikacademy.finalproject.utils.Utils.getConfigPropertyByKey
 import static com.telerikacademy.finalproject.utils.Utils.getUIMappingByKey;
 
 public interface BaseElements {
-    String ADMIN_USERNAME = getUIMappingByKey("admin.UsernameEncoded");
-    String ADMIN_PASSWORD = getUIMappingByKey("admin.PasswordEncoded");
-    String USER_USERNAME = getUIMappingByKey("user.UsernameEncoded");
-    String USER_PASSWORD = getUIMappingByKey("user.PasswordEncoded");
+
+    /**To Edit The Properties Of These Elements Refer To The ui.map.properties Found In
+     AutomatedTestsFramework/src/test/resources/mappings/ui_map.properties**/
+
+    String ADMIN_USERNAME_ENCODED = getUIMappingByKey("admin.UsernameEncoded");
+    String ADMIN_PASSWORD_ENCODED = getUIMappingByKey("admin.PasswordEncoded");
+    String USER_USERNAME_ENCODED = getUIMappingByKey("user.UsernameEncoded");
+    String USER_PASSWORD_ENCODED = getUIMappingByKey("user.PasswordEncoded");
+
     String UPLOAD_IMAGE = "upload.Image";
     String CONFIRM_BUTTON = "confirmActionsButton";
     Integer WAIT_TIME = Integer.parseInt(getConfigPropertyByKey("config.defaultTimeoutSeconds"));

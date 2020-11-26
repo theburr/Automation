@@ -4,8 +4,8 @@ import com.telerikacademy.finalproject.pages.Elements.PostsElements;
 
 public class PostsPage extends NavigationPage implements PostsElements {
 
-    public void admin_Delete_Post_Of_An_User() {
-        auto_Login(ADMIN_USERNAME, ADMIN_PASSWORD);
+    public void admin_DeletePostOfAnUser() {
+        auto_Login(ADMIN_USERNAME_ENCODED, ADMIN_PASSWORD_ENCODED);
         actions.isElementPresentUntilTimeout(LATEST_POST_BUTTON, WAIT_TIME);
         actions.clickElement(LATEST_NEW_POST_BUTTON);
         actions.isElementPresentUntilTimeout(ADMIN_POST_FOR_DELETION, WAIT_TIME);
@@ -19,12 +19,12 @@ public class PostsPage extends NavigationPage implements PostsElements {
         actions.isElementPresentUntilTimeout(ADMIN_POST_FOR_DELETION, WAIT_TIME);
     }
 
-    public void assert_Post_Is_Deleted(){
+    public void assert_PostIsDeleted(){
         actions.assertElementNotPresent(ADMIN_POST_FOR_DELETION);
     }
 
-    public void admin_Delete_Comment_Of_An_User() {
-        auto_Login(ADMIN_USERNAME, ADMIN_PASSWORD);
+    public void admin_DeleteCommentOfAnUser() {
+        auto_Login(ADMIN_USERNAME_ENCODED, ADMIN_PASSWORD_ENCODED);
         actions.isElementPresentUntilTimeout(LATEST_NEW_POST_BUTTON, WAIT_TIME);
         actions.clickElement(LATEST_NEW_POST_BUTTON);
         actions.isElementPresentUntilTimeout(ADMIN_POST_FOR_DELETING_COMMENT, WAIT_TIME);
@@ -39,12 +39,12 @@ public class PostsPage extends NavigationPage implements PostsElements {
         actions.clickElement(ADMIN_POST_FOR_DELETING_COMMENT);
     }
 
-    public void assert_Comment_Is_Deleted(){
+    public void assert_CommentIsDeleted(){
         actions.assertElementNotPresent(COMMENT_EDIT_BUTTON);
     }
 
-    public void registered_User_Write_New_Post() {
-        auto_Login(USER_USERNAME, USER_PASSWORD);
+    public void registered_UserWriteNewPost() {
+        auto_Login(USER_USERNAME_ENCODED, USER_PASSWORD_ENCODED);
         actions.isElementPresentUntilTimeout(HOME_BUTTON,WAIT_TIME);
         actions.clickElement(HOME_BUTTON);
         actions.isElementPresentUntilTimeout(NEW_POST_BUTTON, WAIT_TIME);
@@ -57,12 +57,12 @@ public class PostsPage extends NavigationPage implements PostsElements {
         actions.isElementPresentUntilTimeout(POST_TYPE_TITLE, WAIT_TIME);
     }
 
-    public void assert_New_Post_Is_Posted() {
+    public void assert_NewPostIsPosted() {
         actions.assertIsTextPresent("The post " + POST_TYPE_TITLE + " is not posted ");
     }
 
-    public void registered_User_Can_Edit_His_Post() {
-        auto_Login(USER_USERNAME, USER_PASSWORD);
+    public void registered_UserCanEditHisPost() {
+        auto_Login(USER_USERNAME_ENCODED, USER_PASSWORD_ENCODED);
         actions.isElementPresentUntilTimeout(HOME_BUTTON, WAIT_TIME);
         actions.clickElement(HOME_BUTTON);
         actions.isElementPresentUntilTimeout(PROFILE_BUTTON, WAIT_TIME);
@@ -77,12 +77,12 @@ public class PostsPage extends NavigationPage implements PostsElements {
         actions.isElementPresentUntilTimeout(SIGN_IN_BUTTON,WAIT_TIME);
     }
 
-    public void assert_The_Post_Is_Edited() {
+    public void assert_ThePostIsEdited() {
         actions.assertElementPresent( POST_EDIT_COMMENT_SECTION);
     }
 
-    public void registered_User_Can_Delete_His_Post() {
-        auto_Login(USER_USERNAME, USER_PASSWORD);
+    public void registered_UserCanDeleteHisPost() {
+        auto_Login(USER_USERNAME_ENCODED, USER_PASSWORD_ENCODED);
         actions.isElementPresentUntilTimeout(HOME_BUTTON, WAIT_TIME);
         actions.clickElement(HOME_BUTTON);
         actions.isElementPresentUntilTimeout(PROFILE_BUTTON, WAIT_TIME);
@@ -97,12 +97,12 @@ public class PostsPage extends NavigationPage implements PostsElements {
         actions.isElementPresentUntilTimeout(SIGN_IN_BUTTON,WAIT_TIME);
     }
 
-    public void assert_The_Post_Is_Deleted() {
+    public void assert_ThePostIsDeleted() {
         actions.assertElementPresent(POST_DELETE_ASSERTION);
     }
 
-    public void registered_User_Can_Comment_A_Post() {
-        auto_Login(USER_USERNAME, USER_PASSWORD);
+    public void registered_UserCanCommentAPost() {
+        auto_Login(USER_USERNAME_ENCODED, USER_PASSWORD_ENCODED);
         actions.isElementPresentUntilTimeout(HOME_BUTTON, WAIT_TIME);
         actions.clickElement(HOME_BUTTON);
         actions.isElementPresentUntilTimeout(PROFILE_BUTTON, WAIT_TIME);
@@ -115,12 +115,12 @@ public class PostsPage extends NavigationPage implements PostsElements {
         actions.isElementPresentUntilTimeout(POST_LIKE_BUTTON,WAIT_TIME);
     }
 
-    public void assert_The_Comment_Is_Posted() {
+    public void assert_TheCommentIsPosted() {
         actions.assertIsTextPresent(COMMENT_TEXT);
     }
 
-    public void registered_User_Can_Delete_His_Comment() {
-        auto_Login(USER_USERNAME, USER_PASSWORD);
+    public void registered_UserCanDeleteHisComment() {
+        auto_Login(USER_USERNAME_ENCODED, USER_PASSWORD_ENCODED);
         actions.isElementPresentUntilTimeout(HOME_BUTTON, WAIT_TIME);
         actions.clickElement(HOME_BUTTON);
         actions.isElementPresentUntilTimeout(LATEST_POST_BUTTON, WAIT_TIME);
@@ -135,7 +135,7 @@ public class PostsPage extends NavigationPage implements PostsElements {
         actions.clickElement(COMMENT_CONFIRM_DELETION_BUTTON);
         actions.isElementPresentUntilTimeout(SIGN_IN_BUTTON,WAIT_TIME);
     }
-    public void assert_The_Comment_Is_Deleted() {
+    public void assert_TheCommentIsDeleted() {
         actions.assertElementPresent(COMMENT_EDIT_CONFIRMATION);
     }
 

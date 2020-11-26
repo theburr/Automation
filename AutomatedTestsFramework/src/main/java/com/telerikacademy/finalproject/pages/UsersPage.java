@@ -4,8 +4,8 @@ import com.telerikacademy.finalproject.pages.Elements.UsersElements;
 
 public class UsersPage extends NavigationPage implements UsersElements {
 
-    public void send_Connection_Request() {
-        auto_Login(ADMIN_USERNAME, ADMIN_PASSWORD);
+    public void send_ConnectionRequest() {
+        auto_Login(ADMIN_USERNAME_ENCODED, ADMIN_PASSWORD_ENCODED);
         actions.isElementPresentUntilTimeout(HOME_BUTTON, WAIT_TIME);
         actions.clickElement(HOME_BUTTON);
         actions.isElementPresentUntilTimeout(USERS_BUTTON, WAIT_TIME);
@@ -17,12 +17,12 @@ public class UsersPage extends NavigationPage implements UsersElements {
         actions.isElementPresentUntilTimeout(CONNECTION_IS_SENT, WAIT_TIME);
     }
 
-    public void assert_Connection_Is_Sent(){
+    public void assert_ConnectionIsSent(){
         actions.assertElementPresent(CONNECTION_IS_SENT);
     }
 
-    public void confirm_Connection_Request() {
-        auto_Login(ADMIN_USERNAME, ADMIN_PASSWORD);
+    public void confirm_ConnectionRequest() {
+        auto_Login(ADMIN_USERNAME_ENCODED, ADMIN_PASSWORD_ENCODED);
         actions.isElementPresentUntilTimeout(HOME_BUTTON, WAIT_TIME);
         actions.clickElement(HOME_BUTTON);
         actions.isElementPresentUntilTimeout(USERS_BUTTON, WAIT_TIME);
@@ -33,12 +33,12 @@ public class UsersPage extends NavigationPage implements UsersElements {
         actions.clickElement(CONFIRM_CONNECTION);
         actions.isElementPresentUntilTimeout(DISCONNECT_CONNECTION, WAIT_TIME);
     }
-    public void assert_Connection_Is_Confirmed(){
+    public void assert_ConnectionIsConfirmed(){
         actions.assertElementPresent(DISCONNECT_CONNECTION);
     }
 
-    public void reject_Connection_Request() {
-        auto_Login(ADMIN_USERNAME, ADMIN_PASSWORD);
+    public void reject_ConnectionRequest() {
+        auto_Login(ADMIN_USERNAME_ENCODED, ADMIN_PASSWORD_ENCODED);
         actions.isElementPresentUntilTimeout(HOME_BUTTON, WAIT_TIME);
         actions.clickElement(HOME_BUTTON);
         actions.isElementPresentUntilTimeout(USERS_BUTTON, WAIT_TIME);
@@ -49,12 +49,12 @@ public class UsersPage extends NavigationPage implements UsersElements {
         actions.clickElement(REJECT_CONNECTION);
         actions.isElementPresentUntilTimeout(SEND_CONNECTION, WAIT_TIME);
     }
-    public void assert_Connection_Is_Rejected(){
+    public void assert_ConnectionIsRejected(){
         actions.assertElementPresent(SEND_CONNECTION);
     }
 
-    public void disconnect_Connection_Request() {
-        auto_Login(ADMIN_USERNAME, ADMIN_PASSWORD);
+    public void disconnect_FromUser() {
+        auto_Login(ADMIN_USERNAME_ENCODED, ADMIN_PASSWORD_ENCODED);
         actions.isElementPresentUntilTimeout(HOME_BUTTON, WAIT_TIME);
         actions.clickElement(HOME_BUTTON);
         actions.isElementPresentUntilTimeout(USERS_BUTTON, WAIT_TIME);
@@ -65,7 +65,7 @@ public class UsersPage extends NavigationPage implements UsersElements {
         actions.clickElement(DISCONNECT_CONNECTION);
         actions.isElementPresentUntilTimeout(SEND_CONNECTION, WAIT_TIME);
     }
-    public void assert_Users_Are_Disconnected(){
+    public void assert_UsersAreDisconnected(){
         actions.assertElementPresent(SEND_CONNECTION);
     }
 }

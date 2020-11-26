@@ -1,9 +1,13 @@
 package com.telerikacademy.finalproject.pages.Elements;
 
 public interface NavigationElements extends BaseElements {
+
+    /**To Edit The Properties Of These Elements Refer To The ui.map.properties Found In
+     AutomatedTestsFramework/src/test/resources/mappings/ui_map.properties**/
+
     String HOME_BUTTON = "navigation.HomeBtn";
-    String LATEST_POST_BUTTON = "latestPostButton";
-    String LATEST_NEW_POST_BUTTON = "latestNewPostButton";
+    String LATEST_POST_BUTTON = "navigation.latestPostButton";
+    String LATEST_NEW_POST_BUTTON = "navigation.latestNewPostButton";
     String CONNECTIONS_BUTTON = "users.Connections";
     String CONNECTIONS_REQUESTS_BUTTON="users.ConnectionsReq";
     String USERS_BUTTON = "navigation.Users";

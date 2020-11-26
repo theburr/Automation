@@ -3,6 +3,11 @@ package com.telerikacademy.finalproject.pages.Elements;
 import static com.telerikacademy.finalproject.utils.Utils.getUIMappingByKey;
 
 public interface PostsElements extends NavigationElements {
+
+    /**To Edit The Properties Of These Elements Refer To The ui.map.properties Found In
+     AutomatedTestsFramework/src/test/resources/mappings/ui_map.properties**/
+
+
     String ADMIN_POST_FOR_DELETING_COMMENT = "adminPostForDeletingComment";
     String ADMIN_POST_FOR_DELETION = "adminPostForDeletion";
     String EDIT_POST_BUTTON = "editPostButton";

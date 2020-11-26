@@ -3,10 +3,17 @@ package com.telerikacademy.finalproject.pages.Elements;
 import static com.telerikacademy.finalproject.utils.Utils.getUIMappingByKey;
 
 public interface LoginElements extends NavigationElements {
+
+    /**To Edit The Properties Of These Elements Refer To The ui.map.properties Found In
+     AutomatedTestsFramework/src/test/resources/mappings/ui_map.properties**/
+
+
      String WRONG_USERNAME_USER = getUIMappingByKey("user.WrongUsername");
      String WRONG_PASSWORD_USER = getUIMappingByKey("user.WrongPassword");
-     String LOW_USER_USERNAME = getUIMappingByKey("user.Username");
-     String LOW_USER_PASSWORD = getUIMappingByKey("user.Password");
+     String USER_USERNAME = getUIMappingByKey("user.Username");
+     String USER_PASSWORD = getUIMappingByKey("user.Password");
+     String ADMIN_USERNAME = getUIMappingByKey("admin.Username");
+     String ADMIN_PASSWORD = getUIMappingByKey("admin.Password");
 
     String USERNAME_FIELD = "username.Field";
     String PASSWORD_FIELD = "password.Field";
