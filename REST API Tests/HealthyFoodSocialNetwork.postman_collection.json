@@ -1,0 +1,2203 @@
+{
+	"info": {
+		"_postman_id": "8fd4b6ef-07ba-4237-abb5-dd13c5605e1a",
+		"name": "HealthyFoodSocialNetwork",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "AuthenticationCategories",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "32c8d723-471e-499e-8437-212fa6730afd",
+								"exec": [
+									"pm.collectionVariables.set('SessionCookie', pm.cookies.get(\"JSESSIONID\"));\r",
+									"\r",
+									"console.log(pm.cookies.get(\"JSESSIONID\"));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "{{Admin_UserName}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{Admin_Pass}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/authenticate",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"authenticate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllCategories",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2627d386-05fe-48bb-ad88-f20f11c560cd",
+								"exec": [
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"// pm.test(\"Assert that Categorie ID is greater than 0\", function () {\r",
+									"//     pm.expect(jsonData.id).not.eql(0);\r",
+									"// });\r",
+									"\r",
+									"var data = JSON.parse(responseBody); \r",
+									"\r",
+									"for (count = 0; count < data.length; count++)\r",
+									"{\r",
+									"    var userID = data[count].id;\r",
+									"    pm.test(\"Assert that the user ID is not 0\", function () {\r",
+									"    pm.expect(userID).to.greaterThan(0);\r",
+									"    });\r",
+									"\r",
+									"    var category = data[count].category;\r",
+									"    pm.test(\"Assert that the category name is a string\", function () {\r",
+									"    pm.expect(category).to.be.a('string');\r",
+									"    });\r",
+									"\r",
+									"};"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "88a5a2a6-1c88-4ea2-a108-e513c04fea2c",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/admin/categories",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateCategory",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "45b8208c-23c6-482b-8892-27f2bee58b59",
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Assert that Categorie Name is string\", function () {\r",
+									"    pm.expect(jsonData.category).to.be.a('string');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Assert that Categorie ID is greater than 0\", function () {\r",
+									"    pm.expect(jsonData.id).not.eql(0);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Assert that picture with png format is upload\", function () {\r",
+									"    pm.expect(jsonData.emoji).to.include(\"png\");\r",
+									"});\r",
+									"\r",
+									"pm.environment.set(\"CategoryName\", jsonData.category);\r",
+									"pm.environment.get(\"CategoryName\");\r",
+									"\r",
+									"pm.environment.set(\"CategoryID\", jsonData.id);\r",
+									"pm.environment.get(\"CategoryID\");\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "fdc146f5-74ab-47d1-a02a-d62ed8fefb37",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "category",
+									"type": "file",
+									"src": "FormDataFiles/categoryR.json"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "Images/rakija.png"
+								}
+							],
+							"options": {
+								"formdata": {}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/admin/categories",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateCategory",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "aa775146-9c7f-4c04-a305-6151e55037ae",
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Assert that ID is the same and is not changed\", function () {\r",
+									"    pm.expect(jsonData.id).to.equal(pm.variables.get(\"CategoryID\"));\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Assert that category name is changed\", function () {\r",
+									"    pm.expect(jsonData.category).not.eql(pm.collectionVariables.get(\"CategoryName\"));\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "935f30ac-ab3b-4240-afa7-ee056c28b9aa",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "category",
+									"type": "file",
+									"src": "FormDataFiles/REcategory.json"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "Images/rakija.png"
+								}
+							],
+							"options": {
+								"formdata": {}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/admin/categories/{{CategoryID}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"categories",
+								"{{CategoryID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteCategory",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8521947d-29ff-40e1-a428-832e3a74bc48",
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Assert that CategorieID of deleted category is not exist in the list of categories\", function () {\r",
+									"    pm.expect(jsonData.id).not.eql(pm.collectionVariables.get(\"CategoryID\"));\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "f8676b72-dfe6-4582-b245-a2c13f0be8e7",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"id\": \"{{CategoryID}}\"\r\n}",
+							"options": {
+								"formdata": {},
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/admin/categories/{{CategoryID}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"categories",
+								"{{CategoryID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Comments",
+			"item": [
+				{
+					"name": "AuthenticationComments",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "538628e1-5517-47ef-8c33-d9b8bc2e97ac",
+								"exec": [
+									"pm.collectionVariables.set('SessionCookie', pm.cookies.get(\"JSESSIONID\"));\r",
+									"\r",
+									"console.log(pm.cookies.get(\"JSESSIONID\"));\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "{{Admin_UserName}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{Admin_Pass}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/authenticate",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"authenticate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetCommentByID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "57f42944-70e2-4a40-8d24-0153b2932806",
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Assert that comment is not empty\", function () {\r",
+									"        pm.expect(jsonData.description).not.null;\r",
+									"});\r",
+									"pm.test(\"Assert that there is timestamp and is not empty\", function () {\r",
+									"    pm.expect(jsonData.timestamp).not.null;\r",
+									"});\r",
+									"pm.collectionVariables.set(\"CommentDesc\", jsonData.description);\r",
+									"pm.collectionVariables.set(\"CommentedPostID\", jsonData.post.id);\r",
+									"pm.collectionVariables.set(\"CommentCreatorID\", jsonData.creator.id);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/comments/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"comments",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateComment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "84ca5711-9e85-4fcb-b435-1001010722ac",
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Assert that changed comment is for the same post\", function () {\r",
+									"    pm.expect(jsonData.post.id).to.equal(pm.collectionVariables.get(\"CommentedPostID\"));\r",
+									"});\r",
+									"pm.test(\"Assert that comment is changed\", function () {\r",
+									"    pm.expect(jsonData.description).not.equal(pm.collectionVariables.get(\"CommentDesc\"))\r",
+									"});\r",
+									"pm.test(\"Assert that the same user is made changes of comment\", function () {\r",
+									"    pm.expect(jsonData.creator.id).to.equal(pm.collectionVariables.get(\"CommentCreatorID\"));\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "b5e95791-a780-4336-8864-36a48ec6271c",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"comment\": \"{{$randomLoremSentence}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/comments/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"comments",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ShowCommentsLikes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "707c2d76-f266-4044-9b0b-b0721aa8c7f1",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Assert that response body is not empty\", function () {\r",
+									"    var res = (_.isEmpty(responseBody));\r",
+									"    pm.expect(res).to.be.false\r",
+									"})\r",
+									"pm.collectionVariables.set(\"CountOfCommentLikes\", parseInt(responseBody))\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/comments/2/likes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"comments",
+								"2",
+								"likes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CommentLike",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "cc0fec80-1591-479c-bbed-abfca47774f7",
+								"exec": [
+									"pm.test(\"There is response body and it is not null\", function () {\r",
+									"    var res = (_.isEmpty(responseBody));\r",
+									"    pm.expect(res).to.be.false\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Assert that the count of likes are different than before\", function () {\r",
+									"    pm.expect(parseInt(responseBody)).not.eq(pm.collectionVariables.get(\"CountOfCommentLikes\"));\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/comments/2/likes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"comments",
+								"2",
+								"likes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetListOfAllComments",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b7f3ea37-4960-4301-a8e0-ddf649ce4509",
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Assert that ID of post is different than 0\", function () {\r",
+									"        pm.expect(parseInt(jsonData.id)).not.equal(0);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Assert that comment is not empty\", function () {\r",
+									"        pm.expect(jsonData.description).not.null;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Assert that there is timestamp and is not empty\", function () {\r",
+									"    pm.expect(jsonData.timestamp).not.null;\r",
+									"});\r",
+									"\r",
+									"pm.collectionVariables.set(\"CommentOfPost\", jsonData.description);\r",
+									"pm.collectionVariables.set(\"TimeStampOfCommentOfPost\", jsonData.timestamp);\r",
+									"pm.collectionVariables.set(\"CommentIfPostID\", parseInt(jsonData.id));\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/posts/2/comments",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"posts",
+								"2",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateComment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1c6a096f-cd2b-4380-8a87-f2ab91a015b3",
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Assert that new comment is different than previous\", function () {\r",
+									"    pm.expect(jsonData.description).not.eql(pm.collectionVariables.get(\"CommentOfPost\"));\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Assert that new comment is post in different time\", function () {\r",
+									"    pm.expect(jsonData.timestamp).not.eql(pm.collectionVariables.get(\"TimeStampOfCommentOfPost\"));\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Assert that comment ID is not equal to previous ID\", function () {\r",
+									"    pm.expect(jsonData.id).not.eq(pm.collectionVariables.get(\"CommentIfPostID\"));\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"comment\": \"{{$randomLoremSentences}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/posts/2/comments",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"posts",
+								"2",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetListOfLatest5Comments",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "21937f66-76ec-4077-bbd7-159524162b82",
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Comment ID is greater than 0\", function () {\r",
+									"    pm.expect(jsonData.id).not.eq(0);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/posts/2/latest_comments",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"posts",
+								"2",
+								"latest_comments"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Connections",
+			"item": [
+				{
+					"name": "AuthenticationConnections",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "01b95a7b-5a4d-4d86-b686-95699758b1b3",
+								"exec": [
+									"pm.collectionVariables.set('SessionCookie', pm.cookies.get(\"JSESSIONID\"));\r",
+									"\r",
+									"console.log(pm.cookies.get(\"JSESSIONID\"));\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "{{Admin_UserName}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{Admin_Pass}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/authenticate",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"authenticate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SendConnectionRequest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "63aef475-7802-4416-833b-b7e2bbfe11bc",
+								"exec": [
+									"pm.test(\"Assert that response body is not empty\", function () {\r",
+									"    var resB = (_.isEmpty(responseBody));\r",
+									"    pm.expect(resB).to.be.false\r",
+									"})\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/connections/users/3",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"connections",
+								"users",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetRequestID",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "cc894831-a34c-4f70-a892-1e43f1b98423",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "547b22cf-063a-412a-850f-3a924b7140fa",
+								"exec": [
+									"var data = JSON.parse(responseBody); \r",
+									"\r",
+									"for (count = 0; count < data.length; count++)\r",
+									"{\r",
+									"    if (data[count].sender_id === 1 && data[count].receiver_id === 3)\r",
+									"    {\r",
+									"        var connectionID = data[count].connection_id;\r",
+									"        postman.setEnvironmentVariable(\"ConnectionID\", connectionID);\r",
+									"    }\r",
+									"};"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/connections",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"connections"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetListOfAllUsersRequests",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b200c041-771d-4932-9143-bfc751513c18",
+								"exec": [
+									"\r",
+									"pm.test(\"Assert that response body is not empty\", function () {\r",
+									"    var res = (_.isEmpty(responseBody));\r",
+									"    pm.expect(res).to.be.false\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/connections/requests",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"connections",
+								"requests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetListOfAlConnectedUser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4faadd93-d309-4e58-9f51-e343cdc81a2b",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Assert that response body is not empty\", function () {\r",
+									"    var res = (_.isEmpty(responseBody));\r",
+									"    pm.expect(res).to.be.false\r",
+									"})\r",
+									"pm.test(\"Body contains string\",() => {\r",
+									"  pm.expect(pm.response.text()).to.include(\"email\");\r",
+									"});\r",
+									"\r",
+									"var data = JSON.parse(responseBody); \r",
+									"\r",
+									"for (count = 0; count < data.length; count++)\r",
+									"{\r",
+									"    var userID = data[count].id;\r",
+									"    pm.test(\"Assert that the user ID is not empty\", function () {\r",
+									"    pm.expect(userID).to.greaterThan(0);\r",
+									"    });\r",
+									"\r",
+									"    var email = data[count].email;\r",
+									"    pm.test(\"Assert that the user has entered email\", function () {\r",
+									"    pm.expect(email).to.contain(\"@\");\r",
+									"    });\r",
+									"\r",
+									"    var age = data[count].age;\r",
+									"    pm.test(\"Assert that the age of the user is greater than 4\", function () {\r",
+									"    pm.expect(age).to.greaterThan(4);\r",
+									"    });\r",
+									"};\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/connections/my",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"connections",
+								"my"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ConfirmConnection",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a830355e-66a0-4b9b-ba26-8f94a16cd501",
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Check connection sender ID\", function () {\r",
+									"    pm.expect(jsonData.id).to.eql(1);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Assert that there is an email shown\", function () {\r",
+									"    pm.expect(jsonData.email).to.contain(\"@\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "d122e518-d00d-4b39-9300-4d37692af09f",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/connections/{{ConnectionID}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"connections",
+								"{{ConnectionID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteRejectConnection",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "42f78e67-bfc4-49ed-a6f6-a05aabdc8809",
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"    \r",
+									"pm.test(\"Assert that response body is not empty array\", function () {\r",
+									"    pm.expect(jsonData).not.empty;\r",
+									"});\r",
+									"\r",
+									"var data = JSON.parse(responseBody); \r",
+									"\r",
+									"for (count = 0; count < data.length; count++)\r",
+									"{\r",
+									"    var userID = data[count].id;\r",
+									"    pm.test(\"Assert that the user ID is not empty\", function () {\r",
+									"    pm.expect(userID).to.greaterThan(0);\r",
+									"    });\r",
+									"\r",
+									"    var email = data[count].email;\r",
+									"    pm.test(\"Assert that the user has entered email\", function () {\r",
+									"    pm.expect(email).to.contain(\"@\");\r",
+									"    });\r",
+									"\r",
+									"};"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/connections/{{ConnectionID}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"connections",
+								"{{ConnectionID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "AuthenticationUsers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0c40fab5-833f-421c-89f8-7aeca86e492f",
+								"exec": [
+									"pm.collectionVariables.set('SessionCookie', pm.cookies.get(\"JSESSIONID\"));\r",
+									"\r",
+									"console.log(pm.cookies.get(\"JSESSIONID\"));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "{{Admin_UserName}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{Admin_Pass}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/authenticate",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"authenticate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8f8e9254-8c5f-42ba-aaba-b6af96448b45",
+								"exec": [
+									"var data = JSON.parse(responseBody);   \r",
+									"pm.collectionVariables.set(\"idUser\", data[3].id);\r",
+									"\r",
+									"var data = JSON.parse(responseBody);   \r",
+									"pm.collectionVariables.set(\"emailUser\", data[3].email);\r",
+									"\r",
+									"stringofnumbers = pm.collectionVariables.get(\"numberOfUsers\")\r",
+									"var numberOfUsers = parseInt(stringofnumbers);\r",
+									"\r",
+									"pm.test(\"Assert if correct number of users is returned.\", function () {\r",
+									"    var jsonData = JSON.parse(responseBody);   \r",
+									"pm.expect(jsonData.length).to.eql(numberOfUsers);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User By ID",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "b771bda4-7234-433e-bfab-febed0166a7b",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "1a49da34-539c-4d03-9f43-daa472512212",
+								"exec": [
+									"var id = pm.collectionVariables.get(\"idUser\");\r",
+									"var userID = parseInt(id);\r",
+									"\r",
+									"pm.test(\"Assert user with the requested ID should be returned.\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.id).to.eql(id);\r",
+									"});\r",
+									"\r",
+									"pm.collectionVariables.set(\"initialUser\", pm.response.json());\r",
+									"\r",
+									"var userEmail = pm.collectionVariables.get(\"emailUser\");\r",
+									"\r",
+									"pm.test(\"Assert body matches \", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(userEmail);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/users/{{idUser}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{idUser}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "686d734e-1193-4312-a27e-f68aa1b8b0cf",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "62956ff2-4ffa-4104-9ae2-f17f2652be8c",
+								"exec": [
+									"initialUser = pm.collectionVariables.get(\"user\")\r",
+									"\r",
+									"pm.test(\"Assert updated user must be different than the initial.\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).not.to.eql(initialUser);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "Images/userProfilePicture.jpg"
+								},
+								{
+									"key": "user",
+									"type": "file",
+									"src": "FormDataFiles/user.json"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/users/{{idUser}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{idUser}}"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "08ae863c-fc83-404b-b370-c7f55c25fb98",
+								"exec": [
+									"userID = pm.collectionVariables.get(\"idUser\");\r",
+									"\r",
+									"pm.test(\"Assert user with the given ID must not be shown after deletion.\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.id).not.to.eql(userID);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/users/{{idUser}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{idUser}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Nationalities",
+			"item": [
+				{
+					"name": "AuthenticationNationalities",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f8652d0f-cb19-4def-b764-f1aea4d45368",
+								"exec": [
+									"pm.collectionVariables.set('SessionCookie', pm.cookies.get(\"JSESSIONID\"));\r",
+									"\r",
+									"console.log(pm.cookies.get(\"JSESSIONID\"));\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "{{Admin_UserName}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{Admin_Pass}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/authenticate",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"authenticate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show All Nationalities",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1be9e916-1005-4ae4-81ae-d964c0306935",
+								"exec": [
+									"var number = pm.collectionVariables.get(\"numberOfNationalities\");\r",
+									"var numberOfNationalities = parseInt(number);\r",
+									"\r",
+									"pm.test(\"Assert if 194 objects are returned.\", function () {\r",
+									"    var jsonData = JSON.parse(responseBody);   \r",
+									"pm.expect(jsonData.length).to.eql(numberOfNationalities);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/admin/nationalities",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"nationalities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Nationality",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ebe07843-5953-4ab5-96f8-70ac6c000e19",
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 202 ,200]);\r",
+									"});\r",
+									"\r",
+									"pm.collectionVariables.set(\"idNationality\" , pm.response.json().id)\r",
+									"\r",
+									"pm.collectionVariables.set(\"createdNationality\", pm.response.json());\r",
+									"\r",
+									"var nationalityTitle = pm.collectionVariables.get(\"nationalityTitle\")\r",
+									"\r",
+									"pm.test(\"Assert body data of a nationality should be returned.\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.nationality).to.eql(nationalityTitle);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "1c578dd6-de45-4d57-acb3-8ddbe56980c1",
+								"exec": [
+									"var nationalityTitle = pm.collectionVariables.set(\"nationalityTitle\",\"Banani\")\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nationality\": \"{{nationalityTitle}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/admin/nationalities",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"nationalities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Nationality",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "12c46993-649e-48d6-849f-a0d4c69d77cf",
+								"exec": [
+									"var createdNationality = pm.collectionVariables.get(\"createdNationality\")\r",
+									"\r",
+									"pm.collectionVariables.set(\"nationalityTitle\" , pm.response.json().nationality)\r",
+									"\r",
+									"pm.test(\"Assert updated nationality must be different than the initial\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).not.to.eql(createdNationality);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : {{idNationality}},\r\n  \"nationality\": \"BananiUpdated\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/admin/nationalities",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"nationalities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Nationality",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f1e01884-59db-4d0a-a312-586add5ec3f7",
+								"exec": [
+									"var nationalityTitle = pm.collectionVariables.get(\"nationalityTitle\");\r",
+									"\r",
+									"pm.test(\"Assert nationality with the given Title must not be shown after deletion.\", function () {\r",
+									"    pm.expect(pm.response.text()).not.to.include(nationalityTitle);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : 197,\r\n  \"nationality\": \"BananiUpdated\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/admin/nationalities/{{idNationality}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"nationalities",
+								"{{idNationality}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Posts",
+			"item": [
+				{
+					"name": "AuthenticationPosts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1d95dc74-a1b4-4ac1-be76-28cc790391ba",
+								"exec": [
+									"pm.collectionVariables.set('SessionCookie', pm.cookies.get(\"JSESSIONID\"));\r",
+									"\r",
+									"console.log(pm.cookies.get(\"JSESSIONID\"));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "{{Admin_UserName}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{Admin_Pass}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/authenticate",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"authenticate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Public Posts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dc756f32-d0ab-4639-b1cd-b444fcde563d",
+								"exec": [
+									"pm.test(\"Assert if a public posts is returned.\", function () {\r",
+									"    var jsonData = JSON.parse(responseBody);   \r",
+									"pm.expect(jsonData[1].visibility.type).to.eql(\"public\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/posts?category=1&page=0&size=5",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"posts"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "1"
+								},
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create A Post",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "54200838-4005-49f8-833e-b8c88be2c128",
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 202 ,200]);\r",
+									"});\r",
+									"\r",
+									"pm.collectionVariables.set(\"createdPost\", pm.response.json());\r",
+									"\r",
+									"pm.collectionVariables.set(\"idPost\" , pm.response.json().id)\r",
+									"idPost = pm.collectionVariables.get(\"idPost\")\r",
+									"\r",
+									"pm.test(\"Assert body data of a post should be returned.\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.id).to.eql(idPost);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "post",
+									"type": "file",
+									"src": "FormDataFiles/post.json"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/posts",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Post By Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d385d785-d3c3-4a4a-89a0-071210172d03",
+								"exec": [
+									"var idPost = pm.collectionVariables.get(\"idPost\");\r",
+									"\r",
+									"pm.test(\"Assert the requested post with the given id is returned.\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.id).to.eql(idPost);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/posts/{{idPost}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"posts",
+								"{{idPost}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update A Post",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f045aa93-8aa3-4978-a3f1-3de61bc4657c",
+								"exec": [
+									"createdPost = pm.collectionVariables.get(\"createdPost\")\r",
+									"\r",
+									"pm.test(\"Assert updated post must be different than the initial.\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).not.to.eql(createdPost);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "post",
+									"type": "file",
+									"src": "FormDataFiles/REpost.json"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "Images/postImage.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/posts/{{idPost}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"posts",
+								"{{idPost}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Post's Likes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4df2a6dc-0b0a-4adf-969a-8e834bf31936",
+								"exec": [
+									"pm.collectionVariables.set(\"isInteger\" ,pm.response.json());\r",
+									"var isInteger = Number.isInteger(pm.collectionVariables.get(\"isInteger\"));\r",
+									"\r",
+									"pm.test(\"Assert a number should be returned.\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(Number.isInteger(jsonData)).to.eql(isInteger);\r",
+									"});\r",
+									"pm.collectionVariables.set(\"numLikes\" , pm.response.json())"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/posts/{{idPost}}/likes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"posts",
+								"{{idPost}}",
+								"likes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Like A Post",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "957b1133-7ea5-492b-835b-5d996c407911",
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201,202]);\r",
+									"});\r",
+									"\r",
+									"var initialLikes = pm.collectionVariables.get(\"numLikes\");\r",
+									"\r",
+									"pm.test(\"Assert likes Must Be More Than The Initial.\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).greaterThan(initialLikes);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/posts/{{idPost}}/likes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"posts",
+								"{{idPost}}",
+								"likes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Of My Posts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7c534f45-f4e7-4645-bce7-3193cb85b734",
+								"exec": [
+									"var creator = pm.collectionVariables.get(\"Admin_UserName\");\r",
+									"\r",
+									"pm.test(\"Assert if post of the given user is returned.\", function () {\r",
+									"    var jsonData = JSON.parse(responseBody);   \r",
+									"pm.expect(jsonData[0].creator.email).to.eql(creator);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/posts/my?page=1&size=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"posts",
+								"my"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Of Top 3 Posts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dbe98b11-7389-43fe-898f-bdb37099c40b",
+								"exec": [
+									"pm.test(\"Assert if 3 objects are returned.\", function () {\r",
+									"    var jsonData = JSON.parse(responseBody);   \r",
+									"pm.expect(jsonData.length).to.eql(3);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/posts/top",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"posts",
+								"top"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete A Post",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ba5652ce-8112-4965-843f-8170c28e4865",
+								"exec": [
+									"createdIdPost = pm.collectionVariables.get(\"idPost\");\r",
+									"\r",
+									"pm.test(\"Assert post with the given ID must not be shown after deletion.\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.id).not.to.eql(createdIdPost);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/posts/{{idPost}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"posts",
+								"{{idPost}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "e2aa2080-b664-4c54-bde0-016a5ae94ca2",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "ea9b53b8-55a6-4134-94cc-ab4e27c9f1a0",
+				"type": "text/javascript",
+				"exec": [
+					"pm.test(\"Status code is 200\", function () {",
+					"    pm.response.to.have.status(200);",
+					"});"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "ae45da41-1bfb-4040-99ae-28991dbcfcdf",
+			"key": "CommentDesc",
+			"value": "Esse aliquid laudantium rerum ea provident enim voluptatem."
+		},
+		{
+			"id": "247f5c40-f225-400e-9ca2-9f73dad76b15",
+			"key": "CommentedPostID",
+			"value": "4"
+		},
+		{
+			"id": "f6f4389b-16f0-418e-99c0-6a76baa7b2ed",
+			"key": "CommentCreatorID",
+			"value": "1"
+		},
+		{
+			"id": "9c16ab01-1ecf-4266-be0b-51c0599069e5",
+			"key": "CategoryID",
+			"value": ""
+		},
+		{
+			"id": "ab910e44-0d9c-44ec-91d3-62d19a680f5a",
+			"key": "CountOfCommentLikes",
+			"value": "1"
+		},
+		{
+			"id": "3602a718-8963-4a9c-90da-b07518be4b27",
+			"key": "CommentOfPost",
+			"value": ""
+		},
+		{
+			"id": "3f24d516-8910-4d97-b6a7-853fea49d4e8",
+			"key": "TimeStampOfCommentOfPost",
+			"value": ""
+		},
+		{
+			"id": "c2f19cd5-ff51-49cb-8377-bb3d374ea66a",
+			"key": "ConnectionID",
+			"value": ""
+		},
+		{
+			"id": "abe9b893-cc5e-4b4f-8d5a-9fd0574f123f",
+			"key": "CommentIfPostID",
+			"value": ""
+		},
+		{
+			"id": "7957e775-6d7e-4369-ac7c-9c628896b1bb",
+			"key": "Admin_UserName",
+			"value": "zionalpha22qa@gmail.com"
+		},
+		{
+			"id": "66f38cb2-df7f-4862-9f80-a85163f31812",
+			"key": "Admin_Pass",
+			"value": "telerikAlphaQA22$"
+		},
+		{
+			"id": "28ea1167-c360-48e0-9ef2-ffc92a0b2dc8",
+			"key": "SessionCookie",
+			"value": ""
+		},
+		{
+			"id": "d6e27676-aaea-4d92-bbe3-4e248d80e31f",
+			"key": "numberOfUsers",
+			"value": "5"
+		},
+		{
+			"id": "0773cc12-a7f0-4f3c-b8b2-1778fad067ce",
+			"key": "numberOfNationalities",
+			"value": "194"
+		},
+		{
+			"id": "827be34c-4562-41d8-801a-680f517ce8ab",
+			"key": "nationalityTitle",
+			"value": "Banani"
+		},
+		{
+			"id": "1d0dc884-2fa5-44d5-9e8a-6b72d758e4e3",
+			"key": "createdNationality",
+			"value": ""
+		},
+		{
+			"id": "525e3376-99d1-48f7-9476-8923b2b9f1f5",
+			"key": "idNationality",
+			"value": ""
+		},
+		{
+			"id": "d5b16eb8-16e9-4575-aa52-17362154e827",
+			"key": "initialUser",
+			"value": ""
+		},
+		{
+			"id": "a7396f82-6b64-4e18-890d-05c0d9f41937",
+			"key": "idUser",
+			"value": ""
+		},
+		{
+			"id": "8d5ddbc8-6b4c-4d63-8fac-363f8108e43d",
+			"key": "createdPost",
+			"value": ""
+		},
+		{
+			"id": "6e3fe7b4-3778-48d5-9965-3a904caa5019",
+			"key": "idPost",
+			"value": ""
+		},
+		{
+			"id": "83a14c11-960a-4c2c-ba6e-adbde7839634",
+			"key": "numLikes",
+			"value": ""
+		},
+		{
+			"id": "7ecef324-ff7d-4bf9-a3b3-561f1ee7f92d",
+			"key": "isInteger",
+			"value": ""
+		},
+		{
+			"id": "e6705a2a-69ac-4dc2-9e06-1be562fe64f9",
+			"key": "emailUser",
+			"value": ""
+		}
+	],
+	"protocolProfileBehavior": {}
+}
