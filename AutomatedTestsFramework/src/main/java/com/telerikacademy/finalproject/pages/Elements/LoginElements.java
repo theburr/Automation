@@ -18,6 +18,8 @@ public interface LoginElements extends NavigationElements {
     String ERROR_PAGE = "error.Page";
     String PASSWORD_CONFIRM_FIELD = "field.PasswordConfirm";
     String WRONG_MESSAGE = "negative.WrongMessage";
+    String ERROR_LOGIN_MSG = "error.LoginMsg";
+    String HOME_BUTTON_LOG_PAGE = "logInHomeButton";
 
     String NEW_IMG = "user.RegisterWrongImage";
 }

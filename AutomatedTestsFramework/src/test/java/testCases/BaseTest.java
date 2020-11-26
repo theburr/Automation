@@ -13,8 +13,8 @@ public class BaseTest extends NavigationPage {
 		UserActions.loadBrowser("base.url");
 	}
 
-	@AfterClass
-	public static void tearDown(){
-		UserActions.quitDriver();
-	}
+//	@AfterClass
+//	public static void tearDown(){
+//		UserActions.quitDriver();
+//	}
 }

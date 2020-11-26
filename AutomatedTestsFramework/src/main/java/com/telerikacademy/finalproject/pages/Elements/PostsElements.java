@@ -13,7 +13,7 @@ public interface PostsElements extends NavigationElements {
     String FIELD_POST_TITLE = "post.Title";
     String FIELD_POST_DESCRIPTION = "post.Description";
     String POST_COPIED_IMG = "post.UploadedNewImage";
-
+    String POST_LIKE_BUTTON = "post.LikeButton";
 
     String DELETE_BUTTON = "deletePostButton";
     String POST_TITLE_EDIT = "post.TitleForEdit";
@@ -26,5 +26,4 @@ public interface PostsElements extends NavigationElements {
     String COMMENT_EDIT_BUTTON = "comment.ButtonEdit";
     String COMMENT_CONFIRM_DELETION_BUTTON = "comment.ConfirmDeletionButton";
     String COMMENT_EDIT_CONFIRMATION = "comment.EditConfirmation";
-
 }

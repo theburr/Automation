@@ -7,7 +7,7 @@ I want to read posts in Healthy Food Social Network
 So that I can like them
 
 Scenario: Like post scenario in Healthy Food Social Network
-Given Click homeButton element
+Given Click navigation.HomeBtn element
 When Wait for navigation.SignIn, 5 seconds
 And Click navigation.SignIn element
 And Type icokostow@abv.bg in username.Field field
@@ -22,6 +22,7 @@ And Wait for post.TitleForEdit, 7 seconds
 And Click post.TitleForEdit element
 And Wait for post.LikeButton, 7 seconds
 And Click post.LikeButton element
+And Wait for post.DislikeButton, 2 seconds
 Then Assert that post.DislikeButton present
 
 Given Click post.DislikeButton element

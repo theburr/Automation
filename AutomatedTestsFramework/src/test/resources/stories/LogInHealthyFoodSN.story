@@ -7,7 +7,7 @@ I want to log in Healthy Food Social Network
 So that I can read latest posts
 
 Scenario: LogIn scenario in social network
-Given Click homeButton element
+Given Click navigation.HomeBtn element
 When Wait for navigation.SignIn, 5 seconds
 When Click navigation.SignIn element
 And Type icokostow@abv.bg in username.Field field
