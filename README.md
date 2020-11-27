@@ -27,9 +27,10 @@
 ### 3.Run AddRequiredFiles.bat file
 
 - This file is found in the ..zionalphaqaproject/AutomatedTestsFramework/
- It creates a folder with the rquired files for the upload functions of the web app
 
- Used in order to avoid using absolute path of the files
+ -- It creates a folder with the rquired files for the upload functions of the web app
+
+ -- Used in order to avoid using absolute path of the files
 as it varies on different machines
 
 - The path of the created folder would be C:/ImageForHFSN you can delete this later
