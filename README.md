@@ -2,15 +2,15 @@
 
 ### Address of our web application
 
--- https://protected-hamlet-40147.herokuapp.com
+- https://protected-hamlet-40147.herokuapp.com
 
 ### Address of REST API documentation
 
--- https://protected-hamlet-40147.herokuapp.com/swagger-ui.html#/
+- https://protected-hamlet-40147.herokuapp.com/swagger-ui.html#/
 
 ### Link to the project's Test Plan:
 
--- [Test Plan](https://telerikacademy-my.sharepoint.com/:w:/p/aleksandar_mechkarov_a22_learn/EX_u99jabyxDmyjXvdyBfZUBplkv6T4ArtdH3h9Ri1v7Dg?e=3UsjK0)
+- [Test Plan](https://telerikacademy-my.sharepoint.com/:w:/p/aleksandar_mechkarov_a22_learn/EX_u99jabyxDmyjXvdyBfZUBplkv6T4ArtdH3h9Ri1v7Dg?e=3UsjK0)
 
 - Test Report and Bug Report would be found at the 10.Deliverables section of the Test Plan!
 
@@ -22,18 +22,17 @@
 
 ### 2.Open and build project with a IDE for Java
 
--Build Project
+- Build Project
 
 ### 3.Run AddRequiredFiles.bat file
 
--- This file is found in the ..zionalphaqaproject/AutomatedTestsFramework/
+- This file is found in the ..zionalphaqaproject/AutomatedTestsFramework/
+ It creates a folder with the rquired files for the upload functions of the web app
 
--- It creates a folder with the rquired files for the upload functions of the web app
-
-- Used in order to avoid using absolute path of the files
+ Used in order to avoid using absolute path of the files
 as it varies on different machines
 
--The path of the created folder would be C:/ImageForHFSN you can delete this later
+- The path of the created folder would be C:/ImageForHFSN you can delete this later
 
 ### 4.The Automated UI tests are grouped by categories
 
