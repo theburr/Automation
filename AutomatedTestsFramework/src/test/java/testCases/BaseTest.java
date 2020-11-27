@@ -4,6 +4,7 @@ import com.telerikacademy.finalproject.pages.NavigationPage;
 import com.telerikacademy.finalproject.utils.UserActions;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.testng.annotations.BeforeTest;
 
 public class BaseTest extends NavigationPage {
 	UserActions actions = new UserActions();
@@ -13,8 +14,8 @@ public class BaseTest extends NavigationPage {
 		UserActions.loadBrowser("base.url");
 	}
 
-//	@AfterClass
-//	public static void tearDown(){
-//		UserActions.quitDriver();
-//	}
+	@AfterClass
+	public static void tearDown(){
+		UserActions.quitDriver();
+	}
 }

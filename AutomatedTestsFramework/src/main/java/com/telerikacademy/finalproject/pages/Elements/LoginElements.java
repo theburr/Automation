@@ -10,13 +10,8 @@ public interface LoginElements extends NavigationElements {
 
      String WRONG_USERNAME_USER = getUIMappingByKey("user.WrongUsername");
      String WRONG_PASSWORD_USER = getUIMappingByKey("user.WrongPassword");
-     String USER_USERNAME = getUIMappingByKey("user.Username");
-     String USER_PASSWORD = getUIMappingByKey("user.Password");
      String ADMIN_USERNAME = getUIMappingByKey("admin.Username");
      String ADMIN_PASSWORD = getUIMappingByKey("admin.Password");
-
-    String USERNAME_FIELD = "username.Field";
-    String PASSWORD_FIELD = "password.Field";
 
     String FIRST_NAME_FIELD = "user.FirstNameField";
     String LAST_NAME_FIELD = "user.LastNameField";
@@ -27,6 +22,7 @@ public interface LoginElements extends NavigationElements {
     String WRONG_MESSAGE = "negative.WrongMessage";
     String ERROR_LOGIN_MSG = "error.LoginMsg";
     String HOME_BUTTON_LOG_PAGE = "logInHomeButton";
+    String BRAND_NEW_HOME_BUTTON = "brandNewHomeButton";
 
     String NEW_IMG = "user.RegisterWrongImage";
 }

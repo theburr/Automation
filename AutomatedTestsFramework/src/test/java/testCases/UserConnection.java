@@ -8,7 +8,7 @@ import org.junit.experimental.categories.Category;
 public class UserConnection {
     @Test
     @Category(HighPriority.class)
-    public void test_014_sendConnectionRequest() {
+    public void SendConnectionRequest() {
         UsersPage usersPage = new UsersPage();
         usersPage.send_ConnectionRequest();
         usersPage.assert_ConnectionIsSent();
@@ -16,7 +16,7 @@ public class UserConnection {
 
     @Test
     @Category(HighPriority.class)
-    public void test_015_confirmConnectionRequest() {
+    public void ConfirmConnectionRequest() {
         UsersPage usersPage = new UsersPage();
         usersPage.confirm_ConnectionRequest();
         usersPage.assert_ConnectionIsConfirmed();
@@ -24,7 +24,7 @@ public class UserConnection {
 
     @Test
     @Category(HighPriority.class)
-    public void test_016_rejectConnectionRequest() {
+    public void RejectConnectionRequest() {
         UsersPage usersPage = new UsersPage();
         usersPage.reject_ConnectionRequest();
         usersPage.assert_ConnectionIsRejected();
@@ -33,7 +33,7 @@ public class UserConnection {
     //This Test Requires An Existing Established Connection Between Users
     @Test
     @Category(HighPriority.class)
-    public void test_017_disconnectFromUser() {
+    public void DisconnectFromUser() {
         UsersPage usersPage = new UsersPage();
         usersPage.disconnect_FromUser();
         usersPage.assert_UsersAreDisconnected();

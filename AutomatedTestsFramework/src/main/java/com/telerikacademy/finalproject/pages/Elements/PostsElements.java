@@ -25,10 +25,13 @@ public interface PostsElements extends NavigationElements {
     String POST_TITLE_EDIT_FIELD = "post.TitleEditField";
     String POST_EDIT_COMMENT_SECTION = "post.EditCommentSection";
     String POST_DELETE_ASSERTION = "post.DeleteAssertion";
+    String POST_ALL_USER_POSTS = "post.AllPostsUser";
+    String EDITED_POST_NAME = "post.EditedPostName";
 
     String COMMENT_FIELD = "comment.Field";
     String COMMENT_TEXT = getUIMappingByKey("comment.Text");
     String COMMENT_EDIT_BUTTON = "comment.ButtonEdit";
+    String HOME_BUTTON_LOG_PAGE = "logInHomeButton";
     String COMMENT_CONFIRM_DELETION_BUTTON = "comment.ConfirmDeletionButton";
     String COMMENT_EDIT_CONFIRMATION = "comment.EditConfirmation";
 }
