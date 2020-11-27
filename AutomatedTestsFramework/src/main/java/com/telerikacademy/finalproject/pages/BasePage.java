@@ -31,7 +31,7 @@ public abstract class BasePage implements BaseElements {
         this.driver.get(url);
     }
 
-    public void assertPageNavigated() {
+    public void assert_PageNavigated() {
         String currentUrl = driver.getCurrentUrl();
         Assert.assertTrue("Landed URL is not as expected. Actual URL: "
                 + currentUrl + ". Expected URL: " + url, currentUrl.contains(url));

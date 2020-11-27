@@ -12,16 +12,16 @@ public class Administrator extends BaseTest {
 
     @Test
     @Category({CriticalPriority.class, AdminTests.class})
-    public void test_008_adminLogInHFSNW(){
+    public void AdminLogInHealthyFoodSocialNetwork(){
         LoginPage logInPage = new LoginPage();
         logInPage.admin_LogInHFSN();
         logInPage.assert_LogInHFSN();
-        logInPage.logg_OutAfterTest();
+        logInPage.back_HomeAfterTest();
     }
 
     @Test
     @Category({CriticalPriority.class, AdminTests.class})
-    public void test_005_deleteUserPostAsAdmin() {
+    public void DeleteUserPostAsAdmin() {
         PostsPage postsPage = new PostsPage();
         postsPage.admin_DeletePostOfAnUser();
         postsPage.assert_PostIsDeleted();
@@ -29,7 +29,7 @@ public class Administrator extends BaseTest {
 
     @Test
     @Category({CriticalPriority.class, AdminTests.class})
-    public void test_006_deleteCommentOfAnUserAsAdmin() {
+    public void DeleteCommentOfAnUserAsAdmin() {
         PostsPage postsPage = new PostsPage();
         postsPage.admin_DeleteCommentOfAnUser();
         postsPage.assert_CommentIsDeleted();
@@ -37,7 +37,7 @@ public class Administrator extends BaseTest {
 
     @Test
     @Category({CriticalPriority.class, AdminTests.class})
-    public void test_007_createCategoryAsAdmin(){
+    public void CreateCategoryAsAdmin(){
         CategoriesAdminPage categoryPage = new CategoriesAdminPage();
         categoryPage.create_CategoryAsAdmin();
         categoryPage.assert_CategoryIsCreated();

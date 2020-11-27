@@ -22,4 +22,10 @@ public interface BaseElements {
     File CATEGORY_COPIED_IMG = new File("C:/ImageForHFSN/drinks.png");
     File NEW_POST_ORIGINAL_IMG = new File("Images/veganZombie.jpg");
     File NEW_POST_COPIED_IMG = new File("C:/ImageForHFSN/veganZombie.jpg");
+    String LOG_OUT_BUTTON = "navigation.LogOut";
+    String USERNAME_FIELD = "username.Field";
+    String PASSWORD_FIELD = "password.Field";
+    String USER_USERNAME = getUIMappingByKey("user.Username");
+    String USER_PASSWORD = getUIMappingByKey("user.Password");
+
 }

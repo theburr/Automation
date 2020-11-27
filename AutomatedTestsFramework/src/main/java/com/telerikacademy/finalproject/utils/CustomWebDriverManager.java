@@ -28,10 +28,10 @@ public class CustomWebDriverManager {
 			WebDriverManager.chromedriver().setup();
 		//// ### Remove Chrome option from code to run browser, not in headless mode###////
 
-//			ChromeOptions chromeOptions = new ChromeOptions();
-//			chromeOptions.addArguments("--headless");
+			ChromeOptions chromeOptions = new ChromeOptions();
+			chromeOptions.addArguments("--headless");
 
-			WebDriver chromeDriver = new ChromeDriver();
+			WebDriver chromeDriver = new ChromeDriver(chromeOptions);
 			chromeDriver.manage().window().maximize();
 			driver = chromeDriver;
 			return chromeDriver;

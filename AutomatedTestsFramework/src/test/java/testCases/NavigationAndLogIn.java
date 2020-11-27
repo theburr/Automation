@@ -12,48 +12,56 @@ public class NavigationAndLogIn extends BaseTest{
 
     @Test
     @Category(CriticalPriority.class)
-    public void test_001_navigateToHomeUsingNavigation(){
+    public void NavigateToHomeUsingNavigation(){
         NavigationPage navPage = new NavigationPage();
         actions.clickElement(navPage.HOME_BUTTON);
-        navPage.assertPageNavigated();
+        navPage.assert_PageNavigated();
+
     }
 
     @Test
     @Category(CriticalPriority.class)
-    public void test_002_loginHFSNWithRightCredentials(){
+    public void LoginHealthyFoodSocialNetworkWithRightCredentials(){
         LoginPage logInPage = new LoginPage();
         logInPage.navigate_ToLoginPageAndLogInHFSN();
         logInPage.assert_LogInHFSN();
-        logInPage.logg_OutAfterTest();
-    }
-    @Test
-    @Category(MediumLowPriority.class)
-    public void test_021_userIsTryingToRegisterAlreadyRegisteredCredentials(){
-        LoginPage loginPage = new LoginPage();
-        loginPage.register_User_WithAlreadyRegisteredEmail();
-        loginPage.assert_UserCantRegisterWithAlreadyRegisteredCredentials();
+        logInPage.logout_FromSocialNetwork();
+        logInPage.back_HomeAfterTest();
     }
 
     @Test
     @Category(MediumLowPriority.class)
-    public void test_022_userIsLoggedOutFromTheHealthyFoodSN(){
+    public void UserIsTryingToRegisterAlreadyRegisteredCredentials(){
+        LoginPage loginPage = new LoginPage();
+        loginPage.register_NewUserWithAlreadyRegisteredEmail();
+        loginPage.assert_UserCantRegisterWithAlreadyRegisteredCredentials();
+        loginPage.back_HomeAfterErrorMessage();
+    }
+
+    @Test
+    @Category(MediumLowPriority.class)
+    public void UserIsLoggedOutFromTheHealthyFoodSN(){
         LoginPage loginPage = new LoginPage();
         loginPage.user_LogOut();
         loginPage.assert_UserIsLoggedOutFromTheSystem();
-    }
-    @Test
-    @Category(NegativeTestCases.class)
-    public void test_031_loginWithWrongCredentials(){
-        LoginPage loginPage = new LoginPage();
-        loginPage.user_isTryingToLogInWithWrongCredentials();
-        loginPage.assert_LogInWithWrongCredentials();
+        loginPage.back_HomeAfterTest();
     }
 
     @Test
     @Category(NegativeTestCases.class)
-    public void test_032_unregisteredUserTryingToLogInHealthyFoodSN(){
+    public void LoginWithWrongCredentials(){
         LoginPage loginPage = new LoginPage();
-        loginPage.unregistered_User_IsTryingToLogInHFSN();
+        loginPage.user_isTryingToLogInWithWrongCredentials();
         loginPage.assert_LogInWithWrongCredentials();
+        loginPage.back_HomeAfterTest();
+    }
+
+    @Test
+    @Category(NegativeTestCases.class)
+    public void UnregisteredUserTryingToLogInHealthyFoodSN(){
+        LoginPage loginPage = new LoginPage();
+        loginPage.unregistered_UserIsTryingToLogInHFSN();
+        loginPage.assert_LogInWithWrongCredentials();
+        loginPage.back_HomeAfterTest();
     }
 }

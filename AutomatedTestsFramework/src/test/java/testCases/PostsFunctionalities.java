@@ -10,42 +10,46 @@ public class PostsFunctionalities extends BaseTest {
 
     @Test
     @Category(CriticalPriority.class)
-    public void test_003_writeNewPostAsRegisteredUser(){
+    public void WriteNewPostAsRegisteredUser(){
         PostsPage postsPage = new PostsPage();
         postsPage.registered_UserWriteNewPost();
         postsPage.assert_NewPostIsPosted();
+        postsPage.logOut_FromSocialNetwork();
     }
 
     @Test
     @Category(CriticalPriority.class)
-    public void test_004_userCanCommentPost(){
+    public void UserCanCommentPost(){
         PostsPage postPage = new PostsPage();
         postPage.registered_UserCanCommentAPost();
         postPage.assert_TheCommentIsPosted();
+        postPage.logOut_FromSocialNetwork();
     }
 
     @Test
     @Category(HighPriority.class)
-    public void test_011_deletePostAsUser(){
+    public void DeletePostAsUser(){
         PostsPage postsPage = new PostsPage();
         postsPage.registered_UserCanDeleteHisPost();
         postsPage.assert_ThePostIsDeleted();
+        postsPage.logOut_FromSocialNetwork();
     }
 
     @Test
     @Category(HighPriority.class)
-    public void test_012_editPostAsUser(){
+    public void EditPostAsUser(){
         PostsPage postsPage = new PostsPage();
         postsPage.registered_UserCanEditHisPost();
         postsPage.assert_ThePostIsEdited();
+        postsPage.logOut_FromSocialNetwork();
     }
 
     @Test
     @Category(HighPriority.class)
-    public void test_013_userCanDeleteHisComment(){
+    public void UserCanDeleteHisComment(){
         PostsPage postPage = new PostsPage();
         postPage.registered_UserCanDeleteHisComment();
         postPage.assert_TheCommentIsDeleted();
+        postPage.logOut_FromSocialNetwork();
     }
-
 }

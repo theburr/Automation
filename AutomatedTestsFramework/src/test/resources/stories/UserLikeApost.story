@@ -13,7 +13,7 @@ And Click navigation.SignIn element
 And Type icokostow@abv.bg in username.Field field
 And Type telerikAlphaQA22$ in password.Field field
 And Click confirmActionsButton element
-And Click latestPostButton element
+And Click navigation.latestNewPostButton element
 And Wait for post.SearchField, 3 seconds
 And Type motorcycle in post.SearchField field
 And Wait for postSearchButton, 3 seconds
