@@ -16,7 +16,6 @@ public class Administrator extends BaseTest {
         LoginPage logInPage = new LoginPage();
         logInPage.admin_LogInHFSN();
         logInPage.assert_LogInHFSN();
-        logInPage.back_HomeAfterTest();
     }
 
     @Test

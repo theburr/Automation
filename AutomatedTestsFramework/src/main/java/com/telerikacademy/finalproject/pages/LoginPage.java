@@ -10,6 +10,7 @@ public class LoginPage extends NavigationPage implements LoginElements {
         actions.isElementPresentUntilTimeout(USERNAME_FIELD, WAIT_TIME);
         actions.typeValueInField(ADMIN_USERNAME, USERNAME_FIELD);
         actions.typeValueInField(ADMIN_PASSWORD, PASSWORD_FIELD);
+        actions.isElementPresentUntilTimeout(CONFIRM_BUTTON,WAIT_TIME);
         actions.clickElement(CONFIRM_BUTTON);
         actions.isElementPresentUntilTimeout(LOG_OUT_BUTTON, WAIT_TIME);
     }
@@ -85,22 +86,6 @@ public class LoginPage extends NavigationPage implements LoginElements {
 
     public void assert_UserIsLoggedOutFromTheSystem(){
         actions.assertElementPresent(HOME_BUTTON_LOG_PAGE);
-    }
-
-    public void back_HomeAfterTest(){
-        actions.isElementPresentUntilTimeout(HOME_BUTTON_LOG_PAGE,WAIT_TIME);
-        actions.clickElement(HOME_BUTTON_LOG_PAGE);
-        actions.isElementPresentUntilTimeout(HOME_BUTTON,WAIT_TIME);
-    }
-
-    public void back_HomeAfterErrorMessage(){
-        actions.isElementPresentUntilTimeout(BACK_HOME_BUTTON,WAIT_TIME);
-        actions.clickElement(BACK_HOME_BUTTON);
-        actions.isElementPresentUntilTimeout(HOME_BUTTON,WAIT_TIME);
-    }
-    public void logout_FromSocialNetwork(){
-        actions.isElementPresentUntilTimeout(LOG_OUT_BUTTON,WAIT_TIME);
-        actions.clickElement(LOG_OUT_BUTTON);
     }
 
 }
