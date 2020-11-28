@@ -77,21 +77,10 @@ public class PostsPage extends NavigationPage implements PostsElements {
         actions.typeValueInField(POST_NEW_TITLE, POST_TITLE_EDIT_FIELD);
         actions.clickElement(CONFIRM_BUTTON);
         actions.isElementPresentUntilTimeout(SIGN_IN_BUTTON,WAIT_TIME);
-        actions.clickElement(SIGN_IN_BUTTON);
-        actions.isElementPresentUntilTimeout(USERNAME_FIELD, WAIT_TIME);
-        actions.typeValueInField(USER_USERNAME, USERNAME_FIELD);
-        actions.typeValueInField(USER_PASSWORD, PASSWORD_FIELD);
-        actions.isElementPresentUntilTimeout(CONFIRM_BUTTON,WAIT_TIME);
-        actions.clickElement(CONFIRM_BUTTON);
-        actions.isElementPresentUntilTimeout(HOME_BUTTON, WAIT_TIME);
-        actions.clickElement(HOME_BUTTON);
-        actions.isElementPresentUntilTimeout(PROFILE_BUTTON, WAIT_TIME);
-        actions.clickHiddenElement(PROFILE_BUTTON);
-        actions.isElementPresentUntilTimeout(POST_TITLE_EDIT, WAIT_TIME);
     }
 
     public void assert_ThePostIsEdited() {
-        actions.assertElementPresent(EDITED_POST_NAME);
+        actions.assertElementPresent("The post " + POST_EDIT_COMMENT_SECTION + "is not edited");
     }
 
     public void registered_UserCanDeleteHisPost() {
@@ -109,22 +98,10 @@ public class PostsPage extends NavigationPage implements PostsElements {
         actions.isElementPresentUntilTimeout(CONFIRM_BUTTON, WAIT_TIME);
         actions.clickElement(CONFIRM_BUTTON);
         actions.isElementPresentUntilTimeout(SIGN_IN_BUTTON,WAIT_TIME);
-        actions.clickElement(SIGN_IN_BUTTON);
-        actions.isElementPresentUntilTimeout(USERNAME_FIELD, WAIT_TIME);
-        actions.typeValueInField(USER_USERNAME, USERNAME_FIELD);
-        actions.typeValueInField(USER_PASSWORD, PASSWORD_FIELD);
-        actions.isElementPresentUntilTimeout(CONFIRM_BUTTON,WAIT_TIME);
-        actions.clickElement(CONFIRM_BUTTON);
-        actions.isElementPresentUntilTimeout(HOME_BUTTON, WAIT_TIME);
-        actions.clickElement(HOME_BUTTON);
-        actions.isElementPresentUntilTimeout(PROFILE_BUTTON, WAIT_TIME);
-        actions.clickHiddenElement(PROFILE_BUTTON);
-        actions.isElementPresentUntilTimeout(POST_ALL_USER_POSTS, WAIT_TIME);
-
     }
 
     public void assert_ThePostIsDeleted() {
-        actions.assertElementNotPresent(POST_TITLE_EDIT);
+        actions.assertElementPresent(POST_DELETE_ASSERTION);
     }
 
     public void registered_UserCanCommentAPost() {
@@ -161,30 +138,9 @@ public class PostsPage extends NavigationPage implements PostsElements {
         actions.isElementPresentUntilTimeout(COMMENT_CONFIRM_DELETION_BUTTON, WAIT_TIME);
         actions.clickElement(COMMENT_CONFIRM_DELETION_BUTTON);
         actions.isElementPresentUntilTimeout(SIGN_IN_BUTTON,WAIT_TIME);
-        actions.clickElement(SIGN_IN_BUTTON);
-        actions.isElementPresentUntilTimeout(USERNAME_FIELD, WAIT_TIME);
-        actions.typeValueInField(USER_USERNAME, USERNAME_FIELD);
-        actions.typeValueInField(USER_PASSWORD, PASSWORD_FIELD);
-        actions.isElementPresentUntilTimeout(CONFIRM_BUTTON,WAIT_TIME);
-        actions.clickElement(CONFIRM_BUTTON);
-        actions.isElementPresentUntilTimeout(HOME_BUTTON, WAIT_TIME);
-        actions.clickElement(HOME_BUTTON);
-        actions.isElementPresentUntilTimeout(PROFILE_BUTTON, WAIT_TIME);
-        actions.clickHiddenElement(PROFILE_BUTTON);
-        actions.isElementPresentUntilTimeout(POST_TITLE_EDIT, WAIT_TIME);
-        actions.clickElement(POST_TITLE_EDIT);
-        actions.isElementPresentUntilTimeout(COMMENT_EDIT_BUTTON, WAIT_TIME);
     }
 
     public void assert_TheCommentIsDeleted() {
-        actions.assertElementNotPresent(EDITED_POST_NAME);
-    }
-
-    public void logOut_FromSocialNetwork(){
-        actions.isElementPresentUntilTimeout(LOG_OUT_BUTTON, WAIT_TIME);
-        actions.clickElement(LOG_OUT_BUTTON);
-        actions.isElementPresentUntilTimeout(HOME_BUTTON_LOG_PAGE, WAIT_TIME);
-        actions.clickElement(HOME_BUTTON_LOG_PAGE);
-        actions.isElementPresentUntilTimeout(BRAND_NEW_HOME_BUTTON,WAIT_TIME);
+        actions.assertElementPresent(COMMENT_EDIT_CONFIRMATION);
     }
 }

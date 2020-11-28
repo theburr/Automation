@@ -16,7 +16,6 @@ public class NavigationAndLogIn extends BaseTest{
         NavigationPage navPage = new NavigationPage();
         actions.clickElement(navPage.HOME_BUTTON);
         navPage.assert_PageNavigated();
-
     }
 
     @Test
@@ -25,8 +24,6 @@ public class NavigationAndLogIn extends BaseTest{
         LoginPage logInPage = new LoginPage();
         logInPage.navigate_ToLoginPageAndLogInHFSN();
         logInPage.assert_LogInHFSN();
-        logInPage.logout_FromSocialNetwork();
-        logInPage.back_HomeAfterTest();
     }
 
     @Test
@@ -35,7 +32,6 @@ public class NavigationAndLogIn extends BaseTest{
         LoginPage loginPage = new LoginPage();
         loginPage.register_NewUserWithAlreadyRegisteredEmail();
         loginPage.assert_UserCantRegisterWithAlreadyRegisteredCredentials();
-        loginPage.back_HomeAfterErrorMessage();
     }
 
     @Test
@@ -44,7 +40,6 @@ public class NavigationAndLogIn extends BaseTest{
         LoginPage loginPage = new LoginPage();
         loginPage.user_LogOut();
         loginPage.assert_UserIsLoggedOutFromTheSystem();
-        loginPage.back_HomeAfterTest();
     }
 
     @Test
@@ -53,7 +48,6 @@ public class NavigationAndLogIn extends BaseTest{
         LoginPage loginPage = new LoginPage();
         loginPage.user_isTryingToLogInWithWrongCredentials();
         loginPage.assert_LogInWithWrongCredentials();
-        loginPage.back_HomeAfterTest();
     }
 
     @Test
@@ -62,6 +56,5 @@ public class NavigationAndLogIn extends BaseTest{
         LoginPage loginPage = new LoginPage();
         loginPage.unregistered_UserIsTryingToLogInHFSN();
         loginPage.assert_LogInWithWrongCredentials();
-        loginPage.back_HomeAfterTest();
     }
 }
