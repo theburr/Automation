@@ -14,7 +14,6 @@ public class PostsFunctionalities extends BaseTest {
         PostsPage postsPage = new PostsPage();
         postsPage.registered_UserWriteNewPost();
         postsPage.assert_NewPostIsPosted();
-        postsPage.logOut_FromSocialNetwork();
     }
 
     @Test
@@ -23,7 +22,6 @@ public class PostsFunctionalities extends BaseTest {
         PostsPage postPage = new PostsPage();
         postPage.registered_UserCanCommentAPost();
         postPage.assert_TheCommentIsPosted();
-        postPage.logOut_FromSocialNetwork();
     }
 
     @Test
@@ -32,7 +30,6 @@ public class PostsFunctionalities extends BaseTest {
         PostsPage postsPage = new PostsPage();
         postsPage.registered_UserCanDeleteHisPost();
         postsPage.assert_ThePostIsDeleted();
-        postsPage.logOut_FromSocialNetwork();
     }
 
     @Test
@@ -41,7 +38,6 @@ public class PostsFunctionalities extends BaseTest {
         PostsPage postsPage = new PostsPage();
         postsPage.registered_UserCanEditHisPost();
         postsPage.assert_ThePostIsEdited();
-        postsPage.logOut_FromSocialNetwork();
     }
 
     @Test
@@ -50,6 +46,5 @@ public class PostsFunctionalities extends BaseTest {
         PostsPage postPage = new PostsPage();
         postPage.registered_UserCanDeleteHisComment();
         postPage.assert_TheCommentIsDeleted();
-        postPage.logOut_FromSocialNetwork();
     }
 }
