@@ -101,11 +101,11 @@ public class UserActions {
     public void assertElementPresent(String locator) {
         try {
             Assert.assertNotNull(driver.findElement(By.xpath(Utils.getUIMappingByKey(locator))));
+            System.out.println("The given element is present thus test is passed successfully!");
         } catch (AssertionError e) {
             System.out.println("The given element is not present thus test fails!");
             throw e;
         }
-        System.out.println("The given element is present thus test is passed successfully!");
     }
     public void assertElementNotPresent(String locator) {
             try {
@@ -113,7 +113,6 @@ public class UserActions {
                 System.out.println("The given element is present thus test has failed");
             } catch (NoSuchElementException ex) {
             }
-        System.out.println("The given element is not present thus test is passed successfully!");
     }
 
     public boolean assertIsTextPresent(String text) {

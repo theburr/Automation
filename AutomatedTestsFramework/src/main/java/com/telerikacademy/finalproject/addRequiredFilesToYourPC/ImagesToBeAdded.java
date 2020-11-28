@@ -1,4 +1,4 @@
-package addRequiredFilesToYourPC;
+package com.telerikacademy.finalproject.addRequiredFilesToYourPC;
 
 import com.telerikacademy.finalproject.pages.Elements.BaseElements;
 import com.telerikacademy.finalproject.utils.UserActions;

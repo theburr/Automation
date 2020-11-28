@@ -1,4 +1,4 @@
-package addRequiredFilesToYourPC;
+package com.telerikacademy.finalproject.addRequiredFilesToYourPC;
 
 import org.junit.Test;
 
