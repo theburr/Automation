@@ -12,7 +12,7 @@
 
 - [Test Plan](https://telerikacademy-my.sharepoint.com/:w:/p/aleksandar_mechkarov_a22_learn/EX_u99jabyxDmyjXvdyBfZUBplkv6T4ArtdH3h9Ri1v7Dg?e=3UsjK0)
 
-- Test Report and Bug Report would be found at the 10.Deliverables section of the Test Plan!
+- Test Cases, Test Report and Bug Report would be found at the 10.Deliverables section of the Test Plan!
 
 # Project Guide
 
@@ -24,18 +24,7 @@
 
 - Build Project
 
-### 3.Run AddRequiredFiles.bat file
-
-- This file is found in the ..zionalphaqaproject/AutomatedTestsFramework/
-
- -- It creates a folder with the rquired files for the upload functions of the web app
-
- -- Used in order to avoid using absolute path of the files
-as it varies on different machines
-
-- The path of the created folder would be C:/ImageForHFSN you can delete this later
-
-### 4.The Automated UI tests are grouped by categories
+### 3.The Automated UI tests are grouped by categories
 
 - RunCriticalPrioritySuite.bat file executes the critical test cases that are
 most crucial for the successfull release of the web application
@@ -48,7 +37,7 @@ most crucial for the successfull release of the web application
 
 - RunJBehave.bat file for JBehave tests
 
-### 5.REST API tests
+### 4.REST API tests
 
    -- To use Postman import HealthyFoodSocialNetwork.postman_collection.json
    and HFSN.postman_environment.json
