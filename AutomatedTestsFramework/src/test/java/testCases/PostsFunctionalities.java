@@ -6,11 +6,13 @@ import com.telerikacademy.finalproject.pages.PostsPage;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 
+import java.io.IOException;
+
 public class PostsFunctionalities extends BaseTest {
 
     @Test
     @Category(CriticalPriority.class)
-    public void WriteNewPostAsRegisteredUser(){
+    public void WriteNewPostAsRegisteredUser() throws IOException {
         PostsPage postsPage = new PostsPage();
         postsPage.registered_UserWriteNewPost();
         postsPage.assert_NewPostIsPosted();

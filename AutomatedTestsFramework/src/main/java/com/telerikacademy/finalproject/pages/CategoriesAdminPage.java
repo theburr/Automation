@@ -1,11 +1,15 @@
 package com.telerikacademy.finalproject.pages;
 
 
+import com.telerikacademy.finalproject.addRequiredFilesToYourPC.ImagesToBeAdded;
 import com.telerikacademy.finalproject.pages.Elements.CategoriesAdminElements;
+
+import java.io.IOException;
 
 public class CategoriesAdminPage extends NavigationPage implements CategoriesAdminElements {
 
-    public void create_CategoryAsAdmin() {
+    public void create_CategoryAsAdmin() throws IOException {
+        actions.copy_Image(CATEGORY_ORIGINAL_IMG, CATEGORY_COPIED_IMG);
         auto_Login(ADMIN_USERNAME_ENCODED, ADMIN_PASSWORD_ENCODED);
         actions.isElementPresentUntilTimeout(LATEST_POST_BUTTON, WAIT_TIME);
         actions.clickElement(HOME_BUTTON );

@@ -2,6 +2,8 @@ package com.telerikacademy.finalproject.pages;
 
 import com.telerikacademy.finalproject.pages.Elements.PostsElements;
 
+import java.io.IOException;
+
 public class PostsPage extends NavigationPage implements PostsElements {
 
     public void admin_DeletePostOfAnUser() {
@@ -43,7 +45,8 @@ public class PostsPage extends NavigationPage implements PostsElements {
         actions.assertElementNotPresent(COMMENT_EDIT_BUTTON);
     }
 
-    public void registered_UserWriteNewPost() {
+    public void registered_UserWriteNewPost() throws IOException {
+        actions.copy_Image(NEW_POST_ORIGINAL_IMG, NEW_POST_COPIED_IMG);
         auto_Login(USER_USERNAME_ENCODED, USER_PASSWORD_ENCODED);
         actions.isElementPresentUntilTimeout(HOME_BUTTON,WAIT_TIME);
         actions.clickElement(HOME_BUTTON);

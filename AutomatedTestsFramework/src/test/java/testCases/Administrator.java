@@ -8,6 +8,8 @@ import com.telerikacademy.finalproject.pages.PostsPage;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 
+import java.io.IOException;
+
 public class Administrator extends BaseTest {
 
     @Test
@@ -36,7 +38,7 @@ public class Administrator extends BaseTest {
 
     @Test
     @Category({CriticalPriority.class, AdminTests.class})
-    public void CreateCategoryAsAdmin(){
+    public void CreateCategoryAsAdmin() throws IOException {
         CategoriesAdminPage categoryPage = new CategoriesAdminPage();
         categoryPage.create_CategoryAsAdmin();
         categoryPage.assert_CategoryIsCreated();
